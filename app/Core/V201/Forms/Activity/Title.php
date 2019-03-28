@@ -17,7 +17,7 @@ class Title extends BaseForm
         $class = $this->getData('class') ? $this->getData('class') : 'narrative';
         $bool  = ($this->getData('narrative_true') || !$this->getName()) ? true : false;
         $this
-            ->addNarrative($class, trans('elementForm.text'), ['narrative_required' => $bool])
-            ->addAddMoreButton('add_title', $class);
+            ->addNarrative($class, trans('elementForm.text'), ['narrative_required' => $bool]);
+            //->addAddMoreButton('add_title', $class);
     }
 }
