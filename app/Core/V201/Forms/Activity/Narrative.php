@@ -31,11 +31,18 @@ class Narrative extends BaseForm
                     'required'   => $this->getData('narrative_required')
                 ]
             )
-            ->addSelect(
+            // ->addSelect(
+            //     'language',
+            //     $this->getCodeList('Language', 'Activity'),
+            //     trans('elementForm.language'),
+            //     $this->addHelpText($this->getData('help-text-language') ? $this->getData('help-text-language') : 'activity-xml_lang')
+            // )
+            ->add(
                 'language',
-                $this->getCodeList('Language', 'Activity'),
-                trans('elementForm.language'),
-                $this->addHelpText($this->getData('help-text-language') ? $this->getData('help-text-language') : 'activity-xml_lang')
+                'hidden',
+                [
+                    'value' => 'en'
+                ]
             )
             ->addRemoveThisButton('remove_from_collection');
     }
