@@ -12,6 +12,7 @@ return [
     'owner_org_reference'                        => 'Owner Organisation Reference',
     'owner_org_name'                             => 'Owner Organisation Name',
     'narrative'                                  => 'Narrative',
+    'generalDescription'                         => 'General Description',
     'owner_organisation_narrative'               => 'Owner Organisation Narrative',
     'language'                                   => 'Language',
     'languages'                                  => 'Languages',
