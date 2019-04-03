@@ -165,7 +165,7 @@ return [
     'actual_start_date'                          => 'Actual Start Date',
     'actual_end_date'                            => 'Actual End Date',
     'planned_start_date'                         => 'Planned Start Date',
-    'planned_end_date'                           => 'Planned Start Date',
+    'planned_end_date'                           => 'Planned End Date',
     'description_general'                        => 'general description',
     'description_objectives'                     => 'objectives description',
     'description_target_group'                   => 'target group description',

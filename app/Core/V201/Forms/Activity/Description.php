@@ -22,8 +22,6 @@ class Description extends BaseForm
                     'value' => '1'
                 ]
             )
-            ->addGeneralDescription('narrative', trans('elementForm.text'), ['narrative_required' => true])
-            ->addAddMoreButton('add_narrative', 'narrative')
-            ->addRemoveThisButton('remove_description');
+            ->addGeneralDescription('narrative', trans('elementForm.text'), ['narrative_required' => true]);
     }
 }

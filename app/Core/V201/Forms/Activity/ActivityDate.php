@@ -20,8 +20,6 @@ class ActivityDate extends BaseForm
                 ['label' => trans('elementForm.date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
             )
             ->addSelect('type', $this->getCodeList('ActivityDateType', 'Activity'), trans('elementForm.activity_date_type'), $this->addHelpText('Activity_ActivityDate-type'), null, true)
-            ->addNarrative('narrative')
-            ->addAddMoreButton('add_narrative', 'narrative')
-            ->addRemoveThisButton('remove_activity_date');
+            ->addNarrativeHidden('narrative');
     }
 }

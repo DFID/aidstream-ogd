@@ -14,7 +14,7 @@ class MultipleDescription extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('description', 'Activity\Description', 'description')
-            ->addAddMoreButton('add_description', 'description');
+            ->addCollection('description', 'Activity\Description', 'description');
+            //->addAddMoreButton('add_description', 'description');
     }
 }

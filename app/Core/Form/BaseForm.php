@@ -112,6 +112,15 @@ class BaseForm extends Form
         return $this->addCollection('narrative', 'Activity\Narrative', $className, $data, trans('elementForm.narrative'));
     }
 
+    protected function addNarrativeHidden($className, $label = 'Text', $data = [])
+    {
+        $label = ($label == 'Text') ? trans('elementForm.text') : $label;
+
+        $data['label'] = $label;
+
+        return $this->addCollection('narrative', 'Activity\NarrativeHidden', $className, $data, trans('elementForm.narrative'));
+    }
+
     protected function addGeneralDescription($className, $label = 'Text', $data = [])
     {
         $label = ($label == 'Text') ? trans('elementForm.text') : $label;
