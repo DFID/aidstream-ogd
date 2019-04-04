@@ -14,7 +14,6 @@ class MultipleActivityDate extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('activity_date', 'Activity\ActivityDate', 'Activity_date')
-            ->addAddMoreButton('add_Activity_date', 'Activity_date');
+            ->addCollection('activity_date', 'Activity\ActivityDate', 'Activity_date');
     }
 }

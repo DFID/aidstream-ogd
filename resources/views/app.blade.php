@@ -10,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet"/>
     <link href="{{ asset('/css/vendor.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/ogd.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/data-table.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.1.0/introjs.min.css" rel="stylesheet"/>
 

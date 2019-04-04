@@ -7,7 +7,7 @@ use App\Models\Activity\Activity;
  * Class Narrative
  * @package App\Core\V201\Forms\Activity
  */
-class Narrative extends BaseForm
+class NarrativeHidden extends BaseForm
 {
     protected $showFieldErrors = true;
 
@@ -40,7 +40,6 @@ class Narrative extends BaseForm
                 [
                     'value' => ''
                 ]
-            )
-            ->addRemoveThisButton('remove_from_collection');
+            );
     }
 }
