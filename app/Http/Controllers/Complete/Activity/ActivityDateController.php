@@ -78,8 +78,18 @@ class ActivityDateController extends Controller
         }
 
         $this->authorizeByRequestType($activityData, 'activity_date');
-        $activityDate = $request->all();
-        $messages     = $this->validateData($request->get('activity_date'));
+        $activityDate_temp = $request->all();
+        $activityDate['activity_date'] = [];
+        $activityDate['activity_date'][0]['date'] = $activityDate_temp['activity_date'][0]['date_planned_start'];
+        $activityDate['activity_date'][0]['type'] = $activityDate_temp['activity_date'][0]['type_planned_start'];
+        $activityDate['activity_date'][1]['date'] = $activityDate_temp['activity_date'][0]['date_planned_end'];
+        $activityDate['activity_date'][1]['type'] = $activityDate_temp['activity_date'][0]['type_planned_end'];
+        $activityDate['activity_date'][0]['narrative'][0]['narrative'] = '';
+        $activityDate['activity_date'][0]['narrative'][0]['language'] = '';
+        $activityDate['activity_date'][1]['narrative'][0]['narrative'] = '';
+        $activityDate['activity_date'][1]['narrative'][0]['language'] = '';
+        //$messages     = $this->validateData($request->get('activity_date'));
+        $messages     = $this->validateData($activityDate['activity_date']);
         if ($messages) {
             $response = ['type' => 'warning', 'messages' => array_unique($messages)];
 

@@ -15,11 +15,31 @@ class ActivityDate extends BaseForm
     {
         $this
             ->add(
+                'date_planned_start',
                 'date',
-                'date',
-                ['label' => trans('elementForm.date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
+                ['label' => trans('elementForm.planned_start_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
             )
-            ->addSelect('type', $this->getCodeList('ActivityDateType', 'Activity'), trans('elementForm.activity_date_type'), $this->addHelpText('Activity_ActivityDate-type'), null, true)
-            ->addNarrativeHidden('narrative hide_this');
+            ->add(
+                'type_planned_start',
+                'hidden',
+                [
+                    'value' => '1'
+                ]
+            )
+            //->addSelect('type', $this->getCodeList('ActivityDateType', 'Activity'), trans('elementForm.activity_date_type'), $this->addHelpText('Activity_ActivityDate-type'), null, true)
+            //->addNarrativeHidden('narrative hide_this')
+            ->add(
+                'date_planned_end',
+                'date',
+                ['label' => trans('elementForm.planned_end_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
+            )
+            ->add(
+                'type_planned_end',
+                'hidden',
+                [
+                    'value' => '3'
+                ]
+            );
+            //->addNarrativeHidden('narrative2 hide_this');
     }
 }

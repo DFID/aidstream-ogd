@@ -33,8 +33,12 @@ class ActivityDate
      */
     public function editForm($data, $activityId)
     {
-        $model['activity_date'] = $data;
-
+        //$model['activity_date'] = $data;
+        $model['activity_date'] = [];
+        $model['activity_date'][0]['date_planned_start'] = $data[0]['date'];
+        $model['activity_date'][0]['type_planned_start'] = $data[0]['type'];
+        $model['activity_date'][0]['date_planned_end'] = $data[1]['date'];
+        $model['activity_date'][0]['type_planned_end'] = $data[1]['type'];
         return $this->formBuilder->create(
             $this->formPath,
             [

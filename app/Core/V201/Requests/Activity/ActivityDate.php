@@ -33,12 +33,14 @@ class ActivityDate extends ActivityBaseRequest
 
         foreach ($formFields as $activityDateIndex => $activityDate) {
             $activityDateForm                             = sprintf('activity_date.%s', $activityDateIndex);
-            $rules[sprintf('%s.date', $activityDateForm)] = 'required';
-            $rules[sprintf('%s.type', $activityDateForm)] = 'required';
-            $rules                                        = array_merge(
-                $rules,
-                $this->getRulesForNarrative($activityDate['narrative'], $activityDateForm)
-            );
+            $rules[sprintf('%s.date_planned_start', $activityDateForm)] = 'required';
+            $rules[sprintf('%s.type_planned_start', $activityDateForm)] = 'required';
+            $rules[sprintf('%s.date_planned_end', $activityDateForm)] = 'required';
+            $rules[sprintf('%s.type_planned_end', $activityDateForm)] = 'required';
+            // $rules                                        = array_merge(
+            //     $rules,
+            //     $this->getRulesForNarrative($activityDate['narrative'], $activityDateForm)
+            // );
         }
 
         return $rules;
@@ -54,12 +56,14 @@ class ActivityDate extends ActivityBaseRequest
 
         foreach ($formFields as $activityDateIndex => $activityDate) {
             $activityDateForm                                         = sprintf('activity_date.%s', $activityDateIndex);
-            $messages[sprintf('%s.date.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.date')]);
-            $messages[sprintf('%s.type.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.type')]);
-            $messages                                                 = array_merge(
-                $messages,
-                $this->getMessagesForNarrative($activityDate['narrative'], $activityDateForm)
-            );
+            $messages[sprintf('%s.date_planned_start.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.planned_start_date')]);
+            $messages[sprintf('%s.type_planned_start.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.type')]);
+            $messages[sprintf('%s.date_planned_end.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.planned_end_date')]);
+            $messages[sprintf('%s.type_planned_end.required', $activityDateForm)] = trans('validation.required', ['attribute' => trans('elementForm.type')]);
+            // $messages                                                 = array_merge(
+            //     $messages,
+            //     $this->getMessagesForNarrative($activityDate['narrative'], $activityDateForm)
+            // );
         }
 
         return $messages;
