@@ -56,13 +56,13 @@ class RecipientCountry extends ActivityBaseRequest
             if (count($formFields) > 1 || $recipientRegion != null) {
                 $rules[$recipientCountryForm . '.percentage'] = 'required|numeric|max:100';
             }
-            $rules = array_merge(
-                $rules,
-                $this->getRulesForNarrative(
-                    $recipientCountry['narrative'],
-                    $recipientCountryForm
-                )
-            );
+            // $rules = array_merge(
+            //     $rules,
+            //     $this->getRulesForNarrative(
+            //         $recipientCountry['narrative'],
+            //         $recipientCountryForm
+            //     )
+            // );
         }
 
         return $rules;
@@ -83,13 +83,13 @@ class RecipientCountry extends ActivityBaseRequest
             $messages[$recipientCountryForm . '.percentage.numeric']    = trans('validation.numeric', ['attribute' => trans('elementForm.percentage')]);
             $messages[$recipientCountryForm . '.percentage.max']        = trans('validation.max.numeric', ['attribute' => trans('elementForm.percentage')]);
             $messages[$recipientCountryForm . '.percentage.required']   = trans('validation.required', ['attribute' => trans('elementForm.percentage')]);
-            $messages                                                   = array_merge(
-                $messages,
-                $this->getMessagesForNarrative(
-                    $recipientCountry['narrative'],
-                    $recipientCountryForm
-                )
-            );
+            // $messages                                                   = array_merge(
+            //     $messages,
+            //     $this->getMessagesForNarrative(
+            //         $recipientCountry['narrative'],
+            //         $recipientCountryForm
+            //     )
+            // );
         }
 
         return $messages;
