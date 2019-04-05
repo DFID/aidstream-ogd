@@ -14,7 +14,7 @@ class ContactInfoOrganization extends BaseForm
     public function buildForm()
     {
         $this
-            ->addNarrative('title')
-            ->addAddMoreButton('add_title', 'title');
+            ->addNarrative('title');
+            //->addAddMoreButton('add_title', 'title');
     }
 }

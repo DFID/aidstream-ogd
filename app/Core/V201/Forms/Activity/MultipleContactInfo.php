@@ -14,7 +14,7 @@ class MultipleContactInfo extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('contact_info', 'Activity\ContactInfo', 'contactInfo')
-            ->addAddMoreButton('add_contactInfo', 'contactInfo');
+            ->addCollection('contact_info', 'Activity\ContactInfo', 'contactInfo');
+            //->addAddMoreButton('add_contactInfo', 'contactInfo');
     }
 }

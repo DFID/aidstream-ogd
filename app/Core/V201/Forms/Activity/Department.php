@@ -14,7 +14,7 @@ class Department extends BaseForm
     public function buildForm()
     {
         $this
-            ->addNarrative('departmentNarrative')
-            ->addAddMoreButton('add_departmentNarrative', 'departmentNarrative');
+            ->addNarrative('departmentNarrative');
+            //->addAddMoreButton('add_departmentNarrative', 'departmentNarrative');
     }
 }

@@ -82,6 +82,10 @@ class ContactInfoController extends Controller
 
         $this->authorizeByRequestType($activityData, 'contact_info');
         $contactInfo = $request->all();
+        $contactInfo['contact_info'][0]['person_name'][0]['narrative'][0]['narrative'] = '';
+        $contactInfo['contact_info'][0]['person_name'][0]['narrative'][0]['narrative'] = '';
+        $contactInfo['contact_info'][0]['job_title'][0]['narrative'][0]['narrative'] = '';
+        $contactInfo['contact_info'][0]['job_title'][0]['narrative'][0]['narrative'] = '';
         if ($this->contactInfoManager->update($contactInfo, $activityData)) {
             $this->activityManager->resetActivityWorkflow($id);
             $response = ['type' => 'success', 'code' => ['updated', ['name' => trans('element.contact_info')]]];
