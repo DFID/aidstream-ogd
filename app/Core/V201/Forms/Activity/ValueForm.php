@@ -24,7 +24,7 @@ class ValueForm extends BaseForm
                 'value_date',
                 'hidden',
                 [
-                    'value' => ''
+                    'value' => '2019-02-02'
                 ]
             );
     }

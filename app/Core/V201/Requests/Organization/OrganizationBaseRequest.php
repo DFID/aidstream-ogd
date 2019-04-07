@@ -87,7 +87,7 @@ class OrganizationBaseRequest extends Request
         foreach ($formFields as $valueKey => $valueVal) {
             $valueForm                         = $formBase . '.value.' . $valueKey;
             $rules[$valueForm . '.amount']     = sprintf('required|numeric');
-            $rules[$valueForm . '.value_date'] = sprintf('required|date');
+            //$rules[$valueForm . '.value_date'] = sprintf('required|date');
         }
 
         return $rules;

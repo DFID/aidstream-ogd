@@ -57,7 +57,7 @@ class Budget extends ActivityBaseRequest
         foreach ($formFields as $valueIndex => $value) {
             $valueForm                                   = sprintf('%s.value.%s', $formBase, $valueIndex);
             $rules[sprintf('%s.amount', $valueForm)]     = 'required|numeric';
-            $rules[sprintf('%s.value_date', $valueForm)] = 'required';
+            //$rules[sprintf('%s.value_date', $valueForm)] = 'required';
         }
 
         return $rules;
