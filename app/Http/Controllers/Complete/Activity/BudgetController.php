@@ -75,6 +75,9 @@ class BudgetController extends Controller
 
         $this->authorizeByRequestType($activityData, 'budget');
         $budget = $request->all();
+        foreach($budget as &$budget){
+            $budget['value'][0]['value_date'] = $budget['period_start'][0]['date'];
+        }
         if ($this->budgetManager->update($budget, $activityData)) {
             $this->activityManager->resetActivityWorkflow($id);
             $response = ['type' => 'success', 'code' => ['updated', ['name' => trans('element.budget')]]];

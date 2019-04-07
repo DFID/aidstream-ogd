@@ -12,7 +12,20 @@ class ValueForm extends BaseForm
     {
         $this
             ->add('amount', 'text', ['label' => trans('elementForm.amount'), 'help_block' => $this->addHelpText('Activity_Budget_Value-text'), 'required' => true])
-            ->addSelect('currency', $this->getCodeList('Currency', 'Activity'), trans('elementForm.currency'), $this->addHelpText('Activity_Budget_Value-currency'))
-            ->add('value_date', 'date', ['label' => trans('elementForm.value_date'), 'help_block' => $this->addHelpText('Activity_Budget_Value-value_date'), 'required' => true]);
+            ->add(
+                'currency',
+                'hidden',
+                [
+                    'value' => 'GBP'
+                ]
+            )
+            //->addSelect('currency', $this->getCodeList('Currency', 'Activity'), trans('elementForm.currency'), $this->addHelpText('Activity_Budget_Value-currency'))
+            ->add(
+                'value_date',
+                'hidden',
+                [
+                    'value' => ''
+                ]
+            );
     }
 }

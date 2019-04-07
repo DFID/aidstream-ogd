@@ -18,6 +18,7 @@ class Budget extends V201BudgetRequest
         $rules = [];
 
         foreach ($formFields as $budgetIndex => $budget) {
+            $budget['value'][0]['value_date'] =  $budget['period_start'];
             $budgetForm                               = sprintf('budget.%s', $budgetIndex);
             $rules[sprintf('%s.status', $budgetForm)] = 'required';
             $rules                                    = array_merge(
