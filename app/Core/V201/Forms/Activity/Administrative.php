@@ -16,9 +16,30 @@ class Administrative extends BaseForm
     public function buildForm()
     {
         $this
-            ->addSelect('vocabulary', $this->getCodeList('GeographicVocabulary', 'Activity'), trans('elementForm.vocabulary'), $this->addHelpText('Activity_Location_Administrative-vocabulary'), null, true)
-            ->add('code', 'text', ['label' => trans('elementForm.code'),'label' => trans('elementForm.code'), 'required'   => true, 'help_block' => $this->addHelpText('Activity_Location_Administrative-code')])
-            ->add('level', 'text', ['label' => trans('elementForm.level'), 'help_block' => $this->addHelpText('Activity_Location_Administrative-level')])
-            ->addRemoveThisButton('remove');
+            ->add(
+                'vocabulary',
+                'hidden',
+                [
+                    'value' => null
+                ]
+            )
+            ->add(
+                'code',
+                'hidden',
+                [
+                    'value' => null
+                ]
+            )
+            ->add(
+                'level',
+                'hidden',
+                [
+                    'value' => null
+                ]
+            );
+            //->addSelect('vocabulary', $this->getCodeList('GeographicVocabulary', 'Activity'), trans('elementForm.vocabulary'), $this->addHelpText('Activity_Location_Administrative-vocabulary'), null, true)
+            //->add('code', 'text', ['label' => trans('elementForm.code'),'label' => trans('elementForm.code'), 'required'   => true, 'help_block' => $this->addHelpText('Activity_Location_Administrative-code')])
+            //->add('level', 'text', ['label' => trans('elementForm.level'), 'help_block' => $this->addHelpText('Activity_Location_Administrative-level')])
+            //->addRemoveThisButton('remove');
     }
 }
