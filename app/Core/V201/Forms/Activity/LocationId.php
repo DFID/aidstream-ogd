@@ -32,6 +32,6 @@ class LocationId extends BaseForm
                 [
                     'value' => null
                 ]
-            )
+            );
     }
 }
