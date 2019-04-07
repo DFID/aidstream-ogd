@@ -38,7 +38,7 @@ return [
     'organisation_name'                          => 'Organisation Name',
     'country_code'                               => 'Country Code',
     'percentage'                                 => 'Percentage',
-    'region_code'                                => 'Region Code',
+    'region_code'                                => 'OECD DAC Region Code',
     'region_vocabulary'                          => 'Region Vocabulary',
     'vocabulary_uri'                             => 'Vocabulary URI',
     'location_reach'                             => 'Location Reach',

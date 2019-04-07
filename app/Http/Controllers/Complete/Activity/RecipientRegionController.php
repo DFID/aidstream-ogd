@@ -110,6 +110,11 @@ class RecipientRegionController extends Controller
             return redirect()->back()->withInput()->withResponse($response);
         }
         $recipientRegions = $request->all();
+        foreach($recipientRegions['recipient_region'] as &$recipientRegion){
+            $recipientRegion['region_vocabulary'] = '';
+            $recipientRegion['narrative'][0]['narrative'] = '';
+            $recipientRegion['narrative'][0]['language'] = '';
+        }
         foreach ($recipientRegions['recipient_region'] as &$recipientRegion) {
             ($recipientRegion['region_vocabulary'] != '') ?: $recipientRegion['region_vocabulary'] = '1';
         }
