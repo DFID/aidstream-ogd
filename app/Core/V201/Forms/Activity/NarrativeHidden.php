@@ -25,7 +25,7 @@ class NarrativeHidden extends BaseForm
                 'narrative',
                 'hidden',
                 [
-                    'value' => ''
+                    'value' => null
                 ]
             )
             // ->addSelect(
@@ -38,7 +38,7 @@ class NarrativeHidden extends BaseForm
                 'language',
                 'hidden',
                 [
-                    'value' => ''
+                    'value' => null
                 ]
             );
     }
