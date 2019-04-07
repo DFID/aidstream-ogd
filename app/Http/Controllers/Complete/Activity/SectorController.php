@@ -77,6 +77,10 @@ class SectorController extends Controller
 
         $this->authorizeByRequestType($activityData, 'sector');
         $sectors = $request->all();
+        foreach($sectors['sector'] as &$sectors){
+            $sectors['narrative'][0]['narrative'] = '';
+            $sectors['narrative'][0]['language'] = '';
+        }
         foreach ($sectors['sector'] as &$sector) {
             if ($sector['sector_vocabulary'] == 1 || $sector['sector_vocabulary'] == '') {
                 $sector['sector_vocabulary']    = 1;

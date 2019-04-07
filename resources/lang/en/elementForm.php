@@ -60,7 +60,7 @@ return [
     'feature_designation'                        => 'Feature Designation',
     'sector'                                     => 'Sector',
     'sector_vocabulary'                          => 'Sector Vocabulary',
-    'sector_code'                                => 'Sector Code',
+    'sector_code'                                => 'OECD DAC CRS Purpose Codes (5 digit)',
     'significance'                               => 'Significance',
     'policy_marker'                              => 'Policy Marker',
     'collaboration_type'                         => 'Collaboration Type',

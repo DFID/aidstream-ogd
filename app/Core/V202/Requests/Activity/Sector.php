@@ -19,7 +19,7 @@ class Sector extends V201Sector
         $rules = [];
         foreach ($formFields as $sectorIndex => $sector) {
             $sectorForm                                          = sprintf('sector.%s', $sectorIndex);
-            $rules[sprintf('%s.vocabulary_uri', $sectorForm)]    = 'url';
+            //$rules[sprintf('%s.vocabulary_uri', $sectorForm)]    = 'url';
             $rules[sprintf('%s.sector_vocabulary', $sectorForm)] = 'required';
 
             if ($sector['sector_vocabulary'] == 1 || $sector['sector_vocabulary'] == 2) {
@@ -53,7 +53,7 @@ class Sector extends V201Sector
             if (count($formFields) > 1) {
                 $rules[sprintf('%s.percentage', $sectorForm)] = 'required|numeric|max:100';
             }
-            $rules = array_merge($rules, $this->getRulesForNarrative($sector['narrative'], $sectorForm));
+            //$rules = array_merge($rules, $this->getRulesForNarrative($sector['narrative'], $sectorForm));
         }
 
         $totalPercentage = $this->getRulesForPercentage($this->get('sector'));
@@ -94,7 +94,7 @@ class Sector extends V201Sector
 
         foreach ($formFields as $sectorIndex => $sector) {
             $sectorForm                                                      = sprintf('sector.%s', $sectorIndex);
-            $messages[sprintf('%s.vocabulary_uri.url', $sectorForm)]         = trans('validation.url');
+            //$messages[sprintf('%s.vocabulary_uri.url', $sectorForm)]         = trans('validation.url');
             $messages[sprintf('%s.sector_vocabulary.required', $sectorForm)] = trans('validation.required', ['attribute' => trans('elementForm.sector_vocabulary')]);
 
             if ($sector['sector_vocabulary'] == 1 || $sector['sector_vocabulary'] == 2) {
@@ -164,7 +164,7 @@ class Sector extends V201Sector
             $messages[sprintf('%s.percentage.max', $sectorForm)]      = trans('validation.max.numeric', ['attribute' => trans('elementForm.percentage'), 'max' => 100]);
             $messages[sprintf('%s.percentage.required', $sectorForm)] = trans('validation.required', ['attribute' => trans('elementForm.percentage')]);
             $messages[sprintf('%s.percentage.sum', $sectorForm)]      = trans('validation.sum', ['attribute' => trans('elementForm.percentage')]);
-            $messages                                                 = array_merge($messages, $this->getMessagesForNarrative($sector['narrative'], $sectorForm));
+            //$messages                                                 = array_merge($messages, $this->getMessagesForNarrative($sector['narrative'], $sectorForm));
         }
 
         return $messages;

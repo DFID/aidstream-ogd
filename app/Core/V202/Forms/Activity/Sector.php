@@ -19,17 +19,12 @@ class Sector extends BaseForm
         $this
             ->add(
                 'sector_vocabulary',
-                'select',
+                'hidden',
                 [
-                    'choices'       => $this->getSectorVocabularyCodeList(),
-                    'empty_value'   => trans('elementForm.select_text'),
-                    'default_value' => '1',
-                    'attr'          => ['class' => 'form-control sector_vocabulary'],
-                    'label'         => trans('elementForm.sector_vocabulary'),
-                    'required'      => true
+                    'value' => 1
                 ]
             )
-            ->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
+            //->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
             ->add(
                 'sector_code',
                 'select',
@@ -54,7 +49,7 @@ class Sector extends BaseForm
             )
             ->add(
                 'sector_text',
-                'text',
+                'hidden',
                 [
                     'label'    => trans('elementForm.sector_code'),
                     'wrapper'  => ['class' => 'form-group hidden sector_types sector_text'],
@@ -62,8 +57,8 @@ class Sector extends BaseForm
                 ]
             )
             ->addPercentage()
-            ->addNarrative('sector_narrative')
-            ->addAddMoreButton('add', 'sector_narrative')
+            //->addNarrative('sector_narrative')
+            //->addAddMoreButton('add', 'sector_narrative')
             ->addRemoveThisButton('remove');
     }
 }
