@@ -38,8 +38,8 @@ class Location extends ActivityBaseRequest
             $locationForm = 'location.' . $locationIndex;
             $rules        = array_merge(
                 $rules,
-                $this->getRulesForLocationReach($location['location_reach'], $locationForm),
-                $this->getRulesForLocationId($location['location_id'], $locationForm),
+                //$this->getRulesForLocationReach($location['location_reach'], $locationForm),
+                //$this->getRulesForLocationId($location['location_id'], $locationForm),
                 $this->getRulesForName($location['name'], $locationForm),
                 $this->getRulesForLocationDescription($location['location_description'], $locationForm),
                 $this->getRulesForActivityDescription($location['activity_description'], $locationForm),
@@ -66,8 +66,8 @@ class Location extends ActivityBaseRequest
             $locationForm = 'location.' . $locationIndex;
             $messages     = array_merge(
                 $messages,
-                $this->getMessagesForLocationReach($location['location_reach'], $locationForm),
-                $this->getMessagesForLocationId($location['location_id'], $locationForm),
+                //$this->getMessagesForLocationReach($location['location_reach'], $locationForm),
+                //$this->getMessagesForLocationId($location['location_id'], $locationForm),
                 $this->getMessagesForName($location['name'], $locationForm),
                 $this->getMessagesForLocationDescription($location['location_description'], $locationForm),
                 $this->getMessagesForActivityDescription($location['activity_description'], $locationForm),
