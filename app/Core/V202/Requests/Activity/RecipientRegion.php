@@ -21,15 +21,15 @@ class RecipientRegion extends V201RecipientRegion
         foreach ($formFields as $recipientRegionIndex => $recipientRegion) {
             $recipientRegionForm                             = 'recipient_region.' . $recipientRegionIndex;
             $rules[$recipientRegionForm . '.region_code']    = 'required';
-            $rules[$recipientRegionForm . '.vocabulary_uri'] = 'url';
-            if($formFields[$recipientRegionIndex]['region_vocabulary'] == 99){
-                $rules[$recipientRegionForm. '.vocabulary_uri'] = 'url|required';
-            }
+            //$rules[$recipientRegionForm . '.vocabulary_uri'] = 'url';
+            // if($formFields[$recipientRegionIndex]['region_vocabulary'] == 99){
+            //     $rules[$recipientRegionForm. '.vocabulary_uri'] = 'url|required';
+            // }
             $rules[$recipientRegionForm . '.percentage']     = 'numeric|max:100';
             if (count($formFields) > 1 || $recipientCountry != null) {
                 $rules[$recipientRegionForm . '.percentage'] = 'required|numeric|max:100';
             }
-            $rules = array_merge($rules, $this->getRulesForNarrative($recipientRegion['narrative'], $recipientRegionForm));
+            //$rules = array_merge($rules, $this->getRulesForNarrative($recipientRegion['narrative'], $recipientRegionForm));
         }
 
         return $rules;
@@ -47,14 +47,14 @@ class RecipientRegion extends V201RecipientRegion
         foreach ($formFields as $recipientRegionIndex => $recipientRegion) {
             $recipientRegionForm                                      = 'recipient_region.' . $recipientRegionIndex;
             $messages[$recipientRegionForm . '.region_code.required'] = trans('validation.required', ['attribute' => trans('elementForm.recipient_region_code')]);
-            $messages[$recipientRegionForm . '.vocabulary_uri.url']   = trans('validation.url');
+            //$messages[$recipientRegionForm . '.vocabulary_uri.url']   = trans('validation.url');
             $messages[$recipientRegionForm . '.percentage.numeric']   = trans('validation.numeric', ['attribute' => trans('elementForm.percentage')]);
-            if($formFields[$recipientRegionIndex]['region_vocabulary'] == 99){
-                $messages[$recipientRegionForm. '.vocabulary_uri.required']    = trans('validation.required', ['attribute' => trans('elementForm.vocabulary_uri')]);
-            }
+            // if($formFields[$recipientRegionIndex]['region_vocabulary'] == 99){
+            //     $messages[$recipientRegionForm. '.vocabulary_uri.required']    = trans('validation.required', ['attribute' => trans('elementForm.vocabulary_uri')]);
+            // }
             $messages[$recipientRegionForm . '.percentage.max']       = trans('validation.max.numeric', ['attribute' => trans('elementForm.percentage'), 'max' => 100]);
             $messages[$recipientRegionForm . '.percentage.required']  = trans('validation.required', ['attribute' => trans('elementForm.percentage')]);
-            $messages                                                 = array_merge($messages, $this->getMessagesForNarrative($recipientRegion['narrative'], $recipientRegionForm));
+            //$messages                                                 = array_merge($messages, $this->getMessagesForNarrative($recipientRegion['narrative'], $recipientRegionForm));
         }
 
         return $messages;
