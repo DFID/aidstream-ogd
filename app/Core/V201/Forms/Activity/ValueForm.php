@@ -22,9 +22,9 @@ class ValueForm extends BaseForm
             //->addSelect('currency', $this->getCodeList('Currency', 'Activity'), trans('elementForm.currency'), $this->addHelpText('Activity_Budget_Value-currency'))
             ->add(
                 'value_date',
-                'hidden',
+                'date',
                 [
-                    'value' => '2019-02-02'
+                    'wrapper' => ['class' => 'hidden']
                 ]
             );
     }
