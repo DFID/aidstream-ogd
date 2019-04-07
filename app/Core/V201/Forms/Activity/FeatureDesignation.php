@@ -15,6 +15,14 @@ class FeatureDesignation extends BaseForm
      */
     public function buildForm()
     {
-        $this->addSelect('code', $this->getCodeList('LocationType', 'Activity'), trans('elementForm.code'), $this->addHelpText('Activity_Location_FeatureDesignation-code'), null, true);
+        $this
+        	->add(
+                'code',
+                'hidden',
+                [
+                    'value' => null
+                ]
+            );
+        	//->addSelect('code', $this->getCodeList('LocationType', 'Activity'), trans('elementForm.code'), $this->addHelpText('Activity_Location_FeatureDesignation-code'), null, true);
     }
 }

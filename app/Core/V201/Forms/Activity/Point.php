@@ -18,7 +18,7 @@ class Point extends BaseForm
         $this
             ->add(
                 'srs_name',
-                'text',
+                'hidden',
                 [
                     'label'      => trans('elementForm.srs_name'),
                     'help_block' => $this->addHelpText('Activity_Location_Point-srsName'),

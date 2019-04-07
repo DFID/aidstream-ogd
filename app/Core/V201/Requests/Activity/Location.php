@@ -45,9 +45,9 @@ class Location extends ActivityBaseRequest
                 //$this->getRulesForActivityDescription($location['activity_description'], $locationForm),
                 //$this->getRulesForAdministrative($location['administrative'], $locationForm),
                 $this->getRulesForPoint($location['point'], $locationForm),
-                $this->getRulesForExactness($location['exactness'], $locationForm),
-                $this->getRulesForLocationClass($location['location_class'], $locationForm),
-                $this->getRulesForFeatureDesignation($location['feature_designation'], $locationForm)
+                //$this->getRulesForExactness($location['exactness'], $locationForm),
+                $this->getRulesForLocationClass($location['location_class'], $locationForm)
+                //$this->getRulesForFeatureDesignation($location['feature_designation'], $locationForm)
             );
         }
 
@@ -73,9 +73,9 @@ class Location extends ActivityBaseRequest
                 $this->getMessagesForActivityDescription($location['activity_description'], $locationForm),
                 //$this->getMessagesForAdministrative($location['administrative'], $locationForm),
                 $this->getMessagesForPoint($location['point'], $locationForm),
-                $this->getMessagesForExactness($location['exactness'], $locationForm),
-                $this->getMessagesForLocationClass($location['location_class'], $locationForm),
-                $this->getMessagesForFeatureDesignation($location['feature_designation'], $locationForm)
+                //$this->getMessagesForExactness($location['exactness'], $locationForm),
+                $this->getMessagesForLocationClass($location['location_class'], $locationForm)
+                //$this->getMessagesForFeatureDesignation($location['feature_designation'], $locationForm)
             );
         }
 

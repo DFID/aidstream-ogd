@@ -33,9 +33,9 @@ class Location extends BaseForm
             ->addCollection('administrative', 'Activity\Administrative', 'administrative hidden', [], trans('elementForm.administrative'))
             //->addAddMoreButton('add_administrative', 'administrative')
             ->addCollection('point', 'Activity\Point', '', [], trans('elementForm.point'))
-            ->addCollection('exactness', 'Activity\Exactness', '', [], trans('elementForm.exactness'))
+            ->addCollection('exactness', 'Activity\Exactness', 'hidden', [], trans('elementForm.exactness'))
             ->addCollection('location_class', 'Activity\LocationClass', '', [], trans('elementForm.location_class'))
-            ->addCollection('feature_designation', 'Activity\FeatureDesignation', '', [], trans('elementForm.feature_designation'))
+            ->addCollection('feature_designation', 'Activity\FeatureDesignation', 'hidden', [], trans('elementForm.feature_designation'))
             ->addRemoveThisButton('remove');
     }
 }
