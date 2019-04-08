@@ -28,11 +28,11 @@ class PolicyMarker
      */
     public function editForm($data, $activityId)
     {
-        $model['policy_marker'] = $data;
-        $model['policy_marker_significances'][0] = [];
-        foreach($model['policy_marker'] as &$item){
-            $signifcance_position = 'significance_' . $item['policy_marker'];
-            $model['policy_marker_significances'][0][$signifcance_position] = $item['significance'];
+        $model['policy_marker'] = [];
+        if(sizeof($data) > 0){
+            foreach($data as &$d){
+                $model['policy_marker'][0]['significance_'.$d['policy_marker']] = $d['significance'];
+            }
         }
         return $this->formBuilder->create(
             $this->formPath,
