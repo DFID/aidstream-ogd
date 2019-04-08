@@ -14,6 +14,6 @@ class HumanitarianScopes extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('humanitarianScopeOGD', 'Activity\HumanitarianScopesOGD', 'humanitarianScopeOGD');
+            ->addCollection('humanitarian_scope', 'Activity\HumanitarianScopesOGD', 'humanitarian_scope');
     }
 }
