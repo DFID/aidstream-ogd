@@ -24,7 +24,14 @@ class HumanitarianScope extends BaseForm
                 true,
                 ['attr' => ['class' => 'humanitarian-vocabulary form-control', 'disabled' => 'disabled']]
             )
-            ->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
+            ->add(
+                'vocabulary_uri',
+                'hidden',
+                [
+                    'value' => '1'
+                ]
+            )
+            //->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
             ->add('code', 'text', ['label' => trans('elementForm.code'), 'required' => true])
             ->addNarrativeHidden('humanitarian_narrative hidden')
             //->addAddMoreButton('add', 'humanitarian_narrative')
