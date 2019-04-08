@@ -27,14 +27,14 @@ class HumanitarianScope extends ActivityBaseRequest
     {
         $rules = [];
 
-        foreach ($formFields as $humanitarianScopeIndex => $humanitarianScope) {
-            $humanitarianScopeForm                             = 'humanitarian_scope.' . $humanitarianScopeIndex;
-            $rules[$humanitarianScopeForm . '.type']           = 'required';
-            $rules[$humanitarianScopeForm . '.vocabulary']     = 'required';
-            $rules[$humanitarianScopeForm . '.vocabulary_uri'] = 'url';
-            $rules[$humanitarianScopeForm . '.code']           = 'required|string';
-            $rules                                             = array_merge($rules, $this->getRulesForNarrative($humanitarianScope['narrative'], $humanitarianScopeForm));
-        }
+        // foreach ($formFields as $humanitarianScopeIndex => $humanitarianScope) {
+        //     $humanitarianScopeForm                             = 'humanitarian_scope.' . $humanitarianScopeIndex;
+        //     $rules[$humanitarianScopeForm . '.type']           = 'required';
+        //     $rules[$humanitarianScopeForm . '.vocabulary']     = 'required';
+        //     $rules[$humanitarianScopeForm . '.vocabulary_uri'] = 'url';
+        //     $rules[$humanitarianScopeForm . '.code']           = 'required|string';
+        //     $rules                                             = array_merge($rules, $this->getRulesForNarrative($humanitarianScope['narrative'], $humanitarianScopeForm));
+        // }
 
         return $rules;
     }
@@ -48,15 +48,15 @@ class HumanitarianScope extends ActivityBaseRequest
     {
         $messages = [];
 
-        foreach ($formFields as $humanitarianScopeIndex => $humanitarianScope) {
-            $humanitarianScopeForm                                     = 'humanitarian_scope.' . $humanitarianScopeIndex;
-            $messages[$humanitarianScopeForm . '.type.required']       = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_type')]);
-            $messages[$humanitarianScopeForm . '.vocabulary.required'] = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_vocabulary')]);
-            $messages[$humanitarianScopeForm . '.code.required']       = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_code')]);
-            $messages[$humanitarianScopeForm . '.code.string']         = trans('validation.string', ['attribute' => trans('element.humanitarian_scope')]);
-            $messages[$humanitarianScopeForm . '.vocabulary_uri.url']  = trans('validation.url');
-            $messages                                                  = array_merge($messages, $this->getMessagesForNarrative($humanitarianScope['narrative'], $humanitarianScopeForm));
-        }
+        // foreach ($formFields as $humanitarianScopeIndex => $humanitarianScope) {
+        //     $humanitarianScopeForm                                     = 'humanitarian_scope.' . $humanitarianScopeIndex;
+        //     $messages[$humanitarianScopeForm . '.type.required']       = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_type')]);
+        //     $messages[$humanitarianScopeForm . '.vocabulary.required'] = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_vocabulary')]);
+        //     $messages[$humanitarianScopeForm . '.code.required']       = trans('validation.required', ['attribute' => trans('elementForm.humanitarian_scope_code')]);
+        //     $messages[$humanitarianScopeForm . '.code.string']         = trans('validation.string', ['attribute' => trans('element.humanitarian_scope')]);
+        //     $messages[$humanitarianScopeForm . '.vocabulary_uri.url']  = trans('validation.url');
+        //     $messages                                                  = array_merge($messages, $this->getMessagesForNarrative($humanitarianScope['narrative'], $humanitarianScopeForm));
+        // }
 
         return $messages;
     }

@@ -34,14 +34,15 @@ class HumanitarianScope
     {
         //$model['humanitarian_scope'] = $data;
         $model['humanitarian_scope'] = [];
-        $model['humanitarian_scope_appeal'] = [];
+        $model['humanitarian_scope'][0]['humanitarian_scope_emergency'] = [];
+        $model['humanitarian_scope'][0]['humanitarian_scope_appeal'] = [];
         if(sizeof($data) > 0){
             foreach($data as &$d){
                 if($d['type']==1){
-                    array_push($model['humanitarian_scope'], $d);
+                    array_push($model['humanitarian_scope'][0]['humanitarian_scope_emergency'], $d);
                 }
                 else{
-                    array_push($model['humanitarian_scope_appeal'], $d);   
+                    array_push($model['humanitarian_scope'][0]['humanitarian_scope_appeal'], $d);   
                 }
             }
         }
