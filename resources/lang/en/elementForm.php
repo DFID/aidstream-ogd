@@ -44,6 +44,8 @@ return [
     'location_reach'                             => 'Location Reach',
     'location_reference'                         => 'Location Reference',
     'code'                                       => 'Code',
+    'humanitarian_scope_emergency'               => 'Emergency - Glide Code',
+    'humanitarian_scope_appeal'                  => 'Appeal - Humanitarian Plan Code',
     'location_id'                                => 'Location Id',
     'vocabulary'                                 => 'Vocabulary',
     'location_description'                       => 'Location Description',

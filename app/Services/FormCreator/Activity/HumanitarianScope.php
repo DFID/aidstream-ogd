@@ -32,8 +32,17 @@ class HumanitarianScope
      */
     public function editForm($data, $activityId)
     {
-        $model['humanitarian_scope'] = $data;
-
+        //$model['humanitarian_scope'] = $data;
+        $model['humanitarian_scope'] = [];
+        $model['humanitarian_scope_appeal'] = [];
+        foreach($data as &$d){
+            if($d['type']==1){
+                array_push($model['humanitarian_scope'], $d);
+            }
+            else{
+                array_push($model['humanitarian_scope_appeal'], $d);   
+            }
+        }
         return $this->formBuilder->create(
             $this->formPath,
             [

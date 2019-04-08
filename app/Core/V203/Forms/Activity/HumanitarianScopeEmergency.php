@@ -46,7 +46,7 @@ class HumanitarianScopeEmergency extends BaseForm
                 ]
             )
             //->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
-            ->add('code', 'text', ['label' => trans('elementForm.code'), 'required' => true])
+            ->add('code', 'text', ['label' => trans('elementForm.humanitarian_scope_emergency'), 'required' => true])
             ->addNarrativeHidden('humanitarian_narrative hidden')
             //->addAddMoreButton('add', 'humanitarian_narrative')
             ->addRemoveThisButton('remove');
