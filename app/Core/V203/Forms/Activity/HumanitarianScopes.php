@@ -14,7 +14,7 @@ class HumanitarianScopes extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('humanitarian_scope', 'Activity\HumanitarianScope', 'humanitarian_scope')
-            ->addAddMoreButton('add', 'humanitarian_scope');
+            ->addCollection('humanitarian_scope', 'Activity\HumanitarianScope', 'humanitarian_scope');
+            //->addAddMoreButton('add', 'humanitarian_scope');
     }
 }
