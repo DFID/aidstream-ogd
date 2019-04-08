@@ -25,7 +25,7 @@
                                 {!! form($form) !!}
                             </div>
                             <div class="collection-container hidden"
-                                 data-prototype="{{ form_row($form->policy_marker->prototype()) }}">
+                                 data-prototype="{{ form_row($form->policy_marker_significances->prototype()) }}">
                             </div>
                         </div>
                     </div>

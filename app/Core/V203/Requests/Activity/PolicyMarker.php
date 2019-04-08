@@ -16,15 +16,15 @@ class PolicyMarker extends V201PolicyMarker
     {
         $rules = [];
 
-        foreach ($formFields as $policyMarkerIndex => $policyMarker) {
-            $policyMarkerForm                                       = sprintf('policy_marker.%s', $policyMarkerIndex);
-            $rules[sprintf('%s.vocabulary_uri', $policyMarkerForm)] = 'url';
-            $rules[sprintf('%s.policy_marker', $policyMarkerForm)]  = 'required';
-            $rules                                                  = array_merge(
-                $rules,
-                $this->getRulesForNarrative($policyMarker['narrative'], $policyMarkerForm)
-            );
-        }
+        // foreach ($formFields as $policyMarkerIndex => $policyMarker) {
+        //     $policyMarkerForm                                       = sprintf('policy_marker.%s', $policyMarkerIndex);
+        //     $rules[sprintf('%s.vocabulary_uri', $policyMarkerForm)] = 'url';
+        //     $rules[sprintf('%s.policy_marker', $policyMarkerForm)]  = 'required';
+        //     $rules                                                  = array_merge(
+        //         $rules,
+        //         $this->getRulesForNarrative($policyMarker['narrative'], $policyMarkerForm)
+        //     );
+        // }
 
         return $rules;
     }
@@ -37,15 +37,15 @@ class PolicyMarker extends V201PolicyMarker
     {
         $messages = [];
 
-        foreach ($formFields as $policyMarkerIndex => $policyMarker) {
-            $policyMarkerForm                                                  = sprintf('policy_marker.%s', $policyMarkerIndex);
-            $messages[sprintf('%s.vocabulary_uri.url', $policyMarkerForm)]     = trans('validation.url');
-            $messages[sprintf('%s.policy_marker.required', $policyMarkerForm)] = trans('validation.required', ['attribute' => trans('element.policy_marker')]);
-            $messages                                                          = array_merge(
-                $messages,
-                $this->getMessagesForNarrative($policyMarker['narrative'], $policyMarkerForm)
-            );
-        }
+        // foreach ($formFields as $policyMarkerIndex => $policyMarker) {
+        //     $policyMarkerForm                                                  = sprintf('policy_marker.%s', $policyMarkerIndex);
+        //     $messages[sprintf('%s.vocabulary_uri.url', $policyMarkerForm)]     = trans('validation.url');
+        //     $messages[sprintf('%s.policy_marker.required', $policyMarkerForm)] = trans('validation.required', ['attribute' => trans('element.policy_marker')]);
+        //     $messages                                                          = array_merge(
+        //         $messages,
+        //         $this->getMessagesForNarrative($policyMarker['narrative'], $policyMarkerForm)
+        //     );
+        // }
 
         return $messages;
     }

@@ -11,7 +11,7 @@ class PolicyMarkers extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('policy_marker', 'Activity\PolicyMarker', 'policy_marker')
-            ->addAddMoreButton('add_policy_marker', 'policy_marker');
+            ->addCollection('policy_marker', 'Activity\PolicyMarker', 'policy_marker');
+            //->addAddMoreButton('add_policy_marker', 'policy_marker');
     }
 }

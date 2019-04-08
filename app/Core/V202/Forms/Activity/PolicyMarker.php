@@ -17,7 +17,7 @@ class PolicyMarker extends BaseForm
             ->addSelect('significance', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance'))
             ->addSelect('policy_marker', $this->getCodeList('PolicyMarker', 'Activity'), trans('elementForm.policy_marker'), null, null, true)
             ->addNarrative('narrative')
-            ->addAddMoreButton('add_narrative', 'narrative')
+            //->addAddMoreButton('add_narrative', 'narrative')
             ->addRemoveThisButton('remove_policy_marker');
     }
 }

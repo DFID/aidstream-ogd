@@ -62,7 +62,19 @@ class PolicyMarkerController extends Controller
         }
 
         $this->authorizeByRequestType($activityData, 'policy_marker');
-        $policyMarker = $request->all();
+        $policyMarker_temp = $request->all();
+        $policyMarker['policy_marker'] = [];
+        for($x = 1; $x <= 9; $x++){
+            $significance_pointer = 'significance_'. $x;
+            if(!empty($policyMarker_temp['policy_marker'][0][$significance_pointer])){
+                $policyMarker['policy_marker'][$x-1]['vocabulary'] = 1;
+                $policyMarker['policy_marker'][$x-1]['vocabulary_uri'] = '';
+                $policyMarker['policy_marker'][$x-1]['significance'] = $policyMarker_temp['policy_marker'][0][$significance_pointer];
+                $policyMarker['policy_marker'][$x-1]['policy_marker'] = $x;
+                $policyMarker['policy_marker'][$x-1]['narrative'][0]['narrative'] = '';
+                $policyMarker['policy_marker'][$x-1]['narrative'][0]['language'] = '';
+            }
+        }
         if ($this->policyMarkerManager->update($policyMarker, $activityData)) {
             $this->activityManager->resetActivityWorkflow($id);
             $response = ['type' => 'success', 'code' => ['updated', ['name' => trans('element.policy_marker')]]];
