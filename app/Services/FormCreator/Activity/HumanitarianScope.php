@@ -35,12 +35,14 @@ class HumanitarianScope
         //$model['humanitarian_scope'] = $data;
         $model['humanitarian_scope'] = [];
         $model['humanitarian_scope_appeal'] = [];
-        foreach($data as &$d){
-            if($d['type']==1){
-                array_push($model['humanitarian_scope'], $d);
-            }
-            else{
-                array_push($model['humanitarian_scope_appeal'], $d);   
+        if(sizeof($data) > 0){
+            foreach($data as &$d){
+                if($d['type']==1){
+                    array_push($model['humanitarian_scope'], $d);
+                }
+                else{
+                    array_push($model['humanitarian_scope_appeal'], $d);   
+                }
             }
         }
         return $this->formBuilder->create(
