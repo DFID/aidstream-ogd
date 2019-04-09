@@ -56,7 +56,7 @@ class Sector extends BaseForm
                     'wrapper' => ['class' => 'form-group sector_types sector_text']
                 ]
             )
-            ->addNarrative('sector_narrative')
+            ->addNarrativeHidden('sector_narrative')
             ->addAddMoreButton('add', 'sector_narrative');
     }
 }

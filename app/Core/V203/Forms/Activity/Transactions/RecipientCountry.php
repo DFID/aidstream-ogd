@@ -19,7 +19,7 @@ class RecipientCountry extends BaseForm
     {
         $this
             ->addSelect('country_code', $this->getCountryCodeList(), trans('elementForm.country_code'), $this->addHelpText('Activity_Transaction_RecipientCountry-code'))
-            ->addNarrative('narrative')
+            ->addNarrativeHidden('narrative')
             ->addAddMoreButton('add_narrative', 'narrative');
     }
 }

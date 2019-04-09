@@ -20,7 +20,7 @@ class RecipientRegion extends BaseForm
             ->addSelect('region_code', $this->getRegionCodeList(), trans('elementForm.region_code'))
             ->addSelect('vocabulary', $this->getRegionVocabularyCodeList(), trans('elementForm.vocabulary'))
             ->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
-            ->addNarrative('narrative')
+            ->addNarrativeHidden('narrative')
             ->addAddMoreButton('add_narrative', 'narrative');
     }
 }
