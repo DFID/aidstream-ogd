@@ -24,11 +24,11 @@ class Value extends BaseForm
                 'text',
                 ['label' => trans('elementForm.amount'), 'label' => trans('elementForm.amount'), 'help_block' => $this->addHelpText('Activity_Transaction_Value-text'), 'required' => true]
             )
-            ->add(
-                'date',
-                'date',
-                ['label' => trans('elementForm.value_date'), 'help_block' => $this->addHelpText('Activity_Transaction_Value-value_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
-            )
+            // ->add(
+            //     'date',
+            //     'hidden',
+            //     ['label' => trans('elementForm.value_date'), 'help_block' => $this->addHelpText('Activity_Transaction_Value-value_date'), 'required' => false, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
+            // )
             // ->add(
             //     'currency',
             //     'select',
@@ -39,6 +39,13 @@ class Value extends BaseForm
             //         'attr'        => ['class' => 'form-control currency'],
             //     ]
             // )
+            ->add(
+                'date',
+                'hidden',
+                [
+                    
+                ]
+            )
             ->add(
                 'currency',
                 'hidden',

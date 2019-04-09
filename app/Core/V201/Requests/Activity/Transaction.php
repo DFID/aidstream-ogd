@@ -194,7 +194,7 @@ class Transaction extends ActivityBaseRequest
         foreach ($formFields as $valueIndex => $value) {
             $valueForm                               = sprintf('%s.value.%s', $formBase, $valueIndex);
             $rules[sprintf('%s.amount', $valueForm)] = 'required|numeric';
-            $rules[sprintf('%s.date', $valueForm)]   = 'required';
+            //$rules[sprintf('%s.date', $valueForm)]   = 'required';
         }
 
         return $rules;
@@ -213,7 +213,7 @@ class Transaction extends ActivityBaseRequest
             $valueForm                                           = sprintf('%s.value.%s', $formBase, $valueIndex);
             $messages[sprintf('%s.amount.required', $valueForm)] = trans('validation.required', ['attribute' => trans('elementForm.amount')]);
             $messages[sprintf('%s.amount.numeric', $valueForm)]  = trans('validation.numeric', ['attribute' => trans('elementForm.amount')]);
-            $messages[sprintf('%s.date.required', $valueForm)]   = trans('validation.required', ['attribute' => trans('elementForm.date')]);
+            //$messages[sprintf('%s.date.required', $valueForm)]   = trans('validation.required', ['attribute' => trans('elementForm.date')]);
         }
 
         return $messages;
