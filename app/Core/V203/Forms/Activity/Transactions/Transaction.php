@@ -44,7 +44,7 @@ class Transaction extends BaseForm
     public function buildForm()
     {
         $this
-            ->add('reference', 'text', ['label' => trans('elementForm.reference')])
+            ->add('reference', 'hidden', ['label' => trans('elementForm.reference')])
             ->addSelect('humanitarian', ['1' => trans('elementForm.yes'), '0' => trans('elementForm.no')], trans('elementForm.humanitarian'))
             ->addTransactionType()
             ->addTransactionDate()

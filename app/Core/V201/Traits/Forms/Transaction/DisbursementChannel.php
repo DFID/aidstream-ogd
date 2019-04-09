@@ -12,7 +12,7 @@ trait DisbursementChannel
      */
     public function addDisbursementChannel()
     {
-        return $this->addCollection('disbursement_channel', 'Activity\Transactions\DisbursementChannel', '', [], trans('elementForm.disbursement_channel'));
+        return $this->addCollection('disbursement_channel', 'Activity\Transactions\DisbursementChannel', 'hidden', [], trans('elementForm.disbursement_channel'));
     }
 
     /**
