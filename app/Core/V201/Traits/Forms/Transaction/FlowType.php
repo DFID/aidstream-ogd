@@ -12,7 +12,7 @@ trait FlowType
      */
     public function addFlowType()
     {
-        return $this->addCollection('flow_type', 'Activity\Transactions\FlowType', '', [], trans('elementForm.flow_type'));
+        return $this->addCollection('flow_type', 'Activity\Transactions\FlowType', 'hidden', [], trans('elementForm.flow_type'));
     }
 
     /**
