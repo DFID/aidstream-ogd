@@ -14,20 +14,38 @@ class ParticipatingOrganization extends BaseForm
     public function buildForm()
     {
         $this
-            ->addSelect(
+            ->add(
                 'organization_role',
-                $this->getCodeList('OrganisationRole', 'Activity'),
-                trans('elementForm.organisation_role'),
-                $this->addHelpText('Activity_ParticipatingOrg-role'),
-                null,
-                true
+                'hidden',
+                [
+                    
+                ]
             )
-            ->add('identifier', 'text', ['label' => trans('elementForm.identifier'), 'help_block' => $this->addHelpText('Activity_ParticipatingOrg-ref')])
-            ->addSelect('organization_type', $this->getCodeList('OrganisationType', 'Activity'), trans('elementForm.organisation_type'), $this->addHelpText('Activity_ParticipatingOrg-type'))
-            ->add('activity_id', 'text', ['label' => trans('elementForm.activity_id')])
-            ->add('crs_channel_code','text',['label' => 'Crs Channel Code'])
-            ->addNarrative('narrative', trans('elementForm.organisation_name'))
-            ->addAddMoreButton('add', 'narrative')
-            ->addRemoveThisButton('remove_narrative');
+            // ->addSelect(
+            //     'organization_role',
+            //     $this->getCodeList('OrganisationRole', 'Activity'),
+            //     trans('elementForm.organisation_role'),
+            //     $this->addHelpText('Activity_ParticipatingOrg-role'),
+            //     null,
+            //     true
+            // )
+            ->add('identifier', 'hidden', ['label' => trans('elementForm.identifier'), 'help_block' => $this->addHelpText('Activity_ParticipatingOrg-ref')])
+            ->add(
+                'organization_type',
+                'hidden',
+                [
+                    
+                ]
+            )
+            //->addSelect('organization_type', $this->getCodeList('OrganisationType', 'Activity'), trans('elementForm.organisation_type'), $this->addHelpText('Activity_ParticipatingOrg-type'))
+            ->add('activity_id', 'hidden', ['label' => trans('elementForm.activity_id')])
+            ->add('crs_channel_code','hidden',['label' => 'Crs Channel Code'])
+            ->addNarrative('narrative hidden', trans('elementForm.organisation_name'))
+            //->addAddMoreButton('add', 'narrative')
+            //->addRemoveThisButton('remove_narrative')
+            ->addCollection('participating_org_funding', 'Activity\ParticipatingOrgFunding', 'participating_org_funding',[], trans('elementForm.humanitarian_scope_emergency'))
+            ->addCollection('participating_org_accountable', 'Activity\ParticipatingOrgAccountable', 'participating_org_accountable',[], trans('elementForm.humanitarian_scope_emergency'))
+            ->addCollection('participating_org_implementing', 'Activity\ParticipatingOrgImplementing', 'participating_org_implementing',[], trans('elementForm.humanitarian_scope_emergency'))
+            ;
     }
 }
