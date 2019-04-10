@@ -70,8 +70,8 @@ class ParticipatingOrganizationController extends Controller
             $getCrsChannelCode = [];
         }
         
-//        $participatingOrganization  = $this->participatingOrganizationManager->getParticipatingOrganizationData($id);
-//        $form                       = $this->participatingOrganizationForm->editForm($participatingOrganization, $id);
+        $participatingOrganization  = $this->participatingOrganizationManager->getParticipatingOrganizationData($id);
+        $form                       = $this->participatingOrganizationForm->editForm($participatingOrganization, $id);
         $organizationTypes     = $this->getNameWithCode('Activity', 'OrganisationType');
         $organizationRoles     = $this->getNameWithCode('Activity', 'OrganisationRole');
         $partnerOrganizations  = $this->participatingOrganizationManager->getPartnerOrganizations(session('org_id'))->toArray();
@@ -133,8 +133,9 @@ class ParticipatingOrganizationController extends Controller
 
         if ($this->participatingOrganizationManager->update($participatingOrganization, $activityData)) {
             $this->activityManager->resetActivityWorkflow($id);
-
-            return response()->json(trans('V201/message.updated', ['name' => 'participating organization']), 200);
+            $response = ['type' => 'success', 'code' => ['updated', ['name' => trans('element.participating_organisation')]]];
+            return redirect()->to(sprintf('/activity/%s', $id))->withResponse($response);
+            //return response()->json(trans('V201/message.updated', ['name' => 'participating organization']), 200);
         }
 
         return response()->json(trans('V201/message.update_failed', ['name' => 'participating organization']), 500);

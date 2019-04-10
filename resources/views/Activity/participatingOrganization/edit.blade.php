@@ -23,40 +23,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="create-form">
-                                <div class="loading-div"></div>
-                                <div v-cloak class="create-form" id="participatingContainer" data-organization="{{json_encode($participatingOrganizations)}}"
-                                     data-partnerOrganization="{{json_encode($partnerOrganizations)}}" data-activityId="{{$id}}"
-                                     data-organizationRoles="{{json_encode($organizationRoles)}}"
-                                     data-crsChannelCode="{{json_encode($getCrsChannelCode)}}"
-                                     >
-                                    <div v-if="display_server_error_message" class="alert alert-danger">
-                                        Please fix the following validation errors:
-                                        <div v-if="server_error_message">
-                                            <li>
-                                                @{{ server_error_message }}
-                                            </li>
-                                        </div>
-                                    </div>
-
-                                    {{Form::open()}}
-                                    <participating-org v-for="(organisation,index) in organisations" v-on:remove="removeOrganisation(index)"
-                                                       v-on:search="setCurrentOrganization(index,$event)"
-                                                       :organisation="organisation" :index="index"
-                                                       v-on:display="displayModal($event)"
-                                                       :display_error="display_error"
-                                                       :organisation_roles="organisationRoles"
-                                                       :partner_organisations="partnerOrganisations"
-                                                       v-if="organisations"
-                                                       :key="index"
-                                                       :crs_channel_code="getCrsChannelCode">
-                                    </participating-org>
-                                    <button class="addMore" type="button" @click="addOrganisations()">Add another organisation</button>
-                                    <modal v-show="showModal" v-on:close="closeModal" :organisation="currentOrganisation"
-                                           :registrar_list="registrarList"></modal>
-                                    <button class="btn btn-submit btn-form" type="button" v-on:click="onSubmit">Save</button>
-                                    <a class="btn btn-cancel" href="{{route('activity.show', $id)}}">Cancel</a>
-                                </div>
-                                {{Form::close()}}
+                                {!! form($form) !!}
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ class MultipleParticipatingOrganization extends BaseForm
                 'participating_organization',
                 [],
                 'Participating Organisation'
-            )
-            ->addAddMoreButton('add', 'participating_organization');
+            );
+            //->addAddMoreButton('add', 'participating_organization');
     }
 }
