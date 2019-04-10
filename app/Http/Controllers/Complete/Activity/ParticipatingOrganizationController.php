@@ -113,6 +113,8 @@ class ParticipatingOrganizationController extends Controller
      */
     public function update($id, Request $request, ParticipatingOrganizationRequestManager $participatingOrganizationRequestManager)
     {
+        $tempData = $request->all();
+        info($tempData);
         $activityData = $this->activityManager->getActivityData($id);
 
         if (Gate::denies('ownership', $activityData)) {
@@ -121,13 +123,44 @@ class ParticipatingOrganizationController extends Controller
 
         $this->authorizeByRequestType($activityData, 'participating_organization');
 
-        if (!$this->validateData($request->get('participating_organization'))) {
-            return response()->json(trans('V201/message.participating_org', ['name' => 'participating organization']), 500);
-        }
+        // if (!$this->validateData($request->get('participating_organization'))) {
+        //     return response()->json(trans('V201/message.participating_org', ['name' => 'participating organization']), 500);
+        // }
         $tempData = $request->all();
-        info($tempData);
-        $preparedData = [];
-        $participatingOrganization['participating_organization']  = $this->participatingOrganizationManager->managePartnerOrganizations($activityData, $request->all());
+        $preparedData['participating_organization'] = [];
+        if(isset($tempData)){
+            if(isset($tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable']) && strlen($tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable']) > 0){
+                $tdata['organization_role'] = 2;
+                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['identifier_accountable'];
+                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['organization_type_accountable'];
+                $tdata['activity_id'] = '';
+                $tdata['crs_channel_code'] = '';
+                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable'];
+                $tdata['narrative'][0]['language'] = 'en';
+                array_push($preparedData['participating_organization'], $tdata);
+            }
+            if(isset($tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding']) && strlen($tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding']) > 0){
+                $tdata['organization_role'] = 1;
+                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['identifier_funding'];
+                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['organization_type_funding'];
+                $tdata['activity_id'] = '';
+                $tdata['crs_channel_code'] = '';
+                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding'];
+                $tdata['narrative'][0]['language'] = 'en';
+                array_push($preparedData['participating_organization'], $tdata);
+            }
+            if(isset($tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing']) && strlen($tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing']) > 0){
+                $tdata['organization_role'] = 4;
+                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['identifier_implementing'];
+                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['organization_type_implementing'];
+                $tdata['activity_id'] = '';
+                $tdata['crs_channel_code'] = '';
+                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing'];
+                $tdata['narrative'][0]['language'] = 'en';
+                array_push($preparedData['participating_organization'], $tdata);
+            }
+        }
+        $participatingOrganization['participating_organization']  = $this->participatingOrganizationManager->managePartnerOrganizations($activityData, $preparedData);
 
         if (!$participatingOrganization) {
             return response()->json(trans('V201/message.update_failed', ['name' => 'participating organization']), 400);
