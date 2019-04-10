@@ -124,7 +124,9 @@ class ParticipatingOrganizationController extends Controller
         if (!$this->validateData($request->get('participating_organization'))) {
             return response()->json(trans('V201/message.participating_org', ['name' => 'participating organization']), 500);
         }
-
+        $tempData = $request->all();
+        info($tempData);
+        $preparedData = [];
         $participatingOrganization['participating_organization']  = $this->participatingOrganizationManager->managePartnerOrganizations($activityData, $request->all());
 
         if (!$participatingOrganization) {

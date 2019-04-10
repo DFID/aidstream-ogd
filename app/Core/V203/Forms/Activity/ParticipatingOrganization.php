@@ -43,9 +43,9 @@ class ParticipatingOrganization extends BaseForm
             ->addNarrative('narrative hidden', trans('elementForm.organisation_name'))
             //->addAddMoreButton('add', 'narrative')
             //->addRemoveThisButton('remove_narrative')
-            ->addCollection('participating_org_funding', 'Activity\ParticipatingOrgFunding', 'participating_org_funding',[], trans('elementForm.humanitarian_scope_emergency'))
-            ->addCollection('participating_org_accountable', 'Activity\ParticipatingOrgAccountable', 'participating_org_accountable',[], trans('elementForm.humanitarian_scope_emergency'))
-            ->addCollection('participating_org_implementing', 'Activity\ParticipatingOrgImplementing', 'participating_org_implementing',[], trans('elementForm.humanitarian_scope_emergency'))
+            ->addCollection('participating_org_accountable', 'Activity\ParticipatingOrgAccountable', 'participating_org_accountable',[], trans('elementForm.participating_org_accountable'))
+            ->addCollection('participating_org_funding', 'Activity\ParticipatingOrgFunding', 'participating_org_funding',[], trans('elementForm.participating_org_funding'))
+            ->addCollection('participating_org_implementing', 'Activity\ParticipatingOrgImplementing', 'participating_org_implementing',[], trans('elementForm.participating_org_implementing'))
             ;
     }
 }

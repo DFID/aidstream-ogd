@@ -35,18 +35,18 @@ class ParticipatingOrganization extends ActivityBaseRequest
     {
         $rules = [];
 
-        foreach ($formFields as $participatingOrgIndex => $participatingOrg) {
-            $participatingOrgForm                                = 'participating_organization.' . $participatingOrgIndex;
-            $rules[$participatingOrgForm . '.organization_role'] = 'required';
-            $identifier                                          = $participatingOrgForm . '.identifier';
-            $narrative                                           = sprintf('%s.narrative.0.narrative', $participatingOrgForm);
-            $rules[$identifier]                                  = 'exclude_operators|required_without:' . $narrative;
-            $rules[$narrative][]                                 = 'required_without:' . $identifier;
-            $rules                                               = array_merge_recursive(
-                $rules,
-                $this->getRulesForNarrative($participatingOrg['narrative'], $participatingOrgForm)
-            );
-        }
+        // foreach ($formFields as $participatingOrgIndex => $participatingOrg) {
+        //     $participatingOrgForm                                = 'participating_organization.' . $participatingOrgIndex;
+        //     $rules[$participatingOrgForm . '.organization_role'] = 'required';
+        //     $identifier                                          = $participatingOrgForm . '.identifier';
+        //     $narrative                                           = sprintf('%s.narrative.0.narrative', $participatingOrgForm);
+        //     $rules[$identifier]                                  = 'exclude_operators|required_without:' . $narrative;
+        //     $rules[$narrative][]                                 = 'required_without:' . $identifier;
+        //     $rules                                               = array_merge_recursive(
+        //         $rules,
+        //         $this->getRulesForNarrative($participatingOrg['narrative'], $participatingOrgForm)
+        //     );
+        // }
 
         return $rules;
     }
@@ -60,28 +60,28 @@ class ParticipatingOrganization extends ActivityBaseRequest
     {
         $messages = [];
 
-        foreach ($formFields as $participatingOrgIndex => $participatingOrg) {
-            $participatingOrgForm                                            = 'participating_organization.' . $participatingOrgIndex;
-            $messages[$participatingOrgForm . '.organization_role.required'] = trans('validation.required', ['attribute' => trans('elementForm.organisation_role')]);
-            $identifier                                                      = $participatingOrgForm . '.identifier';
-            $narrative                                                       = sprintf('%s.narrative.0.narrative', $participatingOrgForm);
-            $messages[$identifier . '.required_without']                     = trans(
-                'validation.required_without',
-                ['attribute' => trans('elementForm.identifier'), 'values' => trans('elementForm.narrative')]
-            );
-            $messages[$narrative . '.required_without']                      = trans(
-                'validation.required_without',
-                ['attribute' => trans('elementForm.narrative'), 'values' => trans('elementForm.identifier')]
-            );
-            $messages[$identifier.'.exclude_operators'] = trans(
-                'validation.exclude_operators',
-                ['attribute' => trans('elementForm.identifier'), 'values' => trans('elementForm.identifier')]
-            );
-            $messages                                                        = array_merge(
-                $messages,
-                $this->getMessagesForNarrative($participatingOrg['narrative'], $participatingOrgForm)
-            );
-        }
+        // foreach ($formFields as $participatingOrgIndex => $participatingOrg) {
+        //     $participatingOrgForm                                            = 'participating_organization.' . $participatingOrgIndex;
+        //     $messages[$participatingOrgForm . '.organization_role.required'] = trans('validation.required', ['attribute' => trans('elementForm.organisation_role')]);
+        //     $identifier                                                      = $participatingOrgForm . '.identifier';
+        //     $narrative                                                       = sprintf('%s.narrative.0.narrative', $participatingOrgForm);
+        //     $messages[$identifier . '.required_without']                     = trans(
+        //         'validation.required_without',
+        //         ['attribute' => trans('elementForm.identifier'), 'values' => trans('elementForm.narrative')]
+        //     );
+        //     $messages[$narrative . '.required_without']                      = trans(
+        //         'validation.required_without',
+        //         ['attribute' => trans('elementForm.narrative'), 'values' => trans('elementForm.identifier')]
+        //     );
+        //     $messages[$identifier.'.exclude_operators'] = trans(
+        //         'validation.exclude_operators',
+        //         ['attribute' => trans('elementForm.identifier'), 'values' => trans('elementForm.identifier')]
+        //     );
+        //     $messages                                                        = array_merge(
+        //         $messages,
+        //         $this->getMessagesForNarrative($participatingOrg['narrative'], $participatingOrgForm)
+        //     );
+        // }
 
         return $messages;
     }
