@@ -33,7 +33,9 @@ class Transaction
     public function displayForm($method, $url, $data = null, $activityId = null)
     {
         $model['transaction'][0] = $data;
-
+        if(isset($model['transaction'][0])){
+            $model['transaction'][0]['value'][0]['date'] = $model['transaction'][0]['transaction_date'][0]['date'];
+        }
         return $this->formBuilder->create(
             $this->formPath,
             [

@@ -98,6 +98,9 @@ class TransactionController extends Controller
 
         $this->authorize('add_activity', $activityData);
         $data              = $request->all();
+        if(isset($data)){
+            $data['transaction'][0]['value'][0]['date'] = $data['transaction'][0]['transaction_date'][0]['date'];
+        }
         $activityAsAnArray = $activityData->toArray();
 
         if ($this->recipientCountryAndRegionAreInvalid($activityAsAnArray, $data)) {
