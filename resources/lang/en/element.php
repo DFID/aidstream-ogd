@@ -8,6 +8,7 @@ return [
     'activity_identifier'           => 'Activity Identifier',
     'other_identifier'              => 'Other Identifier',
     'basic_activity_information'    => 'Basic Activity Information',
+    'basic_activity_info'           => 'Basic Activity Information (Combined)',
     'title'                         => 'Title',
     'description'                   => 'Description',
     'activity_status'               => 'Activity Status',

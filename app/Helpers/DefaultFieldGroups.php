@@ -30,7 +30,7 @@ class DefaultFieldGroups
             $identification
         );
         $defaultFieldGroups                  = $defaultFieldGroup + $defaultFieldGroups;
-
+        info($defaultFieldGroups);
         return $defaultFieldGroups;
     }
 
@@ -56,7 +56,8 @@ class DefaultFieldGroups
                     "activity_status" => $activityData['activity_status'],
                     "activity_date"   => $activityData['activity_date'],
                     "contact_info"    => $activityData['contact_info'],
-                    "activity_scope"  => $activityData['activity_scope']
+                    "activity_scope"  => $activityData['activity_scope'],
+                    "basic_activity_info" => 'Basic Activity Info'
                 ],
                 "Participating Organizations" => [
                     "participating_organization" => $activityData['participating_organization']
