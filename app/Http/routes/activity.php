@@ -9,7 +9,7 @@ $router->group(
         $router->resource('activity.iati-identifier', 'IatiIdentifierController');
         $router->resource('activity.other-identifier', 'OtherIdentifierController');
         $router->resource('activity.title', 'TitleController');
-        $router->resource('activity.basic-activity-info', 'TitleController');
+        $router->resource('activity.basic-activity-info', 'BasicActivityInfoController');
         $router->resource('activity.description', 'DescriptionController');
         $router->resource('activity.activity-status', 'ActivityStatusController');
         $router->resource('activity.activity-date', 'ActivityDateController');

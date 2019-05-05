@@ -141,4 +141,14 @@ class IatiActivity extends V201
     {
         return app('App\Core\V203\Requests\Activity\DefaultAidType');
     }
+
+    public function getBasicActivityInfo()
+    {
+        return app('App\Core\V203\Element\Activity\BasicActivityInfo');
+    }
+
+    public function getBasicActivityInfoRequest()
+    {
+        return app('App\Core\V203\Requests\Activity\BasicActivityInfo');
+    }
 }
