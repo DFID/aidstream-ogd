@@ -17,6 +17,7 @@ class BasicActivityInfo extends BaseForm
         $this
             ->addCollection('title', 'Activity\Title','title',[], trans('elementForm.text'))
             ->addCollection('activityDate', 'Activity\ActivityDate', 'activityDate', [], 'Activity Dates')
-            ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus',[],'Activity Status');
+            ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus',[],'Activity Status')
+            ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description');
     }
 }
