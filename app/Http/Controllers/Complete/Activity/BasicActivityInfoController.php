@@ -58,7 +58,8 @@ class BasicActivityInfoController extends Controller
 
         $activityTitle = $this->basicActivityInfoManager->getTitleData($id);
         $activityDate = $this->basicActivityInfoManager->getActivityDateData($id);
-        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate, $id);
+        $activityStatus = $this->basicActivityInfoManager->getActivityStatusData($id);
+        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate,$activityStatus, $id);
         return view(
             'Activity.basicActivityInfo.edit',
             compact('form', 'id', 'activityData')
@@ -91,6 +92,7 @@ class BasicActivityInfoController extends Controller
         $dataToBeSaved['activity_date'][0]['narrative'][0]['language'] = '';
         $dataToBeSaved['activity_date'][1]['narrative'][0]['narrative'] = '';
         $dataToBeSaved['activity_date'][1]['narrative'][0]['language'] = '';
+        $dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
         //Activity date handler ends here
         $activityData = $this->basicActivityInfoManager->getActivityData($id);
         $this->authorizeByRequestType($activityData, 'title');

@@ -33,16 +33,15 @@ class BasicActivityInfo
      * @return $this
      * return activity title edit form.
      */
-    public function editForm($activityTitle, $activityDate, $activityId)
+    public function editForm($activityTitle, $activityDate, $activityStatus, $activityId)
     {
-        info($activityTitle);
-        info($activityDate);
         $model['title'][0]['narrative'] = $activityTitle;
         $model['activityDate'] = [];
         $model['activityDate'][0]['date_planned_start'] = $activityDate[0]['date'];
         $model['activityDate'][0]['type_planned_start'] = $activityDate[0]['type'];
         $model['activityDate'][0]['date_planned_end'] = $activityDate[1]['date'];
         $model['activityDate'][0]['type_planned_end'] = $activityDate[1]['type'];
+        $model['activityStatus'][0]['activity_status'] = $activityStatus;
         return $this->formBuilder->create(
             $this->formPath,
             [

@@ -39,6 +39,7 @@ class BasicActivityInfoManager
         $this->version       = $version;
         $this->iatiTitleRepo = $version->getActivityElement()->getTitle()->getRepository();
         $this->iatiActivtyDateRepo = $version->getActivityElement()->getActivityDate()->getRepository();
+        $this->activityStatusRepo = $version->getActivityElement()->getActivityStatus()->getRepository();
 
     }
 
@@ -53,6 +54,7 @@ class BasicActivityInfoManager
         try {
             $this->iatiTitleRepo->update($activityDetails['title'], $activity);
             $this->iatiActivtyDateRepo->update($activityDetails, $activity);
+            $this->activityStatusRepo->update($activityDetails, $activity);
             $this->log->info(
                 'Activity Title Updated!',
                 ['for ' => $activity['narrative']]
@@ -92,6 +94,16 @@ class BasicActivityInfoManager
         return $this->iatiActivtyDateRepo->getActivityDateData($id);
     }
     
+    /**
+     * Get the Activity Status data for Activity with the given id.
+     * @param $id
+     * @return Model
+     */
+    public function getActivityStatusData($id)
+    {
+        return $this->activityStatusRepo->getActivityStatusData($id);
+    }
+
     /**
      * @param $id
      * @return Model
