@@ -18,6 +18,8 @@ class BasicActivityInfo extends BaseForm
             ->addCollection('title', 'Activity\Title','title',[], trans('elementForm.text'))
             ->addCollection('activityDate', 'Activity\ActivityDate', 'activityDate', [], 'Activity Dates')
             ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus',[],'Activity Status')
-            ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description');
+            ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description')
+            ->addCollection('budget', 'Activity\Budget', 'budget', [], trans('elementForm.budget'))
+            ->addAddMoreButton('add_budget', 'budget');
     }
 }

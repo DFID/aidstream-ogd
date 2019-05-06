@@ -41,6 +41,7 @@ class BasicActivityInfoManager
         $this->iatiActivtyDateRepo = $version->getActivityElement()->getActivityDate()->getRepository();
         $this->activityStatusRepo = $version->getActivityElement()->getActivityStatus()->getRepository();
         $this->iatiDescriptionRepo = $version->getActivityElement()->getdescription()->getRepository();
+        $this->iatiBudgetRepo = $version->getActivityElement()->getBudget()->getRepository();
     }
 
     /**
@@ -56,6 +57,7 @@ class BasicActivityInfoManager
             $this->iatiActivtyDateRepo->update($activityDetails, $activity);
             $this->activityStatusRepo->update($activityDetails, $activity);
             $this->iatiDescriptionRepo->update($activityDetails, $activity);
+            $this->iatiBudgetRepo->update($activityDetails, $activity);
             $this->log->info(
                 'Activity Title Updated!',
                 ['for ' => $activity['narrative']]
@@ -107,13 +109,22 @@ class BasicActivityInfoManager
 
     /**
      * @param $id
+     * @return mixed
+     */
+    public function getBudgetData($id)
+    {
+        return $this->iatiBudgetRepo->getBudgetData($id);
+    }
+
+    /**
+     * @param $id
      * @return Model
      */
     public function getDescriptionData($id)
     {
         return $this->iatiDescriptionRepo->getDescriptionData($id);
     }
-    
+
     /**
      * @param $id
      * @return Model

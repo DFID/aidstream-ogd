@@ -60,7 +60,8 @@ class BasicActivityInfoController extends Controller
         $activityDate = $this->basicActivityInfoManager->getActivityDateData($id);
         $activityStatus = $this->basicActivityInfoManager->getActivityStatusData($id);
         $activityDescription = $this->basicActivityInfoManager->getDescriptionData($id);
-        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate,$activityStatus, $activityDescription, $id);
+        $budget = $this->basicActivityInfoManager->getbudgetData($id);
+        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate,$activityStatus, $activityDescription, $budget, $id);
         return view(
             'Activity.basicActivityInfo.edit',
             compact('form', 'id', 'activityData')
@@ -96,6 +97,10 @@ class BasicActivityInfoController extends Controller
         $dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
         $dataToBeSaved['description'] = [];
         $dataToBeSaved['description'] = $data['activityDescription'];
+        foreach($data['budget'] as &$budget){
+            $budget['value'][0]['value_date'] = $budget['period_start'][0]['date'];
+        }
+        $dataToBeSaved['budget'] = $data['budget'];
         //$dataToBeSaved['activity_status']
         //Activity date handler ends here
         $activityData = $this->basicActivityInfoManager->getActivityData($id);

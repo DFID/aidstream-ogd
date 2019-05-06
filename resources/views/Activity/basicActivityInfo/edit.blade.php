@@ -25,7 +25,10 @@
                             <div class="create-form">
                                 {!! form($form) !!}
                             </div>
-                            <!-- Data prototyping placeholder-->
+                            <div class="collection-container hidden" data-prototype="{{ form_row($form->budget->prototype()) }}">
+                            </div>
+                            <div class="collection-container hidden" data-prototype="{{ form_row($form->title->prototype()) }}">
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ class BasicActivityInfo
      * @return $this
      * return activity title edit form.
      */
-    public function editForm($activityTitle, $activityDate, $activityStatus, $activityDescription, $activityId)
+    public function editForm($activityTitle, $activityDate, $activityStatus, $activityDescription, $budget , $activityId)
     {
         info($activityDescription);
         $model['title'][0]['narrative'] = $activityTitle;
@@ -45,6 +45,8 @@ class BasicActivityInfo
         $model['activityStatus'][0]['activity_status'] = $activityStatus;
         $model['activityDescription'] = [];
         $model['activityDescription'] = $activityDescription;
+        $model['budget'] = [];
+        $model['budget'] = $budget;
         return $this->formBuilder->create(
             $this->formPath,
             [
