@@ -9,7 +9,7 @@
             <div class="col-xs-9 col-md-9 col-lg-9 content-wrapper">
                 @include('includes.response')
                 <div class="element-panel-heading">
-                    <div><span>@lang('element.activity_date')</span>
+                    <div><span>Basic Activity Information</span>
                         <div class="element-panel-heading-info">
                             <span>{{$activityData->IdentifierTitle}}</span></div>
                         <div class="panel-action-btn">
