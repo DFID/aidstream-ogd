@@ -63,6 +63,6 @@ return [
     'results'                       => 'Results',
     'add_participating_organisation' => 'Add a participating organization',
     'tag'                           => 'Tag',
-    'basic_activity_info_lite'      => 'Basic Activity Info (Lite)'
+    'basic_activity_info_(lite)'      => 'Basic Activity Info (Lite)'
 ];
 
