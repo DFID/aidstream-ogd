@@ -25,9 +25,7 @@
                             <div class="create-form">
                                 {!! form($form) !!}
                             </div>
-                            <div class="collection-container hidden" data-prototype="{{ form_row($form->budget->prototype()) }}">
-                            </div>
-                            <div class="collection-container hidden" data-prototype="{{ form_row($form->title->prototype()) }}">
+                            <div class="collection-container hidden" data-prototype="{{ form_row($form->basicActivityInfo->prototype()) }}">
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ class BasicActivityInfo extends BaseElement
      */
     public function getForm()
     {
-        return 'App\Core\V203\Forms\Activity\BasicActivityInfo';
+        return 'App\Core\V203\Forms\Activity\BasicActivityInfos';
     }
 
     /**

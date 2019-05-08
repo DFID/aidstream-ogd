@@ -61,7 +61,8 @@ class BasicActivityInfoController extends Controller
         $activityStatus = $this->basicActivityInfoManager->getActivityStatusData($id);
         $activityDescription = $this->basicActivityInfoManager->getDescriptionData($id);
         $budget = $this->basicActivityInfoManager->getbudgetData($id);
-        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate,$activityStatus, $activityDescription, $budget, $id);
+        $humScopeData = $this->basicActivityInfoManager->getActivityHumanitarianScopeData($id);
+        $form          = $this->basicActivityInfo->editForm($activityTitle,$activityDate,$activityStatus, $activityDescription, $budget, $humScopeData, $id);
         return view(
             'Activity.basicActivityInfo.edit',
             compact('form', 'id', 'activityData')
@@ -81,6 +82,7 @@ class BasicActivityInfoController extends Controller
             return redirect()->back()->withResponse($this->getNoPrivilegesMessage());
         }
         $data = $request->all();
+        $data = $data['basicActivityInfo'][0];
         //Activity Title handler
         $dataToBeSaved['title'] = [];
         $dataToBeSaved['title'] = $data['title'][0];
@@ -101,6 +103,13 @@ class BasicActivityInfoController extends Controller
             $budget['value'][0]['value_date'] = $budget['period_start'][0]['date'];
         }
         $dataToBeSaved['budget'] = $data['budget'];
+        $dataToBeSaved['humanitarian_scope'] = [];
+        foreach($data['humanitarian_scope'][0]['humanitarian_scope_emergency'] as &$emergencyData){
+            array_push($dataToBeSaved['humanitarian_scope'],$emergencyData);
+        }
+        foreach($data['humanitarian_scope'][0]['humanitarian_scope_appeal'] as &$appealData){
+            array_push($dataToBeSaved['humanitarian_scope'],$appealData);
+        }
         //$dataToBeSaved['activity_status']
         //Activity date handler ends here
         $activityData = $this->basicActivityInfoManager->getActivityData($id);

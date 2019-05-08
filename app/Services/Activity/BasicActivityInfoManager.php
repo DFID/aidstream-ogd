@@ -42,6 +42,7 @@ class BasicActivityInfoManager
         $this->activityStatusRepo = $version->getActivityElement()->getActivityStatus()->getRepository();
         $this->iatiDescriptionRepo = $version->getActivityElement()->getdescription()->getRepository();
         $this->iatiBudgetRepo = $version->getActivityElement()->getBudget()->getRepository();
+        $this->humanitarianScopeRepo = $version->getActivityElement()->getHumanitarianScopeRepository();
     }
 
     /**
@@ -58,6 +59,7 @@ class BasicActivityInfoManager
             $this->activityStatusRepo->update($activityDetails, $activity);
             $this->iatiDescriptionRepo->update($activityDetails, $activity);
             $this->iatiBudgetRepo->update($activityDetails, $activity);
+            $this->humanitarianScopeRepo->update($activityDetails, $activity);
             $this->log->info(
                 'Activity Title Updated!',
                 ['for ' => $activity['narrative']]
@@ -132,5 +134,15 @@ class BasicActivityInfoManager
     public function getActivityData($id)
     {
         return $this->iatiTitleRepo->getActivityData($id);
+    }
+
+    /**
+     * get activity Humanitarian Scope data
+     * @param $activityId
+     * @return mixed
+     */
+    public function getActivityHumanitarianScopeData($activityId)
+    {
+        return $this->humanitarianScopeRepo->getActivityHumanitarianScopeData($activityId);
     }
 }

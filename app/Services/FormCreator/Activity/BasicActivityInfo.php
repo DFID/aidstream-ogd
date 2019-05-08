@@ -33,9 +33,8 @@ class BasicActivityInfo
      * @return $this
      * return activity title edit form.
      */
-    public function editForm($activityTitle, $activityDate, $activityStatus, $activityDescription, $budget , $activityId)
+    public function editForm($activityTitle, $activityDate, $activityStatus, $activityDescription, $budget, $humScopeData, $activityId)
     {
-        info($activityDescription);
         $model['title'][0]['narrative'] = $activityTitle;
         $model['activityDate'] = [];
         $model['activityDate'][0]['date_planned_start'] = $activityDate[0]['date'];
@@ -47,11 +46,25 @@ class BasicActivityInfo
         $model['activityDescription'] = $activityDescription;
         $model['budget'] = [];
         $model['budget'] = $budget;
+        $model['humanitarian_scope'] = [];
+        $model['humanitarian_scope'][0]['humanitarian_scope_emergency'] = [];
+        $model['humanitarian_scope'][0]['humanitarian_scope_appeal'] = [];
+        if(sizeof($humScopeData) > 0){
+            foreach($humScopeData as &$d){
+                if($d['type']==1){
+                    array_push($model['humanitarian_scope'][0]['humanitarian_scope_emergency'], $d);
+                }
+                else{
+                    array_push($model['humanitarian_scope'][0]['humanitarian_scope_appeal'], $d);   
+                }
+            }
+        }
+        $finalDataSet['basicActivityInfo'][0] = $model;
         return $this->formBuilder->create(
             $this->formPath,
             [
                 'method' => 'PUT',
-                'model'  => $model,
+                'model'  => $finalDataSet,
                 'url'    => route('activity.basic-activity-info.update', [$activityId, 0])
             ]
         )->add('Save', 'submit', ['attr' => ['class' => 'btn btn-submit btn-form'],'label' => trans('global.save')])

@@ -20,6 +20,7 @@ class BasicActivityInfo extends BaseForm
             ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus',[],'Activity Status')
             ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description')
             ->addCollection('budget', 'Activity\Budget', 'budget', [], trans('elementForm.budget'))
-            ->addAddMoreButton('add_budget', 'budget');
+            ->addAddMoreButton('add_budget', 'budget')
+            ->addCollection('humanitarian_scope', 'Activity\HumanitarianScopesOGD', 'humanitarian_scope');
     }
 }
