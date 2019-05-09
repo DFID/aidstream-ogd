@@ -63,6 +63,8 @@ return [
     'results'                       => 'Results',
     'add_participating_organisation' => 'Add a participating organization',
     'tag'                           => 'Tag',
-    'basic_activity_info_(lite)'      => 'Basic Activity Info (Lite)'
+    'basic_activity_info_(lite)'      => 'Basic Activity Info (Lite)',
+    'geo_country_region'              => 'Country / Region',
+    'country_/_region'              => 'Country / Region'
 ];
 

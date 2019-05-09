@@ -151,4 +151,14 @@ class IatiActivity extends V201
     {
         return app('App\Core\V203\Requests\Activity\BasicActivityInfo');
     }
+
+    public function getGeoCountryRegion()
+    {
+        return app('App\Core\V203\Element\Activity\GeoCountryRegion');
+    }
+
+    public function getGeoCountryRegionRequest()
+    {
+        return app('App\Core\V203\Requests\Activity\GeoCountryRegion');
+    }
 }

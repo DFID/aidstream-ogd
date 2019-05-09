@@ -21,6 +21,7 @@ $router->group(
         $router->resource('activity.sector', 'SectorController');
         $router->resource('activity.country-budget-items', 'CountryBudgetItemController');
         $router->resource('activity.location', 'LocationController');
+        $router->resource('activity.geo-country-region', 'GeoCountryRegionController');
         $router->resource('activity.budget', 'BudgetController');
         $router->resource('activity.policy-marker', 'PolicyMarkerController');
         $router->resource('activity.collaboration-type', 'CollaborationTypeController');

@@ -30,7 +30,6 @@ class DefaultFieldGroups
             $identification
         );
         $defaultFieldGroups                  = $defaultFieldGroup + $defaultFieldGroups;
-        info($defaultFieldGroups);
         return $defaultFieldGroups;
     }
 
@@ -65,7 +64,8 @@ class DefaultFieldGroups
                 "Geopolitical Information"    => [
                     "recipient_country" => $activityData['recipient_country'],
                     "recipient_region"  => $activityData['recipient_region'],
-                    "location"          => $activityData['location']
+                    "location"          => $activityData['location'],
+                    "geo_country_region"  => 'Country / Region'
                 ],
                 "Classifications"             => [
                     "sector"               => $activityData['sector'],
