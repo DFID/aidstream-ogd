@@ -16,6 +16,7 @@ $router->group(
         $router->resource('activity.contact-info', 'ContactInfoController');
         $router->resource('activity.activity-scope', 'ActivityScopeController');
         $router->resource('activity.participating-organization', 'ParticipatingOrganizationController', ['only' => ['index', 'update']]);
+        $router->resource('activity.all-default-values', 'AllDefaultValuesController');
         $router->resource('activity.recipient-country', 'RecipientCountryController');
         $router->resource('activity.recipient-region', 'RecipientRegionController');
         $router->resource('activity.sector', 'SectorController');

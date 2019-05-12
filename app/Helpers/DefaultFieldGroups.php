@@ -75,7 +75,8 @@ class DefaultFieldGroups
                     "default_finance_type" => $activityData['default_finance_type'],
                     "default_aid_type"     => $activityData['default_aid_type'],
                     "default_tied_status"  => $activityData['default_tied_status'],
-                    "country_budget_items" => $activityData['country_budget_items']
+                    "country_budget_items" => $activityData['country_budget_items'],
+                    "all_default_values"   => 'Default Values'
                 ],
                 "Financial"                   => [
                     "budget"               => $activityData['budget'],
