@@ -14,10 +14,10 @@ class BasicActivityInformation extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCheckBox('title', trans('element.title'), true, 'readonly')
-            ->addCheckBox('description', trans('element.description'), true, 'readonly')
-            ->addCheckBox('activity_status', trans('element.activity_status'), true, 'readonly')
-            ->addCheckBox('activity_date', trans('element.activity_date'), true, 'readonly')
+            ->addCheckBox('title', trans('element.title'), true, '')
+            ->addCheckBox('description', trans('element.description'), true, '')
+            ->addCheckBox('activity_status', trans('element.activity_status'), true, '')
+            ->addCheckBox('activity_date', trans('element.activity_date'), true, '')
             ->addCheckBox('contact_info', trans('element.contact_info'))
             ->addCheckBox('activity_scope', trans('element.activity_scope'))
             ->addCheckBox('basic_activity_info', trans('element.basic_activity_info_(lite)'));

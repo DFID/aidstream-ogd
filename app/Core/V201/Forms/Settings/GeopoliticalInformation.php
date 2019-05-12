@@ -14,7 +14,7 @@ class GeopoliticalInformation extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCheckBox('recipient_country', trans('element.recipient_country'), true, 'readonly')
+            ->addCheckBox('recipient_country', trans('element.recipient_country'), true, '')
             ->addCheckBox('recipient_region', trans('element.recipient_region'))
             ->addCheckBox('location', trans('element.location'))
             ->addCheckBox('geo_country_region', trans('element.geo_country_region'));
