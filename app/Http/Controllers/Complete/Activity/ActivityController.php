@@ -708,6 +708,51 @@ class ActivityController extends Controller
         return redirect()->route('activity.show', $id)->withResponse($response);
     }
 
+    private function populateContactInfo($activityData,$activityDataList)
+    {
+        $settings = $this->settingsManager->getSettings($activityDataList['organization_id']);
+        $contact_info['title'] = $settings['default_field_values'][0]['contact_info_org_title'];
+        $contact_info['description'] = $settings['default_field_values'][0]['contact_info_org_description'];
+        $contact_info['telephone'] = $settings['default_field_values'][0]['contact_info_org_telephone'];
+        $contact_info['email'] = $settings['default_field_values'][0]['contact_info_org_email'];
+        $contact_info['mailing_address'] = $settings['default_field_values'][0]['contact_info_org_mailing_address'];
+        info($activityData);
+        if(strlen((string)$contact_info['title']) > 0)
+        {
+            $tempVar = $activityData['contact_info'];
+            $tempVar = [];
+            $tempVar[0]['type'] = 'type';
+            $tempVar[0]['type'] = '';
+            $tempVar[0]['organization'][0]['narrative'][0]['narrative'] = $contact_info['title'];
+            $tempVar[0]['organization'][0]['narrative'][0]['language'] = 'en';
+            $tempVar[0]['department'][0]['narrative'][0]['narrative'] = $contact_info['description'];
+            if(strlen((string)$contact_info['description']) > 0)
+            {
+                $tempVar[0]['department'][0]['narrative'][0]['language'] = 'en';
+            }
+            else
+            {
+                $tempVar[0]['department'][0]['narrative'][0]['language'] = '';
+            }
+            $tempVar[0]['telephone'][0]['telephone'] = $contact_info['telephone'];
+            $tempVar[0]['email'][0]['email'] = $contact_info['email'];
+            $tempVar[0]['website'][0]['website'] = '';
+            $tempVar[0]['mailing_address'][0]['narrative'][0]['narrative'] = $contact_info['mailing_address'];
+            if(strlen((string)$contact_info['mailing_address']) > 0)
+            {
+                $tempVar[0]['mailing_address'][0]['narrative'][0]['language'] = 'en';
+            }
+            else
+            {
+                $tempVar[0]['mailing_address'][0]['narrative'][0]['language'] = '';
+            }
+            $tempVar[0]['person_name'][0]['narrative'] = '';
+            $tempVar[0]['job_title'][0]['narrative'] = '';
+        }
+        $activityData['contact_info'] = $tempVar;
+        return $activityData;
+    }
+
     /**
      * Get data from DB and generate xml
      * @param           $activityId
@@ -719,9 +764,8 @@ class ActivityController extends Controller
         $activityDataList = $this->activityManager->getActivityData($activityId);
         $activityElement  = $this->activityManager->getActivityElement();
         $xmlService       = $activityElement->getActivityXmlService();
-
         $xml = $xmlService->generateTemporaryActivityXml(
-            $this->activityManager->getActivityData($activityId),
+            $this->populateContactInfo($this->activityManager->getActivityData($activityId),$activityDataList),
             $this->activityManager->getTransactionData($activityId),
             $this->activityManager->getResultData($activityId),
             $this->settingsManager->getSettings($activityDataList['organization_id']),
@@ -748,7 +792,7 @@ class ActivityController extends Controller
         $xmlService      = $activityElement->getActivityXmlService();
 
         $xml = $xmlService->generateTemporaryActivityXml(
-            $this->activityManager->getActivityData($activityId),
+            $this->populateContactInfo($this->activityManager->getActivityData($activityId),$activityData),
             $this->activityManager->getTransactionData($activityId),
             $this->activityManager->getResultData($activityId),
             $this->settingsManager->getSettings($activityData['organization_id']),

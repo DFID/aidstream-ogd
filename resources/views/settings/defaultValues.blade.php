@@ -30,6 +30,22 @@
                         {!! form_until($form, 'humanitarian') !!}
                     </div>
                 @endif
+                <h2>Contact Information</h2>
+                <div class="col-md-12">
+                    {!! form_until($form,'contact_info_org_title') !!}
+                </div>
+                <div class="col-md-12">
+                    {!! form_until($form,'contact_info_org_description') !!}
+                </div>
+                <div class="col-md-4">
+                    {!! form_until($form,'contact_info_org_telephone') !!}
+                </div>
+                <div class="col-md-4">
+                    {!! form_until($form,'contact_info_org_email') !!}
+                </div>
+                <div class="col-md-4">
+                    {!! form_until($form,'contact_info_org_mailing_address') !!}
+                </div>
                 {!!  form_end($form) !!}
             </div>
         </div>

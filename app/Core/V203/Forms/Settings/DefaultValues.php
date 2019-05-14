@@ -116,7 +116,44 @@ class DefaultValues extends BaseForm
             null,
             false,
             ['wrapper' => ['class' => 'form-group col-sm-6']]
-        )
+        );
+        $this//Add the contact information page field here
+            ->add(
+                'contact_info_org_title',
+                'text',
+                [
+                    'label' => 'Organisation Title'
+                ]
+            )
+            ->add(
+                'contact_info_org_description',
+                'text',
+                [
+                    'label' => 'Organisation Description'
+                ]
+            )
+            ->add(
+                'contact_info_org_telephone',
+                'text',
+                [
+                    'label' => 'Telephone'
+                ]
+            )
+            ->add(
+                'contact_info_org_email',
+                'text',
+                [
+                    'label' => 'Email'
+                ]
+            )
+            ->add(
+                'contact_info_org_mailing_address',
+                'text',
+                [
+                    'label' => 'Mailing Address'
+                ]
+            )
+            //Adding the contact information page fields end here
              ->add(
                  'save',
                  'submit',
