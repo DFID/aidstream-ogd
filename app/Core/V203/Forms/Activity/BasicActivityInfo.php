@@ -15,10 +15,10 @@ class BasicActivityInfo extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('title', 'Activity\Title','title',[], trans('elementForm.text'))
+            ->addCollection('title', 'Activity\Title','title',[], 'Activity Title')
+            ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description')
             ->addCollection('activityDate', 'Activity\ActivityDate', 'activityDate', [], 'Activity Dates')
             ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus',[],'Activity Status')
-            ->addCollection('activityDescription','Activity\Description','activityDescription',[],'Activity Description')
             ->addCollection('budget', 'Activity\Budget', 'budget', [], trans('elementForm.budget'))
             ->addAddMoreButton('add_budget', 'budget')
             ->addCollection('humanitarian_scope', 'Activity\HumanitarianScopesOGD', 'humanitarian_scope');

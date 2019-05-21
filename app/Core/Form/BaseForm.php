@@ -166,6 +166,34 @@ class BaseForm extends Form
         );
     }
 
+    public function addCollectionHideLabel($name, $file, $class = "", array $data = [], $label = null)
+    {
+        $class .= ($class ? ' has_add_more' : '');
+        $defaultVersion = config('app.default_version_name');
+        $filePath       = sprintf('App\Core\%s\Forms\%s', session()->get('version'), $file);
+        $FormClass      = !class_exists($filePath) ? sprintf(
+            'App\Core\%s\Forms\%s',
+            $defaultVersion,
+            $file
+        ) : $filePath;
+        return $this->add(
+            $name,
+            'collection',
+            [
+                'type'    => 'form',
+                'options' => [
+                    'class' => $FormClass,
+                    'data'  => $data,
+                    'label' => false,
+                ],
+                'label'   => false,
+                'wrapper' => [
+                    'class' => sprintf('collection_form %s', $class),
+                ],
+            ]
+        );
+    }
+
     /**
      * @param      $name
      * @param      $value
