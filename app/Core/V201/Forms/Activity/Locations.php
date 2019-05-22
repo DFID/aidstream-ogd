@@ -14,7 +14,7 @@ class Locations extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('location', 'Activity\Location', 'location')
-            ->addAddMoreButton('add', 'recipient_country');
+            ->addCollection('location', 'Activity\Location', 'location');
+            //->addAddMoreButton('add', 'recipient_country');
     }
 }
