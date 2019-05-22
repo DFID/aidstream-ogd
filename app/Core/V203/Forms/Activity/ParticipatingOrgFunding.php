@@ -34,6 +34,7 @@ class ParticipatingOrgFunding extends BaseForm
             ->addNarrative('narrative hidden', trans('elementForm.organisation_name'))
             ->add('narrative_funding', 'text', ['label' => trans('elementForm.organisation_name'), 'help_block' => $this->addHelpText('Activity_ParticipatingOrg-ref')])
             ->addSelect('organization_type', $this->getCodeList('OrganisationType', 'Activity'), trans('elementForm.organisation_type'), $this->addHelpText('Activity_ParticipatingOrg-type'))
-            ->add('identifier', 'text', ['label' => trans('elementForm.identifier'), 'help_block' => $this->addHelpText('Activity_ParticipatingOrg-ref')]);
+            ->add('identifier', 'text', ['label' => trans('elementForm.identifier'), 'help_block' => $this->addHelpText('Activity_ParticipatingOrg-ref')])
+            ->addRemoveThisButton('remove');
     }
 }
