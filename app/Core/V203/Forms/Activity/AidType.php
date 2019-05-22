@@ -23,7 +23,8 @@ class AidType extends BaseForm
                 'default_value' => '1',
                 'attr'          => ['class' => 'form-control default_aidtype_vocabulary'],
                 'help_block'    => $this->addHelpText('Activity_DefaultAidTypeVocabulary-code'),
-                'required'      => true
+                'required'      => true,
+                'wrapper'       => ['class' => 'hidden']
             ]
             )
             ->add(
@@ -35,7 +36,8 @@ class AidType extends BaseForm
                 'label'         => trans('elementForm.default_aid_type'),
                 'wrapper'       => ['class' => 'form-group default_aidtypes aidtype_select'],
                 'help_block'    => $this->addHelpText('Activity_DefaultAidType-code'),
-                'required'      => true
+                'required'      => true,
+                'selected'      => 'C01'
             ]
             )
             ->add(

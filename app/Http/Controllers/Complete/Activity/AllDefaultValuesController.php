@@ -83,11 +83,11 @@ class AllDefaultValuesController extends Controller
         $data = $request->all();
         $data = $data['allDefaultValues'][0];
         //Activity Title handler
-        $dataToBeSaved['collaboration_type'] = $data['collaborationType'][0]['collaboration_type'];
-        $dataToBeSaved['default_flow_type'] = $data['defaultFlowType'][0]['default_flow_type'];
-        $dataToBeSaved['default_finance_type'] = $data['defaultFinanceType'][0]['default_finance_type'];
-        $dataToBeSaved['default_aid_type'] = $data['defaultAidType'][0]['default_aid_type'];
-        $dataToBeSaved['default_tied_status'] = $data['defaultTiedStatus'][0]['default_tied_status'];
+        $dataToBeSaved['collaboration_type'] = $data['collaboration_type'][0]['collaboration_type'];
+        $dataToBeSaved['default_flow_type'] = $data['flow_type'][0]['default_flow_type'];
+        $dataToBeSaved['default_finance_type'] = $data['finance_type'][0]['default_finance_type'];
+        $dataToBeSaved['default_aid_type'] = $data['aid_type'][0]['default_aid_type'];
+        $dataToBeSaved['default_tied_status'] = $data['tied_status'][0]['default_tied_status'];
         $activityData = $this->activityManager->getActivityData($id);
         $this->authorizeByRequestType($activityData, 'title');
         if ($this->allDefaultValuesManager->update($dataToBeSaved, $activityData)) {

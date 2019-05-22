@@ -15,7 +15,6 @@ class DefaultAidType extends BaseForm
     public function buildForm()
     {
         $this
-        ->addCollection('default_aid_type', 'Activity\AidType','default_aid_type')
-        ->addAddMoreButton('add', 'default_aid_type');
+        ->addCollection('default_aid_type', 'Activity\AidType','default_aid_type');
     }
 }

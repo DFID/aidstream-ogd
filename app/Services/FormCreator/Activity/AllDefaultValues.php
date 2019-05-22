@@ -36,11 +36,11 @@ class AllDefaultValues
     public function editForm($activityCollaborationType, $activityFlowType, $activityFinanceType, $activityAidType, $activityTiedStatus, $activityId)
     {
         $model = [];
-         $model['collaborationType'][0]['collaboration_type'] = $activityCollaborationType;
-         $model['defaultFlowType'][0]['default_flow_type'] = $activityFlowType;
-         $model['defaultFinanceType'][0]['default_finance_type'] = $activityFinanceType;
-         $model['defaultAidType'][0]['default_aid_type'] = $activityAidType;
-         $model['defaultTiedStatus'][0]['default_tied_status'] = $activityTiedStatus;
+         $model['collaboration_type'][0]['collaboration_type'] = $activityCollaborationType;
+         $model['flow_type'][0]['default_flow_type'] = $activityFlowType;
+         $model['finance_type'][0]['default_finance_type'] = $activityFinanceType;
+         $model['aid_type'][0]['default_aid_type'] = $activityAidType;
+         $model['tied_status'][0]['default_tied_status'] = $activityTiedStatus;
         $finalDataSet['allDefaultValues'][0] = $model;
         return $this->formBuilder->create(
             $this->formPath,
