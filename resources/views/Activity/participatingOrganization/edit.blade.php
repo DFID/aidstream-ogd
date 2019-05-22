@@ -25,6 +25,8 @@
                             <div class="create-form">
                                 {!! form($form) !!}
                             </div>
+                            <div class="collection-container hidden" data-prototype="{{ form_row($form->participating_organization->prototype()) }}">
+                            </div>
                         </div>
                     </div>
                 </div>

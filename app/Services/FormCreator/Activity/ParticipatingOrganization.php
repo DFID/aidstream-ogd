@@ -41,27 +41,32 @@ class ParticipatingOrganization
      */
     public function editForm($data, $activityId)
     {
-        //$model['participating_organization'] = $data;
         $model['participating_organization'] = [];
+        $model['participating_organization'][0]['participating_org_accountable'] = [];
+        $model['participating_organization'][0]['participating_org_funding'] = [];
+        $model['participating_organization'][0]['participating_org_implementing'] = [];
         if(sizeof($data) > 0){
             foreach($data as &$d){
                 if($d['organization_role'] == 1){
-                    $model['participating_organization'][0]['participating_org_funding'] = [];
-                    $model['participating_organization'][0]['participating_org_funding'][0]['narrative_funding'] = $d['narrative'][0]['narrative'];
-                    $model['participating_organization'][0]['participating_org_funding'][0]['organization_type_funding'] = $d['organization_type'];
-                    $model['participating_organization'][0]['participating_org_funding'][0]['identifier_funding'] = $d['identifier'];
+                    $tempData = $d;
+                    $tempData['narrative_funding'] = $d['narrative'][0]['narrative'];
+                    //$tempData['organization_type_funding'] = $d['organization_type'];
+                    //$tempData['identifier_funding'] = $d['identifier'];
+                    array_push($model['participating_organization'][0]['participating_org_funding'], $tempData);
                 }
                 if($d['organization_role'] == 2){
-                    $model['participating_organization'][0]['participating_org_accountable'] = [];
-                    $model['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable'] = $d['narrative'][0]['narrative'];
-                    $model['participating_organization'][0]['participating_org_accountable'][0]['organization_type_accountable'] = $d['organization_type'];
-                    $model['participating_organization'][0]['participating_org_accountable'][0]['identifier_accountable'] = $d['identifier'];
+                    $tempData = $d;
+                    $tempData['narrative_accountable'] = $d['narrative'][0]['narrative'];
+                    // $tempData['organization_type_accountable'] = $d['organization_type'];
+                    // $tempData['identifier_accountable'] = $d['identifier'];
+                    array_push($model['participating_organization'][0]['participating_org_accountable'], $tempData);
                 }
                 if($d['organization_role'] == 4){
-                    $model['participating_organization'][0]['participating_org_implementing'] = [];
-                    $model['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing'] = $d['narrative'][0]['narrative'];
-                    $model['participating_organization'][0]['participating_org_implementing'][0]['organization_type_implementing'] = $d['organization_type'];
-                    $model['participating_organization'][0]['participating_org_implementing'][0]['identifier_implementing'] = $d['identifier'];
+                    $tempData = $d;
+                    $tempData['narrative_implementing'] = $d['narrative'][0]['narrative'];
+                    // $tempData['organization_type_implementing'] = $d['organization_type'];
+                    // $tempData['identifier_implementing'] = $d['identifier'];
+                    array_push($model['participating_organization'][0]['participating_org_implementing'], $tempData);
                 }
             }
         }

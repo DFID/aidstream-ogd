@@ -129,33 +129,33 @@ class ParticipatingOrganizationController extends Controller
         $tempData = $request->all();
         $preparedData['participating_organization'] = [];
         if(isset($tempData)){
-            if(isset($tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable']) && strlen($tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable']) > 0){
-                $tdata['organization_role'] = 2;
-                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['identifier_accountable'];
-                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['organization_type_accountable'];
-                $tdata['activity_id'] = '';
-                $tdata['crs_channel_code'] = '';
-                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_accountable'][0]['narrative_accountable'];
+            foreach($tempData['participating_organization'][0]['participating_org_accountable'] as &$d){
+                $tdata['organization_role'] = $d['organization_role'];
+                $tdata['identifier'] = $d['identifier'];
+                $tdata['organization_type'] = $d['organization_type'];
+                $tdata['activity_id'] = $d['activity_id'];
+                $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                $tdata['narrative'][0]['narrative'] = $d['narrative_accountable'];
                 $tdata['narrative'][0]['language'] = 'en';
                 array_push($preparedData['participating_organization'], $tdata);
             }
-            if(isset($tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding']) && strlen($tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding']) > 0){
-                $tdata['organization_role'] = 1;
-                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['identifier_funding'];
-                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['organization_type_funding'];
-                $tdata['activity_id'] = '';
-                $tdata['crs_channel_code'] = '';
-                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_funding'][0]['narrative_funding'];
+            foreach($tempData['participating_organization'][0]['participating_org_funding'] as &$d){
+                $tdata['organization_role'] = $d['organization_role'];
+                $tdata['identifier'] = $d['identifier'];
+                $tdata['organization_type'] = $d['organization_type'];
+                $tdata['activity_id'] = $d['activity_id'];
+                $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                $tdata['narrative'][0]['narrative'] = $d['narrative_funding'];
                 $tdata['narrative'][0]['language'] = 'en';
                 array_push($preparedData['participating_organization'], $tdata);
             }
-            if(isset($tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing']) && strlen($tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing']) > 0){
-                $tdata['organization_role'] = 4;
-                $tdata['identifier'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['identifier_implementing'];
-                $tdata['organization_type'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['organization_type_implementing'];
-                $tdata['activity_id'] = '';
-                $tdata['crs_channel_code'] = '';
-                $tdata['narrative'][0]['narrative'] = $tempData['participating_organization'][0]['participating_org_implementing'][0]['narrative_implementing'];
+            foreach($tempData['participating_organization'][0]['participating_org_implementing'] as &$d){
+                $tdata['organization_role'] = $d['organization_role'];
+                $tdata['identifier'] = $d['identifier'];
+                $tdata['organization_type'] = $d['organization_type'];
+                $tdata['activity_id'] = $d['activity_id'];
+                $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                $tdata['narrative'][0]['narrative'] = $d['narrative_implementing'];
                 $tdata['narrative'][0]['language'] = 'en';
                 array_push($preparedData['participating_organization'], $tdata);
             }
