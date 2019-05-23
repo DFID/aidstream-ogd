@@ -16,7 +16,7 @@ class GeoCountryRegion extends BaseForm
     {
         $this
             ->addCollection('activityScope', 'Activity\ActivityScope','activityScope',[], trans('elementForm.activity_scope'))
-            ->addCollection('activityRecipientCountry', 'Activity\MultipleRecipientCountry', 'activityRecipientCountry', [], 'Activity Recipient Countries')
-            ->addCollection('activityRecipientRegion', 'Activity\MultipleRecipientRegion', 'activityRecipientRegion', [], 'Activity Recipient Regions');
+            ->addCollection('activityRecipientCountry', 'Activity\MultipleRecipientCountry', 'activityRecipientCountry', [], 'Recipient Countries')
+            ->addCollection('activityRecipientRegion', 'Activity\MultipleRecipientRegion', 'activityRecipientRegion', [], 'Recipient Regions');
     }
 }
