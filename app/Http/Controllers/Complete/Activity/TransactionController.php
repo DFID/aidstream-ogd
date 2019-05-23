@@ -101,9 +101,28 @@ class TransactionController extends Controller
         if(isset($data)){
             $data['transaction'][0]['value'][0]['date'] = $data['transaction'][0]['transaction_date'][0]['date'];
         }
+        info($data);
+        $tempData = $data;
+        if(strlen($tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative']) > 0){
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'] = $tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative'];
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['language'] = 'en';
+        }
+        else{
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'] = '';
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['language'] = '';
+        }
+        if(strlen($tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative']) > 0){
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'] = $tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'];
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['language'] = 'en';
+        }
+        else{
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'] = '';
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['language'] = '';
+        }
+        unset($tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative']);
+        unset($tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative']);
         $activityAsAnArray = $activityData->toArray();
-
-        if ($this->recipientCountryAndRegionAreInvalid($activityAsAnArray, $data)) {
+        if ($this->recipientCountryAndRegionAreInvalid($activityAsAnArray, $tempData)) {
             $response = [
                 'type' => 'warning',
                 'code' => [
@@ -115,8 +134,8 @@ class TransactionController extends Controller
             return redirect()->back()->withInput()->withResponse($response);
         }
 
-        $this->filterSector($data);
-        $this->transactionManager->save($data, $activityData);
+        $this->filterSector($tempData);
+        $this->transactionManager->save($tempData, $activityData);
         $this->activityManager->resetActivityWorkflow($activityId);
         $response = ['type' => 'success', 'code' => ['created', ['name' => trans('element.transaction')]]];
 
@@ -143,7 +162,7 @@ class TransactionController extends Controller
         }
 
         $transactionDetail = $transaction->getTransaction();
-
+        info($transactionDetail);
         return view('Activity.transaction.show', compact('transactionDetail', 'activity', 'id', 'transactionId'));
     }
 
@@ -211,6 +230,26 @@ class TransactionController extends Controller
 
         $this->authorize('edit_activity', $activity);
         $transactionDetails = $transactionData = $request->except(['_token', '_method']);
+        $tempData = $transactionDetails;
+        if(strlen($tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative']) > 0){
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'] = $tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative'];
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['language'] = 'en';
+        }
+        else{
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'] = '';
+            $tempData['transaction'][0]['provider_organization'][0]['narrative'][0]['language'] = '';
+        }
+        if(strlen($tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative']) > 0){
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'] = $tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'];
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['language'] = 'en';
+        }
+        else{
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'] = '';
+            $tempData['transaction'][0]['receiver_organization'][0]['narrative'][0]['language'] = '';
+        }
+        unset($tempData['transaction'][0]['provider_organization'][0]['provider_org_narrative']);
+        unset($tempData['transaction'][0]['receiver_organization'][0]['receiver_org_narrative']);
+        $transactionDetails = $tempData;
         removeEmptyValues($transactionData);
 
         $activityDetails = $activity->toArray();

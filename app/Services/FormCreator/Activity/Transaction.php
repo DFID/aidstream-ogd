@@ -36,6 +36,10 @@ class Transaction
         if(isset($model['transaction'][0])){
             $model['transaction'][0]['value'][0]['date'] = $model['transaction'][0]['transaction_date'][0]['date'];
         }
+        if($data != null){
+            $model['transaction'][0]['provider_organization'][0]['provider_org_narrative'] = $model['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'];
+            $model['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'] = $model['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'];
+        }
         return $this->formBuilder->create(
             $this->formPath,
             [

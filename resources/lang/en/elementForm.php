@@ -105,7 +105,7 @@ return [
     'transaction_date'                           => 'Transaction Date',
     'description'                                => 'Description',
     'provider_organisation'                      => 'Provider Organisation',
-    'organisation_identifier_code'               => 'Organisation Identifier Code',
+    'organisation_identifier_code'               => 'IATI Organisation Identifier',
     'provider_activity_id'                       => 'Provider Activity Id',
     'receiver_organisation'                      => 'Receiver Organisation',
     'receiver_activity_id'                       => 'Receiver Activity Id',

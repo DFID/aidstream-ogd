@@ -26,7 +26,7 @@ class Transaction extends V201Transaction
     protected function getTransactionRules($formFields)
     {
         $rules = [];
-
+        
         foreach ($formFields as $transactionIndex => $transaction) {
             $transactionForm = sprintf('transaction.%s', $transactionIndex);
             $transactionId   = $this->segment(4);
@@ -112,10 +112,10 @@ class Transaction extends V201Transaction
 
             $rules[sprintf('%s.%s', $providerOrgForm, 'provider_activity_id')] = 'exclude_operators';
 
-            $rules = array_merge(
-                $rules,
-                $this->getRulesForNarrative($providerOrg['narrative'], $providerOrgForm)
-            );
+            // $rules = array_merge(
+            //     $rules,
+            //     $this->getRulesForNarrative($providerOrg['narrative'], $providerOrgForm)
+            // );
         }
 
         return $rules;
@@ -132,10 +132,10 @@ class Transaction extends V201Transaction
 
         foreach ($formFields as $providerOrgIndex => $providerOrg) {
             $providerOrgForm = sprintf('%s.provider_organization.%s', $formBase, $providerOrgIndex);
-            $message         = array_merge(
-                $message,
-                $this->getMessagesForNarrative($providerOrg['narrative'], $providerOrgForm)
-            );
+            // $message         = array_merge(
+            //     $message,
+            //     $this->getMessagesForNarrative($providerOrg['narrative'], $providerOrgForm)
+            // );
         }
 
         return $message;
@@ -155,10 +155,10 @@ class Transaction extends V201Transaction
 
             $rules[sprintf('%s.%s', $receiverOrgForm, 'receiver_activity_id')] = 'exclude_operators';
 
-            $rules = array_merge(
-                $rules,
-                $this->getRulesForNarrative($receiverOrg['narrative'], $receiverOrgForm)
-            );
+            // $rules = array_merge(
+            //     $rules,
+            //     $this->getRulesForNarrative($receiverOrg['narrative'], $receiverOrgForm)
+            // );
         }
 
         return $rules;
@@ -175,10 +175,10 @@ class Transaction extends V201Transaction
 
         foreach ($formFields as $receiverOrgIndex => $receiverOrg) {
             $receiverOrgForm = sprintf('%s.receiver_organization.%s', $formBase, $receiverOrgIndex);
-            $message         = array_merge(
-                $message,
-                $this->getMessagesForNarrative($receiverOrg['narrative'], $receiverOrgForm)
-            );
+            // $message         = array_merge(
+            //     $message,
+            //     $this->getMessagesForNarrative($receiverOrg['narrative'], $receiverOrgForm)
+            // );
         }
 
         return $message;
