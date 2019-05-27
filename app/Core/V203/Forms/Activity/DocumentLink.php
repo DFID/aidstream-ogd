@@ -22,7 +22,7 @@ class DocumentLink extends V201DocumentLink
             ->addSelect('format', $this->getCodeListWithNameOnly('FileFormat', 'Activity'), trans('elementForm.format'), $this->addHelpText('Activity_DocumentLink-format'), null, true)
             ->addCollection('category', 'Activity\CategoryCode', 'category', [], trans('elementForm.category'))
             ->addAddMoreButton('add_category', 'category')
-            ->addCollection('language', 'Activity\LanguageCode', 'language', [], trans('elementForm.language'))
+            ->addCollection('language', 'Activity\LanguageCode', 'language hidden', [], trans('elementForm.language'))
             ->addAddMoreButton('add_language', 'language')
             ->addCollection('document_date', 'Activity\Date', '', [], trans('elementForm.document_date'))
             ->addRemoveThisButton('remove_document_link');
