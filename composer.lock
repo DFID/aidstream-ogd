@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1517c8ebf94e588d0eff86c39d91d96",
+    "content-hash": "47ca72c2c93095bd562f4116f1c3e93b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -669,12 +669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heybigname/backup-manager.git",
-                "reference": "054c21a1290852667a891d5a6892c627f27771ae"
+                "reference": "8588f393e16cac4561ff492c9bb876ddc4041684"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heybigname/backup-manager/zipball/054c21a1290852667a891d5a6892c627f27771ae",
-                "reference": "054c21a1290852667a891d5a6892c627f27771ae",
+                "url": "https://api.github.com/repos/heybigname/backup-manager/zipball/8588f393e16cac4561ff492c9bb876ddc4041684",
+                "reference": "8588f393e16cac4561ff492c9bb876ddc4041684",
                 "shasum": ""
             },
             "require": {
@@ -731,7 +731,7 @@
             ],
             "description": "Database backup manager for dumping to and restoring databases from S3, Dropbox, FTP, and SFTP.",
             "abandoned": "backup-manager/backup-manager",
-            "time": "2015-03-05T10:46:08+00:00"
+            "time": "2015-06-17T13:10:34+00:00"
         },
         {
             "name": "intervention/image",
@@ -942,32 +942,40 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.6.31",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd"
+                "reference": "4080568ed181b0ae7fa8b0846741ca787fce5b8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b02fea98d078515c84dcda451892688e492029fd",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/4080568ed181b0ae7fa8b0846741ca787fce5b8d",
+                "reference": "4080568ed181b0ae7fa8b0846741ca787fce5b8d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "5.*@dev",
                 "illuminate/validation": "5.*@dev",
                 "laravelcollective/html": "5.*",
-                "php": ">=5.4.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~4.0"
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.16.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kris\\LaravelFormBuilder\\FormBuilderServiceProvider"
+                    ],
+                    "aliases": {
+                        "FormBuilder": "Kris\\LaravelFormBuilder\\Facades\\FormBuilder"
+                    }
                 }
             },
             "autoload": {
@@ -992,7 +1000,12 @@
                 }
             ],
             "description": "Laravel form builder - symfony like",
-            "time": "2015-11-16T13:40:04+00:00"
+            "keywords": [
+                "builder",
+                "form",
+                "laravel"
+            ],
+            "time": "2019-02-27T20:23:16+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1790,6 +1803,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
@@ -3509,12 +3523,12 @@
             "version": "0.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianium/paratest.git",
+                "url": "https://github.com/paratestphp/paratest.git",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brianium/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "shasum": ""
             },
@@ -3920,8 +3934,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4442,6 +4455,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
