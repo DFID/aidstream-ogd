@@ -4,6 +4,7 @@ use App\Console\Commands\AddTzToSystemVersions;
 use App\Console\Commands\SyncPartnerOrganizations;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Activity\Activity;
 
 class Kernel extends ConsoleKernel
 {
@@ -18,7 +19,6 @@ class Kernel extends ConsoleKernel
         AddTzToSystemVersions::class,
         SyncPartnerOrganizations::class,
     ];
-
     /**
      * Define the application's command schedule.
      *
@@ -27,11 +27,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+        //$schedule->command('inspire')->hourly();
 
-        $schedule->command('backup:run')->daily(7, 14);
-        $schedule->command('db:backup --database=pgsql --destination=sftp --destinationPath=`date +\%Y/%d-%m-%Y` --compression=gzip')->daily(7, 14);
+        //$schedule->command('backup:run')->daily(7, 14);
+        //$schedule->command('db:backup --database=pgsql --destination=sftp --destinationPath=`date +\%Y/%d-%m-%Y` --compression=gzip')->daily(7, 14);
+        // $schedule->call(function(){
+        //     //
+        // });
+        // $activity = new Activity;
+        // $allActivities = $activity->all();
+        // foreach($allActivities as $activity){
+        //     // $activity->activity_status = 1;
+        //     // $activity->save();
+        //     info($activity->activity_date);
+        // }
     }
 
 }
