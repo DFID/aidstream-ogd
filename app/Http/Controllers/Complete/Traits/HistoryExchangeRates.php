@@ -17,6 +17,9 @@ trait HistoryExchangeRates
      */
     protected function exchangeRates($activity)
     {
+        //Bypassing the conditions as the API is not working properly and we do not 
+        //need the exchange rates for the OGD
+        return true;
         try {
             $transactionModel = app()->make(Transaction::class);
 
