@@ -127,37 +127,49 @@ class ParticipatingOrganizationController extends Controller
         //     return response()->json(trans('V201/message.participating_org', ['name' => 'participating organization']), 500);
         // }
         $tempData = $request->all();
+        $messages     = $this->validateData($tempData);
+        if ($messages) {
+            $response = ['type' => 'danger', 'messages' => array_unique($messages)];
+
+            return redirect()->back()->withInput()->withResponse($response);
+        }
         $preparedData['participating_organization'] = [];
         if(isset($tempData)){
             foreach($tempData['participating_organization'][0]['participating_org_accountable'] as &$d){
-                $tdata['organization_role'] = $d['organization_role'];
-                $tdata['identifier'] = $d['identifier'];
-                $tdata['organization_type'] = $d['organization_type'];
-                $tdata['activity_id'] = $d['activity_id'];
-                $tdata['crs_channel_code'] = $d['crs_channel_code'];
-                $tdata['narrative'][0]['narrative'] = $d['narrative_accountable'];
-                $tdata['narrative'][0]['language'] = 'en';
-                array_push($preparedData['participating_organization'], $tdata);
+                if(strlen($d['narrative_accountable']) > 0){
+                    $tdata['organization_role'] = $d['organization_role'];
+                    $tdata['identifier'] = $d['identifier'];
+                    $tdata['organization_type'] = $d['organization_type'];
+                    $tdata['activity_id'] = $d['activity_id'];
+                    $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                    $tdata['narrative'][0]['narrative'] = $d['narrative_accountable'];
+                    $tdata['narrative'][0]['language'] = 'en';
+                    array_push($preparedData['participating_organization'], $tdata);
+                }
             }
             foreach($tempData['participating_organization'][0]['participating_org_funding'] as &$d){
-                $tdata['organization_role'] = $d['organization_role'];
-                $tdata['identifier'] = $d['identifier'];
-                $tdata['organization_type'] = $d['organization_type'];
-                $tdata['activity_id'] = $d['activity_id'];
-                $tdata['crs_channel_code'] = $d['crs_channel_code'];
-                $tdata['narrative'][0]['narrative'] = $d['narrative_funding'];
-                $tdata['narrative'][0]['language'] = 'en';
-                array_push($preparedData['participating_organization'], $tdata);
+                if(strlen($d['narrative_funding']) > 0){
+                    $tdata['organization_role'] = $d['organization_role'];
+                    $tdata['identifier'] = $d['identifier'];
+                    $tdata['organization_type'] = $d['organization_type'];
+                    $tdata['activity_id'] = $d['activity_id'];
+                    $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                    $tdata['narrative'][0]['narrative'] = $d['narrative_funding'];
+                    $tdata['narrative'][0]['language'] = 'en';
+                    array_push($preparedData['participating_organization'], $tdata);
+                }
             }
             foreach($tempData['participating_organization'][0]['participating_org_implementing'] as &$d){
-                $tdata['organization_role'] = $d['organization_role'];
-                $tdata['identifier'] = $d['identifier'];
-                $tdata['organization_type'] = $d['organization_type'];
-                $tdata['activity_id'] = $d['activity_id'];
-                $tdata['crs_channel_code'] = $d['crs_channel_code'];
-                $tdata['narrative'][0]['narrative'] = $d['narrative_implementing'];
-                $tdata['narrative'][0]['language'] = 'en';
-                array_push($preparedData['participating_organization'], $tdata);
+                if(strlen($d['narrative_implementing']) > 0){
+                    $tdata['organization_role'] = $d['organization_role'];
+                    $tdata['identifier'] = $d['identifier'];
+                    $tdata['organization_type'] = $d['organization_type'];
+                    $tdata['activity_id'] = $d['activity_id'];
+                    $tdata['crs_channel_code'] = $d['crs_channel_code'];
+                    $tdata['narrative'][0]['narrative'] = $d['narrative_implementing'];
+                    $tdata['narrative'][0]['language'] = 'en';
+                    array_push($preparedData['participating_organization'], $tdata);
+                }
             }
         }
         $participatingOrganization['participating_organization']  = $this->participatingOrganizationManager->managePartnerOrganizations($activityData, $preparedData);
@@ -181,19 +193,45 @@ class ParticipatingOrganizationController extends Controller
      * @param array $data
      * @return bool
      */
-    protected function validateData(array $data)
-    {
-        $check = false;
+    // protected function validateData(array $data)
+    // {
+    //     $check = false;
 
-        foreach ($data as $participatingOrg) {
-            $orgRole = $participatingOrg['organization_role'];
-            if ($orgRole == "1" || $orgRole == "4") {
-                $check = true;
-                break;
+    //     foreach ($data as $participatingOrg) {
+    //         $orgRole = $participatingOrg['organization_role'];
+    //         if ($orgRole == "1" || $orgRole == "4") {
+    //             $check = true;
+    //             break;
+    //         }
+    //     }
+
+    //     return $check;
+    // }
+
+    protected function validateData($data)
+    {
+        $messages = [];
+        foreach ($data['participating_organization'][0]['participating_org_accountable'] as &$org) {
+            if(strlen($org['narrative_accountable']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
+                if(strlen($org['narrative_accountable']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+                    array_push($messages, 'One or more of the fields for the Accountable Organisation is left empty.');
+                }
             }
         }
-
-        return $check;
+        foreach ($data['participating_organization'][0]['participating_org_funding'] as &$org) {
+            if(strlen($org['narrative_funding']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
+                if(strlen($org['narrative_funding']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+                    array_push($messages, 'One or more of the fields for the Funding Organisation is left empty.');
+                }
+            }
+        }
+        foreach ($data['participating_organization'][0]['participating_org_implementing'] as &$org) {
+            if(strlen($org['narrative_implementing']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
+                if(strlen($org['narrative_implementing']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+                    array_push($messages, 'One or more of the fields for the Implementing Organisation is left empty.');
+                }
+            }
+        }
+        return $messages;
     }
-
 }
