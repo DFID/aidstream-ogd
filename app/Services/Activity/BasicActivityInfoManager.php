@@ -57,9 +57,15 @@ class BasicActivityInfoManager
             $this->iatiTitleRepo->update($activityDetails['title'], $activity);
             $this->iatiActivtyDateRepo->update($activityDetails, $activity);
             $this->activityStatusRepo->update($activityDetails, $activity);
-            $this->iatiDescriptionRepo->update($activityDetails, $activity);
-            $this->iatiBudgetRepo->update($activityDetails, $activity);
-            $this->humanitarianScopeRepo->update($activityDetails, $activity);
+             if(strlen($activityDetails['description'][0]['narrative'][0]['narrative']) > 0){
+                 $this->iatiDescriptionRepo->update($activityDetails, $activity);
+             }
+            if(count($activityDetails['budget']) > 0){
+                $this->iatiBudgetRepo->update($activityDetails, $activity);
+            }
+            if(count($activityDetails['humanitarian_scope']) > 0){
+                $this->humanitarianScopeRepo->update($activityDetails, $activity);
+            }
             $this->log->info(
                 'Activity Title Updated!',
                 ['for ' => $activity['narrative']]

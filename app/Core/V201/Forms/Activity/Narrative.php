@@ -43,7 +43,7 @@ class Narrative extends BaseForm
                 [
                     'value' => 'en'
                 ]
-            )
-            ->addRemoveThisButton('remove_from_collection');
+            );
+            //->addRemoveThisButton('remove_from_collection');
     }
 }

@@ -105,13 +105,29 @@ class BasicActivityInfoController extends Controller
         $dataToBeSaved['budget'] = $data['budget'];
         $dataToBeSaved['humanitarian_scope'] = [];
         foreach($data['humanitarian_scope'][0]['humanitarian_scope_emergency'] as &$emergencyData){
-            array_push($dataToBeSaved['humanitarian_scope'],$emergencyData);
+            if(strlen($emergencyData['code']) > 0){
+                array_push($dataToBeSaved['humanitarian_scope'],$emergencyData);
+            }
         }
         foreach($data['humanitarian_scope'][0]['humanitarian_scope_appeal'] as &$appealData){
-            array_push($dataToBeSaved['humanitarian_scope'],$appealData);
+            if(strlen($appealData['code']) > 0){
+                array_push($dataToBeSaved['humanitarian_scope'],$appealData);
+            }
         }
         //$dataToBeSaved['activity_status']
         //Activity date handler ends here
+        //Data validation goes here
+        $messages     = $this->validateData($dataToBeSaved);
+        if ($messages) {
+            $response = ['type' => 'danger', 'messages' => array_unique($messages)];
+
+            return redirect()->back()->withInput()->withResponse($response);
+        }
+        foreach($dataToBeSaved['budget'] as $budgetIndex => $budgetVal){
+            if($budgetVal['value'][0]['amount'] == ''){
+                unset($dataToBeSaved['budget'][$budgetIndex]);
+            }
+        }
         $activityData = $this->basicActivityInfoManager->getActivityData($id);
         $this->authorizeByRequestType($activityData, 'title');
         if ($this->basicActivityInfoManager->update($dataToBeSaved, $activityData)) {
@@ -123,5 +139,34 @@ class BasicActivityInfoController extends Controller
         $response = ['type' => 'danger', 'code' => ['update_failed', ['name' => trans('title.title')]]];
 
         return redirect()->back()->withInput()->withResponse($response);
+    }
+
+    private function validateData($activityData){
+        $messages = [];
+        if(strlen($activityData['title']['narrative'][0]['narrative']) == 0){
+            //$messages['basicActivityInfo.0.title.0.narrative.0.narrative.required'] = 'Activity Title cannot be empty';
+            array_push($messages, 'Activity Title cannot be empty');
+        }
+        if(strlen($activityData['activity_date'][0]['date']) == 0 || strlen($activityData['activity_date'][1]['date']) == 0){
+            //$messages['dates'] = 'Activity Dates cannot be empty';
+            array_push($messages, 'Activity Dates cannot be empty');   
+        }
+        if($activityData['activity_date'][0]['date'] > $activityData['activity_date'][1]['date']){
+            array_push($messages, 'Planned end date cannot be older than planned start date.');
+            //$messages['date_comparison'] = 'Planned end date cannot be older than planned start date.';
+        }
+        if($activityData['activity_status'] == ''){
+            array_push($messages, 'Activity status cannot be left empty.');
+            //$messages['activity_status'] = 'Activity status cannot be left empty.';   
+        }
+        foreach($activityData['budget'] as &$budget){
+            if(strlen($budget['period_start'][0]['date']) > 0 || strlen($budget['period_end'][0]['date']) > 0 || strlen($budget['value'][0]['amount']) > 0){
+                if(strlen($budget['period_start'][0]['date']) == 0 || strlen($budget['period_end'][0]['date']) == 0 || strlen($budget['value'][0]['amount']) == 0){
+                    //$messages['budget_status'] = 'Please complete budget ';
+                    array_push($messages, 'One or more of the budget fields is left empty.');
+                }
+            }
+        }
+        return $messages;
     }
 }
