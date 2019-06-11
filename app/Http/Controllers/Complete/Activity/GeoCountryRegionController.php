@@ -86,6 +86,13 @@ class GeoCountryRegionController extends Controller
         $dataToBeSaved['recipient_country'] = [];
         $dataToBeSaved['recipient_country'] = $data['activityRecipientCountry'][0]['recipient_country'];
         $dataToBeSaved['recipient_region'] = $data['activityRecipientRegion'][0]['recipient_region'];
+        //Validate form data
+        $messages = $this->validateData($dataToBeSaved);
+        if ($messages) {
+            $response = ['type' => 'danger', 'messages' => array_unique($messages)];
+
+            return redirect()->back()->withInput()->withResponse($response);
+        }
         //$dataToBeSaved['activity_status']
         //Activity date handler ends here
         $activityData = $this->activityManager->getActivityData($id);
@@ -99,5 +106,50 @@ class GeoCountryRegionController extends Controller
         $response = ['type' => 'danger', 'code' => ['update_failed', ['name' => trans('title.title')]]];
 
         return redirect()->back()->withInput()->withResponse($response);
+    }
+
+    private function validateData($activityData){
+        $messages = [];
+        $percentageCheck = 0;
+        if(strlen($activityData['activity_scope']) == 0){
+            array_push($messages, 'Activity scope cannot be left empty');
+        }
+        // For Country data
+        foreach($activityData['recipient_country'] as &$country){
+            if(strlen($country['country_code']) == 0){
+                array_push($messages, 'Country Code cannot be left empty');
+            }
+            else if(strlen($country['percentage']) == 0){
+                array_push($messages, 'Country Code cannot be left empty');   
+            }
+            else if(!is_numeric($country['percentage'])){
+                array_push($messages, 'Please enter a valid percentage amount for country');
+            }
+            else{
+                $percentageCheck = $percentageCheck + (int)$country['percentage'];
+            }
+        }
+        // For Region data
+        foreach($activityData['recipient_region'] as &$region){
+            if(strlen($region['region_code']) == 0){
+                array_push($messages, 'Region Code cannot be left empty');
+            }
+            else if(strlen($region['percentage']) == 0){
+                array_push($messages, 'Region Code cannot be left empty');   
+            }
+            else if(!is_numeric($region['percentage'])){
+                array_push($messages, 'Please enter a valid percentage amount for region');
+            }
+            else{
+                $percentageCheck = $percentageCheck + (int)$region['percentage'];
+            }
+        }
+        if($percentageCheck > 100){
+            array_push($messages, 'The summation of total percentage must be 100. You have exceeded the 100 percentage by '. ($percentageCheck - 100) . '%. Please, fix it.');
+        }
+        else if($percentageCheck < 100){
+            array_push($messages, 'The summation of total percentage must be 100. You still need to distribute the remaining '. (100 - $percentageCheck) . '%. Please, fix it.');   
+        }
+        return $messages;
     }
 }
