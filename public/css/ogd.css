@@ -1,3 +1,45 @@
 .hide_this {
 	display: none;
 }
+
+.hide-two div.form-group label {
+	display: none;
+}
+
+.hide-three div.form-group div.form-group label {
+	display: none;
+}
+
+.hide-two .help-text,
+.hide-three .help-text {
+	top: 15px;
+}
+
+.hide-three .collection_form{
+	float: left !important;
+    width: 275px;
+    clear: none;
+    padding-top: 0px;
+}
+
+.hide-three input.datepicker {
+
+}
+
+.budget div.form-group div.collection_form div.form-group div.form-group.form-group {
+	width: 200px !important;
+}
+
+.budget div.form-group div.collection_form div.form-group div.form-group input{
+	width: 180px;
+}
+
+.budget div.form-group .collection_form:nth-child(2n) div.form-group.form-group,
+.budget div.form-group .collection_form:nth-child(5n) div.form-group.form-group {
+	border-left: none !important;
+	margin-left: 8px !important;
+}
+
+.participating_org_accountable .form-group .form-group {
+	width: 200px !important;
+}

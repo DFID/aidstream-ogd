@@ -30,7 +30,7 @@ class Budget extends BaseForm
             )
             ->addCollection('period_start', 'Activity\PeriodStart', '', [], trans('elementForm.period_start'))
             ->addCollection('period_end', 'Activity\PeriodEnd', '', [], trans('elementForm.period_end'))
-            ->addCollection('value', 'Activity\ValueForm', '', [], trans('elementForm.value'))
+            ->addCollection('value', 'Activity\ValueForm', '', [], trans('elementForm.amount'))
             ->addRemoveThisButton('remove');
     }
 }
