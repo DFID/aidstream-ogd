@@ -16,7 +16,7 @@ class Name extends BaseForm
     public function buildForm()
     {
         $this
-            ->addNarrative('name_narrative')
-            ->addAddMoreButton('add', 'name_narrative');
+            ->addNarrative('name_narrative');
+            //->addAddMoreButton('add', 'name_narrative');
     }
 }
