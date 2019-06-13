@@ -6,6 +6,11 @@
 	display: none;
 }
 
+.hide-two div.narrative div.form-group {
+	border-left: none !important;
+	margin-left: 5px !important;
+}
+
 .hide-three div.form-group div.form-group label {
 	display: none;
 }
@@ -19,7 +24,11 @@
 	float: left !important;
     width: 275px;
     clear: none;
-    padding-top: 0px;
+    padding-top: 0px !important;
+}
+
+.hide-two .narrative {
+	padding-bottom: 0px !important;
 }
 
 .hide-three input.datepicker {
@@ -42,4 +51,8 @@
 
 .participating_org_accountable .form-group .form-group {
 	width: 200px !important;
+}
+
+.recipient_country label.first {
+	display: none;
 }
