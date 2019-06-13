@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1517c8ebf94e588d0eff86c39d91d96",
+    "content-hash": "a39ad32372c84b869989f4cbf8c85828",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -669,12 +669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heybigname/backup-manager.git",
-                "reference": "054c21a1290852667a891d5a6892c627f27771ae"
+                "reference": "8588f393e16cac4561ff492c9bb876ddc4041684"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heybigname/backup-manager/zipball/054c21a1290852667a891d5a6892c627f27771ae",
-                "reference": "054c21a1290852667a891d5a6892c627f27771ae",
+                "url": "https://api.github.com/repos/heybigname/backup-manager/zipball/8588f393e16cac4561ff492c9bb876ddc4041684",
+                "reference": "8588f393e16cac4561ff492c9bb876ddc4041684",
                 "shasum": ""
             },
             "require": {
@@ -731,7 +731,7 @@
             ],
             "description": "Database backup manager for dumping to and restoring databases from S3, Dropbox, FTP, and SFTP.",
             "abandoned": "backup-manager/backup-manager",
-            "time": "2015-03-05T10:46:08+00:00"
+            "time": "2015-06-17T13:10:34+00:00"
         },
         {
             "name": "intervention/image",
@@ -883,7 +883,7 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.3.0",
             "source": {
                 "type": "git",
@@ -1790,6 +1790,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
@@ -2055,23 +2056,34 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.5.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "509217fb4dc92e626e9cfed725d1df039553c1e2"
+                "reference": "ba8e645dda959c9cc679f3bbb3f1bd271cc02e56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/509217fb4dc92e626e9cfed725d1df039553c1e2",
-                "reference": "509217fb4dc92e626e9cfed725d1df039553c1e2",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/ba8e645dda959c9cc679f3bbb3f1bd271cc02e56",
+                "reference": "ba8e645dda959c9cc679f3bbb3f1bd271cc02e56",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "4.2.*|5.*",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "require-dev": {
+                "orchestra/testbench": "3.7.*",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src/controllers"
@@ -2087,17 +2099,19 @@
             "authors": [
                 {
                     "name": "rap2hpoutre",
-                    "email": "raphael@ornikar.com"
+                    "email": "raphaelht@gmail.com"
                 }
             ],
             "description": "A Laravel log reader",
             "keywords": [
+                "laravel",
                 "log",
                 "log-reader",
                 "log-viewer",
-                "logging"
+                "logging",
+                "lumen"
             ],
-            "time": "2015-12-24T07:44:02+00:00"
+            "time": "2019-06-12T15:22:58+00:00"
         },
         {
             "name": "sabre/uri",
@@ -3509,12 +3523,12 @@
             "version": "0.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianium/paratest.git",
+                "url": "https://github.com/paratestphp/paratest.git",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brianium/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "shasum": ""
             },
@@ -3920,8 +3934,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4442,6 +4455,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
