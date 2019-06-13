@@ -156,12 +156,34 @@ class WorkflowManager
             $linked              = true;
             $publishedActivities = $organization->publishedFiles;
             $activity = $this->populateContactInfo($activity, $settings);
+            $addAccountingOrgFlag = true;
+            $dummyActivity = $activity['participating_organization'];
+            foreach($dummyActivity as &$participatingOrg){
+                if($participatingOrg['organization_role'] == 2 && $participatingOrg['identifier'] == $organization['reporting_org'][0]['reporting_organization_identifier']){
+                    $addAccountingOrgFlag = false;
+                    break;
+                }
+            }
+            if($addAccountingOrgFlag){
+                $tempOrgData = [];
+                $tempOrgData['organization_role'] = 2;
+                $tempOrgData['identifier'] = $organization['reporting_org'][0]['reporting_organization_identifier'];
+                $tempOrgData['organization_type'] = $organization['reporting_org'][0]['reporting_organization_type'];
+                $tempOrgData['activity_id'] = '';
+                $tempOrgData['crs_channel_code'] = '';
+                $tempOrgData['narrative'] = $organization['reporting_org'][0]['narrative'];
+                $tempOrgData['org_data_id'] = 999;
+                $tempOrgData['country'] = 'GB';
+                array_unshift($dummyActivity, $tempOrgData);
+            }
+            $activity['participating_organization'] = $dummyActivity;
             $this->xmlServiceProvider->initializeGenerator($version);
 
             if ($this->shouldChangeSegmentation($settings, $publishedActivities)) {
                 $this->segmentationChangeHandler->changes($activity, $publishedActivities, $organization, $settings, $this->xmlServiceProvider, $this->publisher);
             }
-
+            info($activity['participating_organization']);
+            info($organization['reporting_org'][0]);
             $this->xmlServiceProvider->generate(
                 $activity,
                 $this->organizationManager->getOrganizationElement(),
@@ -209,7 +231,7 @@ class WorkflowManager
         $contact_info['telephone'] = $settings['default_field_values'][0]['contact_info_org_telephone'];
         $contact_info['email'] = $settings['default_field_values'][0]['contact_info_org_email'];
         $contact_info['mailing_address'] = $settings['default_field_values'][0]['contact_info_org_mailing_address'];
-        info($activityData);
+        //info($activityData);
         if(strlen((string)$contact_info['title']) > 0)
         {
             $tempVar = $activityData['contact_info'];
