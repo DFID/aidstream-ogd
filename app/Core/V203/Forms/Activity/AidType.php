@@ -61,7 +61,7 @@ class AidType extends BaseForm
                     'help_block' => $this->addHelpText('Activity_DefaultAidType-code'),
                     'required'   => true
                 ]
-            )
-            ->addRemoveThisButton('remove_default_aid_type');
+            );
+            //->addRemoveThisButton('remove_default_aid_type');
     }
 }

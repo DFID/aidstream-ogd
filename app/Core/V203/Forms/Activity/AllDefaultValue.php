@@ -15,10 +15,10 @@ class AllDefaultValue extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('collaboration_type', 'Activity\CollaborationType', 'Collaboration Type')
-            ->addCollection('flow_type', 'Activity\DefaultFlowType', 'Default Flow Type')
-            ->addCollection('finance_type', 'Activity\DefaultFinanceType', 'Default Finance Type')
-            ->addCollection('aid_type', 'Activity\AidType', 'Default Aid Type')
-            ->addCollection('tied_status', 'Activity\DefaultTiedStatus', 'Default Tied Status');
+            ->addCollection('collaboration_type', 'Activity\CollaborationType', 'hide-two Collaboration Type')
+            ->addCollection('flow_type', 'Activity\DefaultFlowType', 'hide-two Default Flow Type')
+            ->addCollection('finance_type', 'Activity\DefaultFinanceType', 'hide-two Default Finance Type')
+            ->addCollection('aid_type', 'Activity\AidType', 'hide-two Default Aid Type')
+            ->addCollection('tied_status', 'Activity\DefaultTiedStatus', 'hide-two Default Tied Status');
     }
 }
