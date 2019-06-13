@@ -11,7 +11,7 @@ trait Value
      */
     public function addValue()
     {
-        return $this->addCollection('value', 'Activity\Transactions\Value', '', [], trans('elementForm.value'));
+        return $this->addCollection('value', 'Activity\Transactions\Value', 'hide-two', [], trans('elementForm.amount'));
     }
 
     /**
