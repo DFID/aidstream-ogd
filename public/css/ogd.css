@@ -31,6 +31,13 @@
 	padding-bottom: 0px !important;
 }
 
+.hide-two div.form-group .name_narrative .form-group {
+	padding-bottom: 0px !important;
+	border-left: none !important;
+	margin-left: 5px !important;
+	margin-bottom: 0px !important;
+}
+
 .hide-three input.datepicker {
 
 }
