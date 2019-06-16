@@ -30,6 +30,8 @@ class DefaultFieldGroups
             $identification
         );
         $defaultFieldGroups                  = $defaultFieldGroup + $defaultFieldGroups;
+        //Removing Reporting organisation option from the right hand side menu. Applicable for OGD AidStream only.
+        unset($defaultFieldGroups['Identification']['reporting_organization']);
         return $defaultFieldGroups;
     }
 
@@ -41,7 +43,21 @@ class DefaultFieldGroups
     {
         $filledStatus = [];
         $activityData = $this->getActivityData($id);
-
+        // Trigger for Basic Activity information form
+        $isFilledBasicActivityInfo = null;
+        if($activityData['title'] != null && $activityData['description'] !=null && $activityData['activity_status'] != null && $activityData['activity_date'] != null && $activityData['budget'] != null){
+            $isFilledBasicActivityInfo = 'Basic Activity Info';
+        }
+        // Trigger for Default value types for IATI
+        $isFilledDefaultValues = null;
+        if($activityData['collaboration_type'] != null && $activityData['default_flow_type'] != null && $activityData['default_finance_type'] != null && $activityData['default_aid_type'] != null && $activityData['default_tied_status'] != null){
+            $isFilledDefaultValues = 'Default Values';
+        }
+        // Trigger for Country / Region page
+        $isFilledCountryRegionPage = null;
+        if($activityData['activity_scope'] != null && ($activityData['recipient_country'] != null || $activityData['recipient_region'] != null)){
+            $isFilledCountryRegionPage = 'Country / Region';
+        }
         if ($activityData) {
             $filledStatus = [
                 "Identification"              => [
@@ -56,7 +72,7 @@ class DefaultFieldGroups
                     "activity_date"   => $activityData['activity_date'],
                     "contact_info"    => $activityData['contact_info'],
                     "activity_scope"  => $activityData['activity_scope'],
-                    "basic_activity_info" => 'Basic Activity Info'
+                    "basic_activity_info" => $isFilledBasicActivityInfo
                 ],
                 "Participating Organizations" => [
                     "participating_organization" => $activityData['participating_organization']
@@ -65,7 +81,7 @@ class DefaultFieldGroups
                     "recipient_country" => $activityData['recipient_country'],
                     "recipient_region"  => $activityData['recipient_region'],
                     "location"          => $activityData['location'],
-                    "geo_country_region"  => 'Country / Region'
+                    "geo_country_region"  => $isFilledCountryRegionPage
                 ],
                 "Classifications"             => [
                     "sector"               => $activityData['sector'],
@@ -76,7 +92,7 @@ class DefaultFieldGroups
                     "default_aid_type"     => $activityData['default_aid_type'],
                     "default_tied_status"  => $activityData['default_tied_status'],
                     "country_budget_items" => $activityData['country_budget_items'],
-                    "all_default_values"   => 'Default Values'
+                    "all_default_values"   => $isFilledDefaultValues
                 ],
                 "Financial"                   => [
                     "budget"               => $activityData['budget'],
@@ -105,7 +121,6 @@ class DefaultFieldGroups
                 $filledStatus["Classifications"]["tag"] = $activityData["tag"];
             }
         }
-
         return $filledStatus;
     }
 
