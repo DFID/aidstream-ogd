@@ -34,13 +34,37 @@ class Kernel extends ConsoleKernel
         // $schedule->call(function(){
         //     //
         // });
-        // $activity = new Activity;
-        // $allActivities = $activity->all();
-        // foreach($allActivities as $activity){
-        //     // $activity->activity_status = 1;
-        //     // $activity->save();
-        //     info($activity->activity_date);
-        // }
+        $schedule->call(function(){
+            $activity = new Activity;
+            $allActivities = $activity->all();
+            foreach($allActivities as $activity){
+                $updateActivityStatusTrigger = 0;
+                foreach($activity['activity_date'] as $date){
+                    if($date['type'] == 1){
+                        $updateActivityStatusTrigger++;
+                    }
+                    if($date['type'] == 3){
+                        $updateActivityStatusTrigger++;
+                    }
+                }
+                if($updateActivityStatusTrigger == 2){
+                    if(date("Y-m-d") >= $activity['activity_date'][0]['date'] && date("Y-m-d") <= $activity['activity_date'][1]['date'] && $activity->activity_status != 2){
+                        //info('Project should be under implementation');
+                       $activity->activity_status = 2;
+                       $activity->activity_workflow = 0;
+                       $activity->save(); 
+                    }
+                    if(date("Y-m-d") > $activity['activity_date'][1]['date'] && $activity->activity_status != 4){
+                        $activity->activity_status = 4;
+                        $activity->activity_workflow = 0;
+                       $activity->save();
+                    }
+                }
+                //info($activity->$activity_date);
+                // $activity->activity_status = 1;
+                // $activity->save();
+            }
+        })->everyMinute();
     }
 
 }

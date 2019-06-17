@@ -37,10 +37,18 @@ class BasicActivityInfo
     {
         $model['title'][0]['narrative'] = $activityTitle;
         $model['activityDate'] = [];
-        $model['activityDate'][0]['date_planned_start'] = $activityDate[0]['date'];
-        $model['activityDate'][0]['type_planned_start'] = $activityDate[0]['type'];
-        $model['activityDate'][0]['date_planned_end'] = $activityDate[1]['date'];
-        $model['activityDate'][0]['type_planned_end'] = $activityDate[1]['type'];
+        foreach($activityDate as &$date){
+            if($date['type'] == 1){
+                $model['activityDate'][0]['date_planned_start'] = $date['date'];
+                $model['activityDate'][0]['type_planned_start'] = $date['type'];        
+            }
+            if($date['type'] == 3){
+                $model['activityDate'][0]['date_planned_end'] = $date['date'];
+                $model['activityDate'][0]['type_planned_end'] = $date['type'];
+            }
+        }
+        // $model['activityDate'][0]['date_planned_start'] = $activityDate[0]['date'];
+        // $model['activityDate'][0]['type_planned_start'] = $activityDate[0]['type'];
         $model['activityStatus'][0]['activity_status'] = $activityStatus;
         $model['activityDescription'] = [];
         $model['activityDescription'] = $activityDescription;
