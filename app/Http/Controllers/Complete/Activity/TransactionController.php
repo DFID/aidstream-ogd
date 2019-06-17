@@ -9,7 +9,7 @@ use App\Services\RequestManager\Activity\Transaction as TransactionRequest;
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Gate;
-
+use App\Services\Organization\OrganizationManager;
 /**
  * Class TransactionController
  * @package App\Http\Controllers\Complete\Activity
@@ -34,16 +34,22 @@ class TransactionController extends Controller
     protected $transactionManager;
 
     /**
+     * @var SettingsManager
+     */
+    protected $organizationManager;
+
+    /**
      * @param ActivityManager    $activityManager
      * @param Transaction        $transactionForm
      * @param TransactionManager $transactionManager
      */
-    function __construct(ActivityManager $activityManager, Transaction $transactionForm, TransactionManager $transactionManager)
+    function __construct(ActivityManager $activityManager, Transaction $transactionForm, TransactionManager $transactionManager, OrganizationManager $organizationManager)
     {
         $this->middleware('auth');
         $this->activityManager    = $activityManager;
         $this->transactionForm    = $transactionForm;
         $this->transactionManager = $transactionManager;
+        $this->organizationManager    = $organizationManager;
     }
 
     /**
@@ -54,7 +60,6 @@ class TransactionController extends Controller
     public function index($id)
     {
         $activity = $this->activityManager->getActivityData($id);
-
         if (Gate::denies('ownership', $activity)) {
             return redirect()->route('activity.index')->withResponse($this->getNoPrivilegesMessage());
         }
@@ -70,13 +75,13 @@ class TransactionController extends Controller
     public function create($id)
     {
         $activity = $this->activityManager->getActivityData($id);
-
+        $reportingOrganisationData = $this->organizationManager->getOrganization($activity['organization_id']);
         if (Gate::denies('ownership', $activity)) {
             return redirect()->back()->withResponse($this->getNoPrivilegesMessage());
         }
 
         $this->authorize('add_activity', $activity);
-        $form = $this->transactionForm->createForm($id);
+        $form = $this->transactionForm->createForm($id, $reportingOrganisationData);
 
         return view('Activity.transaction.create', compact('form', 'activity', 'id'));
     }

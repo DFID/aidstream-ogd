@@ -20,9 +20,9 @@ class Transaction
         $this->formPath    = $version->getActivityElement()->getTransaction()->getForm();
     }
 
-    public function createForm($activityId)
+    public function createForm($activityId, $reportingOrgData = null)
     {
-        return $this->displayForm('POST', sprintf('activity/%d/transaction', $activityId), null, $activityId);
+        return $this->displayForm('POST', sprintf('activity/%d/transaction', $activityId), null, $activityId, $reportingOrgData);
     }
 
     public function editForm($activity, $transactionId, $transactionDetails)
@@ -30,7 +30,7 @@ class Transaction
         return $this->displayForm('PUT', route('activity.transaction.update', [$activity->id, $transactionId]), $transactionDetails,$activity->id);
     }
 
-    public function displayForm($method, $url, $data = null, $activityId = null)
+    public function displayForm($method, $url, $data = null, $activityId = null, $reportingOrgData = null)
     {
         $model['transaction'][0] = $data;
         if(isset($model['transaction'][0])){
@@ -39,6 +39,11 @@ class Transaction
         if($data != null){
             $model['transaction'][0]['provider_organization'][0]['provider_org_narrative'] = $model['transaction'][0]['provider_organization'][0]['narrative'][0]['narrative'];
             $model['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'] = $model['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'];
+        }
+        if($reportingOrgData != null){
+            $model['transaction'][0]['provider_organization'][0]['provider_org_narrative'] = $reportingOrgData['reporting_org'][0]['narrative'][0]['narrative'];
+            $model['transaction'][0]['provider_organization'][0]['type'] = $reportingOrgData['reporting_org'][0]['reporting_organization_type'];
+            $model['transaction'][0]['provider_organization'][0]['organization_identifier_code'] = $reportingOrgData['reporting_org'][0]['reporting_organization_identifier'];
         }
         return $this->formBuilder->create(
             $this->formPath,
