@@ -17,6 +17,29 @@
                 @endif
                 @include('includes.response')
                 @include('includes.breadcrumb')
+                @if($triggerForDocList)
+                    <div class="steps-wrapper">
+                        <div class="pull-left"><p>Please make sure the following types of documents are published</p></div>
+                        <ul>
+                            @foreach($requiredDocList as $key => $val)
+                                @if($key != 'B03' && $key != 'B13' && $key != 'A09' && $key != 'B03B13A09')
+                                    @if($val)
+                                        <li class="checked">Document type {{$key}} has been  added</li>
+                                    @else
+                                        <li class="unchecked">Document type {{$key}} needs to be added</li>
+                                    @endif
+                                @endif
+                                @if($key == 'B03B13A09')
+                                    @if($val)
+                                        <li class="checked">One of the required documents from B03/B13/A09 has been published</li>
+                                    @else
+                                        <li class="unchecked">You need to publish at least one document from these document types B03/B13/A09</li>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <?php
                 $status_label = ['draft', 'completed', 'verified', 'published'];
                 $btn_status_label = ['Completed', 'Verified', 'Published'];

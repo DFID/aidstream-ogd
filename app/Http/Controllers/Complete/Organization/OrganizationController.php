@@ -132,6 +132,29 @@ class OrganizationController extends Controller
         $recipient_region_budget       = (array) $organizationData->recipient_region_budget;
         $total_expenditure             = (array) $organizationData->total_expenditure;
 
+        $requiredDocList = [];
+        $requiredDocList['B01'] = false;
+        $requiredDocList['B02'] = false;
+        $requiredDocList['B03'] = false;
+        $requiredDocList['B04'] = false;
+        $requiredDocList['B05'] = false;
+        $requiredDocList['B06'] = false;
+        $requiredDocList['B13'] = false;
+        $requiredDocList['A05'] = false;
+        $requiredDocList['A09'] = false;
+        $requiredDocList['B03B13A09'] = false;
+        foreach($document_link as $doc){
+            if(array_key_exists($doc['category'][0]['code'],$requiredDocList)){
+                $requiredDocList[$doc['category'][0]['code']] = true;
+            }
+        }
+        $triggerForDocList = false;
+        if($requiredDocList['B01'] == false || $requiredDocList['B02'] == false || $requiredDocList['B04'] == false || $requiredDocList['B05'] == false || $requiredDocList['B06'] == false || $requiredDocList['A05'] == false || ($requiredDocList['B03'] == false && $requiredDocList['B13'] == false && $requiredDocList['A09'] == false)){
+            $triggerForDocList = true;
+        }
+        if($requiredDocList['B03'] == true || $requiredDocList['B13'] == true || $requiredDocList['A09'] == true){
+            $requiredDocList['B03B13A09'] = true;
+        }
         $status = $organizationData->status;
 
         if ($status == 3) {
@@ -157,7 +180,9 @@ class OrganizationController extends Controller
                 'total_expenditure',
                 'organizationDataStatus',
                 'message',
-                'organizationData'
+                'organizationData',
+                'requiredDocList',
+                'triggerForDocList'
             )
         );
     }
