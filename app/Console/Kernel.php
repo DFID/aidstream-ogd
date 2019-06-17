@@ -39,12 +39,14 @@ class Kernel extends ConsoleKernel
             $allActivities = $activity->all();
             foreach($allActivities as $activity){
                 $updateActivityStatusTrigger = 0;
-                foreach($activity['activity_date'] as $date){
-                    if($date['type'] == 1){
-                        $updateActivityStatusTrigger++;
-                    }
-                    if($date['type'] == 3){
-                        $updateActivityStatusTrigger++;
+                if(isset($activity['activity_date'])){
+                    foreach($activity['activity_date'] as $date){
+                        if($date['type'] == 1){
+                            $updateActivityStatusTrigger++;
+                        }
+                        if($date['type'] == 3){
+                            $updateActivityStatusTrigger++;
+                        }
                     }
                 }
                 if($updateActivityStatusTrigger == 2){
