@@ -36,7 +36,7 @@
         </div>
         <div class="footer-bottom-wrapper">
             <div class="width-900">
-                <div class="col-xs-12 col-sm-2 pull-left aidstream-logo"><a href="https://aidstream.org/" title="AidStream"><img src="/images/logo-aidstream.svg" alt="AidStream" width="142" height="37"></a></div>
+                <div class="col-xs-12 col-sm-2 pull-left aidstream-logo"><a href="https://aidstream.org/" title="AidStream"><img src="/images/devflow-logo.png" alt="AidStream" width="142" height="37"></a></div>
                 <div class="col-xs-12 col-sm-9 pull-right aidstream-info">
                     <p>AidStream Tanzania is a version of <a href="https://aidstream.org/">AidStream</a> customized to meet the needs of Tanzanian projects/ organizations. If you want to check out the un-customized AidStream, <a href="https://aidstream.org/">go here</a>. </p>
                 </div>
@@ -81,7 +81,7 @@
         </div>
         <div class="footer-logo">
             <div class="col-md-12 text-center">
-                <a href="{{ url('/') }}"><img src="/images/logo-aidstream.svg" alt=""></a>
+                <a href="{{ url('/') }}"><img src="/images/devflow-logo.png" alt=""></a>
             </div>
         </div>
     </div>

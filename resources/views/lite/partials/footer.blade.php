@@ -27,7 +27,7 @@
         </div>
         <div class="footer-logo">
             <div class="col-md-12 text-center">
-                <a href="{{ url('/') }}"><img src="/images/logo-aidstream.svg" alt=""><span class="tanzania-flag"></span></a>
+                <a href="{{ url('/') }}"><img src="/images/devflow-logo.png" alt=""><span class="tanzania-flag"></span></a>
             </div>
         </div>
     </div>
