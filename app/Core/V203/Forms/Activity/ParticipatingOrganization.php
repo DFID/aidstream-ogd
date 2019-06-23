@@ -14,8 +14,8 @@ class ParticipatingOrganization extends BaseForm
     public function buildForm()
     {
         $this
-            ->addCollection('participating_org_accountable', 'Activity\ParticipatingOrgAccountable', 'participating_org_accountable',[], trans('elementForm.participating_org_accountable'))
-            ->addAddMoreButton('add_accountable', 'participating_org_accountable')
+            ->addCollection('participating_org_accountable', 'Activity\ParticipatingOrgAccountable', 'participating_org_accountable hidden',[], trans('elementForm.participating_org_accountable'))
+            //->addAddMoreButton('add_accountable', 'participating_org_accountable')
             ->addCollection('participating_org_funding', 'Activity\ParticipatingOrgFunding', 'participating_org_funding',[], trans('elementForm.participating_org_funding'))
             ->addAddMoreButton('add_funding', 'participating_org_funding')
             ->addCollection('participating_org_implementing', 'Activity\ParticipatingOrgImplementing', 'participating_org_implementing',[], trans('elementForm.participating_org_implementing'))

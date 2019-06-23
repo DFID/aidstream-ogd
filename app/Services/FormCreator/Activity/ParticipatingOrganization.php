@@ -39,12 +39,13 @@ class ParticipatingOrganization
      * @return $this
      * return activity Participating Organization edit form.
      */
-    public function editForm($data, $activityId)
+    public function editForm($data, $activityId, $reportingOrganisation)
     {
         $model['participating_organization'] = [];
         $model['participating_organization'][0]['participating_org_accountable'] = [];
         $model['participating_organization'][0]['participating_org_funding'] = [];
         $model['participating_organization'][0]['participating_org_implementing'] = [];
+        $triggerForFunding = 0;
         if(sizeof($data) > 0){
             foreach($data as &$d){
                 if($d['organization_role'] == 1){
@@ -53,6 +54,7 @@ class ParticipatingOrganization
                     //$tempData['organization_type_funding'] = $d['organization_type'];
                     //$tempData['identifier_funding'] = $d['identifier'];
                     array_push($model['participating_organization'][0]['participating_org_funding'], $tempData);
+                    $triggerForFunding++;
                 }
                 if($d['organization_role'] == 2){
                     $tempData = $d;
@@ -69,6 +71,17 @@ class ParticipatingOrganization
                     array_push($model['participating_organization'][0]['participating_org_implementing'], $tempData);
                 }
             }
+        }
+        if($triggerForFunding == 0){
+            $tempData['organization_role'] = 1;
+            $tempData['activity_id'] = '';
+            $tempData['crs_channel_code'] = '';
+            $tempData['narrative'][0]['narrative'] = array_get($reportingOrganisation, 'reporting_org.0.narrative.0.narrative');
+            $tempData['narrative'][0]['language'] = 'en';
+            $tempData['narrative_funding'] = array_get($reportingOrganisation, 'reporting_org.0.narrative.0.narrative');
+            $tempData['organization_type'] = array_get($reportingOrganisation, 'reporting_org.0.reporting_organization_type');
+            $tempData['identifier'] = array_get($reportingOrganisation, 'reporting_org.0.reporting_organization_identifier');
+            array_push($model['participating_organization'][0]['participating_org_funding'], $tempData);
         }
         return $this->formBuilder->create(
             $this->formPath,

@@ -71,11 +71,12 @@ class ParticipatingOrganizationController extends Controller
         }
         
         $participatingOrganization  = $this->participatingOrganizationManager->getParticipatingOrganizationData($id);
-        $form                       = $this->participatingOrganizationForm->editForm($participatingOrganization, $id);
+        $reportingOrganisation = $activityData->organization->toArray();
+        $form                       = $this->participatingOrganizationForm->editForm($participatingOrganization, $id, $reportingOrganisation);
         $organizationTypes     = $this->getNameWithCode('Activity', 'OrganisationType');
         $organizationRoles     = $this->getNameWithCode('Activity', 'OrganisationRole');
         $partnerOrganizations  = $this->participatingOrganizationManager->getPartnerOrganizations(session('org_id'))->toArray();
-        $reportingOrganisation = $activityData->organization->toArray();
+        
         $reportingOrgData      = [
             'name'         => array_get($reportingOrganisation, 'reporting_org.0.narrative'),
             'identifier'   => array_get($reportingOrganisation, 'reporting_org.0.reporting_organization_identifier'),
@@ -135,18 +136,27 @@ class ParticipatingOrganizationController extends Controller
         }
         $preparedData['participating_organization'] = [];
         if(isset($tempData)){
-            foreach($tempData['participating_organization'][0]['participating_org_accountable'] as &$d){
-                if(strlen($d['narrative_accountable']) > 0){
-                    $tdata['organization_role'] = $d['organization_role'];
-                    $tdata['identifier'] = $d['identifier'];
-                    $tdata['organization_type'] = $d['organization_type'];
-                    $tdata['activity_id'] = $d['activity_id'];
-                    $tdata['crs_channel_code'] = $d['crs_channel_code'];
-                    $tdata['narrative'][0]['narrative'] = $d['narrative_accountable'];
-                    $tdata['narrative'][0]['language'] = 'en';
-                    array_push($preparedData['participating_organization'], $tdata);
-                }
-            }
+            $reportingOrganisation = $activityData->organization->toArray();
+            $tdata0['organization_role'] = 2;
+            $tdata0['identifier'] = array_get($reportingOrganisation, 'reporting_org.0.reporting_organization_identifier');
+            $tdata0['organization_type'] = array_get($reportingOrganisation, 'reporting_org.0.reporting_organization_type');
+            $tdata0['activity_id'] = '';
+            $tdata0['crs_channel_code'] = '';
+            $tdata0['narrative'][0]['narrative'] = array_get($reportingOrganisation, 'reporting_org.0.narrative.0.narrative');
+            $tdata0['narrative'][0]['language'] = 'en';
+            array_push($preparedData['participating_organization'], $tdata0);
+            // foreach($tempData['participating_organization'][0]['participating_org_accountable'] as &$d){
+            //     if(strlen($d['narrative_accountable']) > 0){
+            //         $tdata['organization_role'] = $d['organization_role'];
+            //         $tdata['identifier'] = $d['identifier'];
+            //         $tdata['organization_type'] = $d['organization_type'];
+            //         $tdata['activity_id'] = $d['activity_id'];
+            //         $tdata['crs_channel_code'] = $d['crs_channel_code'];
+            //         $tdata['narrative'][0]['narrative'] = $d['narrative_accountable'];
+            //         $tdata['narrative'][0]['language'] = 'en';
+            //         array_push($preparedData['participating_organization'], $tdata);
+            //     }
+            // }
             foreach($tempData['participating_organization'][0]['participating_org_funding'] as &$d){
                 if(strlen($d['narrative_funding']) > 0){
                     $tdata['organization_role'] = $d['organization_role'];
