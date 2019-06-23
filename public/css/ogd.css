@@ -68,3 +68,11 @@
 	height: 200px;
 	min-width: 500px;
 }
+
+.points div.collection_form label:first-child {
+	display: none;
+}
+
+.points div.collection_form div.form-group label {
+	display: block;
+}
