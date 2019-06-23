@@ -122,7 +122,8 @@ class GeoCountryRegionController extends Controller
         $messages = [];
         $percentageCheck = 0;
         if(strlen($activityData['activity_scope']) == 0){
-            array_push($messages, 'Activity scope cannot be left empty');
+            //Removing the requirement check because this field is not needed as a manadatory field anymore
+            //array_push($messages, 'Activity scope cannot be left empty');
         }
         // For Country data
         foreach($activityData['recipient_country'] as &$country){

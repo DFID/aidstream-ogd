@@ -55,7 +55,7 @@ class DefaultFieldGroups
         }
         // Trigger for Country / Region page
         $isFilledCountryRegionPage = null;
-        if($activityData['activity_scope'] != null && ($activityData['recipient_country'] != null || $activityData['recipient_region'] != null)){
+        if(($activityData['recipient_country'] != null || $activityData['recipient_region'] != null)){
             $isFilledCountryRegionPage = 'Country / Region';
         }
         if ($activityData) {
