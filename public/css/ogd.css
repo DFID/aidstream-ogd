@@ -63,3 +63,8 @@
 .recipient_country label.first {
 	display: none;
 }
+
+.activityDescription .narrative textarea {
+	height: 200px;
+	min-width: 500px;
+}
