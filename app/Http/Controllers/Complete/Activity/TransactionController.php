@@ -72,8 +72,9 @@ class TransactionController extends Controller
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function create($id)
+    public function create($id, Request $request)
     {
+        $transactionType = (int)$request->get('transactionType');
         $activity = $this->activityManager->getActivityData($id);
         $reportingOrganisationData = $this->organizationManager->getOrganization($activity['organization_id']);
         if (Gate::denies('ownership', $activity)) {
@@ -81,9 +82,9 @@ class TransactionController extends Controller
         }
 
         $this->authorize('add_activity', $activity);
-        $form = $this->transactionForm->createForm($id, $reportingOrganisationData);
+        $form = $this->transactionForm->createForm($id, $reportingOrganisationData, $transactionType);
 
-        return view('Activity.transaction.create', compact('form', 'activity', 'id'));
+        return view('Activity.transaction.create', compact('form', 'activity', 'id', 'transactionType'));
     }
 
     /**
@@ -207,10 +208,10 @@ class TransactionController extends Controller
                 ];
             }
         }
-
+        $transactionType = $transactions['transaction_type'][0]['transaction_type_code'];
         $form        = $this->transactionForm->editForm($activity, $transactionId, $transactions);
 
-        return view('Activity.transaction.edit', compact('form', 'activity', 'id'));
+        return view('Activity.transaction.edit', compact('form', 'activity', 'id', 'transactionType'));
     }
 
     /**

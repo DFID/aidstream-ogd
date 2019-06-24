@@ -12,6 +12,6 @@ trait ProviderOrganization
      */
     public function addProviderOrganization()
     {
-        return $this->addCollection('provider_organization', 'Activity\Transactions\ProviderOrganization', '', [], trans('elementForm.provider_organisation'));
+        return $this->addCollection('provider_organization', 'Activity\Transactions\ProviderOrganization', 'provider-org hidden', [], trans('elementForm.provider_organisation'));
     }
 }

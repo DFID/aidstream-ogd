@@ -11,7 +11,7 @@ trait TransactionType
      */
     public function addTransactionType()
     {
-        return $this->addCollection('transaction_type', 'Activity\Transactions\Type', 'hide-two', [], trans('elementForm.transaction_type'));
+        return $this->addCollection('transaction_type', 'Activity\Transactions\Type', 'hide-two hidden', [], trans('elementForm.transaction_type'));
     }
 
     /**

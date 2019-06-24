@@ -21,10 +21,16 @@
                                         </div>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="{{ route('activity.transaction.create', $id) }}" class="">@lang('global.add_new_transaction')</a>
+                                                <a href="{{ route('activity.transaction.create', $id) }}?transactionType=1"
+                                           >Add Incoming Fund</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('activity.transaction.upload-csv', $id) }}" class="">@lang('global.import_transaction')</a>
+                                               <a href="{{ route('activity.transaction.create', $id) }}?transactionType=3"
+                                           >Add Disbursement</a>
+                                            </li>
+                                            <li>
+                                               <a href="{{ route('activity.transaction.create', $id) }}?transactionType=4"
+                                           >Add Expense</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -71,10 +77,12 @@
                                 <div class="text-center no-data no-result-data">
                                     <p>@lang('global.not_added',['type' => 'transactions']).</p>
                                     <div class="no-data-btn">
-                                        <a href="{{ route('activity.transaction.create', $id) }}"
-                                           class="btn btn-primary">@lang('global.add_new_transaction')</a>
-                                        <a href="{{ route('activity.transaction.upload-csv', $id) }}"
-                                           class="btn btn-primary btn-upload">@lang('global.import_transaction')</a>
+                                        <a href="{{ route('activity.transaction.create', $id) }}?transactionType=1"
+                                           class="btn btn-primary">Add Incoming Fund</a>
+                                        <a href="{{ route('activity.transaction.create', $id) }}?transactionType=3"
+                                           class="btn btn-primary">Add Disbursement</a>
+                                        <a href="{{ route('activity.transaction.create', $id) }}?transactionType=4"
+                                           class="btn btn-primary btn-upload">Add Expense</a>
                                     </div>
                                 </div>
                             @endif

@@ -34,3 +34,16 @@
         </div>
     </div>
 @stop
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var transactionType = {!!$transactionType!!};
+            if(transactionType == 1){
+                $('.provider-org').removeClass('hidden');
+            }
+            if(transactionType == 3){
+                $('.receiver-org').removeClass('hidden');
+            }
+        });
+    </script>
+@endsection

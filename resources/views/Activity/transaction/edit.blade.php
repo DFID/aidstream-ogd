@@ -38,6 +38,13 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            var transactionType = {!!$transactionType!!};
+            if(transactionType == 1){
+                $('.provider-org').removeClass('hidden');
+            };
+            if(transactionType == 3){
+                $('.receiver-org').removeClass('hidden');
+            };
           //js for form input check and leave page alert
           $('form').delegate('textarea:not(".ignore_change"), select:not(".ignore_change"), input:not(".ignore_change")', 'change keyup', function (e) {
             var element = $(e.target);

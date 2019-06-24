@@ -12,6 +12,6 @@ trait ReceiverOrganization
      */
     public function addReceiverOrganization()
     {
-        return $this->addCollection('receiver_organization', 'Activity\Transactions\ReceiverOrganization', '', [], trans('elementForm.receiver_organisation'));
+        return $this->addCollection('receiver_organization', 'Activity\Transactions\ReceiverOrganization', 'receiver-org hidden', [], trans('elementForm.receiver_organisation'));
     }
 }
