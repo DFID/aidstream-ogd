@@ -61,6 +61,9 @@ class RegistrationController extends Controller
      */
     public function showRegistrationForm($systemVersion = null)
     {
+        $organizationCount = 0;
+        return view('home', compact('organizationCount'));
+
         $regInfo        = session()->pull('reg_info');
         $orgType        = $this->baseForm->getCodeList('OrganizationType', 'Organization', false);
         $countries      = $this->baseForm->getCodeList('Country', 'Organization', false);
@@ -95,6 +98,8 @@ class RegistrationController extends Controller
      */
     public function register(Register $request)
     {
+        $organizationCount = 0;
+        return view('home', compact('organizationCount'));
         $request = request();
 
         $systemVersion = isTzSubDomain() ? 3 : $request->get('systemVersion');
