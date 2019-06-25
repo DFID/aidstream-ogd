@@ -13,7 +13,7 @@
 <p>If there is no current AidStream user with this name belonging to your organisation, feel free to ignore this email. No changes will be made to your organisation’s AidStream account. If you do not
     recognise the user’s name or email but believe they may belong to your organisation, please email them to find out more.</p>
 
-<p>If you have any questions, you can reach us at <a href="mailto:support@aidstream.org">support@aidstream.org</a></p>
+<p>If you have any questions, you can reach us at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a></p>
 
 <p>Thanks, <br/>
     The AidStream Team</p>

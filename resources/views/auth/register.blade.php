@@ -184,7 +184,7 @@
                         </div>
                     </div>
                     <p>
-                        @lang('registration.not_my_organisation')<a href="{{ route('contact', ['not-my-organization']) }}"> support@aidstream.org</a>
+                        @lang('registration.not_my_organisation')<a href="{{ route('contact', ['not-my-organization']) }}"> IATI-feedback@dfid.gov.uk</a>
                     </p>
                 </div>
             </div>

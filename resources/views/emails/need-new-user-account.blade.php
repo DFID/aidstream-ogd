@@ -12,7 +12,7 @@
 
 <p>If you do not recognise the user’s name or email but believe they may belong to your organisation, please email them to find out more.</p>
 
-<p>If you have any questions, you can reach us at support@aidstream.org</p>
+<p>If you have any questions, you can reach us at IATI-feedback@dfid.gov.uk</p>
 
 <p>Thanks,</p>
 <p>The AidStream Team</p>

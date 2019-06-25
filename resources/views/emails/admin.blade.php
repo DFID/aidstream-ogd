@@ -3,6 +3,6 @@
 <p><a href="{{ route('user-verification',  [$verification_code]) }}">Connect Me!</a></p>
 <p>Once you’ve clicked the link and are logged in to AidStream, feel free to have a look around and get familiar with the system. We’ve even got a handy onboarding introduction waiting for you when
     you first log in - it should help you find your feet!</p>
-<p>If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:support@aidstream.org">support@aidstream.org</a></p>
+<p>If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a></p>
 <p>Happy data publishing!</p>
 <p>Your AidStream Team</p>

@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-12 logo-text">Aidstream</div>
             <div class="col-md-12 support-desc">
-                @lang('for_queries')<a href="mailto:support@aidstream.org">support@aidstream.org</a>
+                @lang('for_queries')<a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a>
             </div>
         </div>
     </div>

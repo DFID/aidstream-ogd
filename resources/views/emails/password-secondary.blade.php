@@ -20,7 +20,7 @@ $adminEmail    = $admin->email;
     Email address : {{ $adminEmail }}</p>
 
 <p>Please pass this information on to the Administrator and ask them to use it to reset their account password, if necessary. If the registered administrator is no longer with your organisation,
-    please contact us at <a href="support@aidstream.org">support@aidstream.org</a> and we can help you to change the details associated with the administrator account.</p>
+    please contact us at <a href="IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a> and we can help you to change the details associated with the administrator account.</p>
 
 <p>Thanks,<br/>
     The AidStream Team</p>

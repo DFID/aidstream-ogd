@@ -19,7 +19,7 @@
     Once you’ve confirmed your email address we’ll store it so that it can be used as a retrieval email address if you ever need it.
 </p>
 <p>
-    If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:support@aidstream.org">support@aidstream.org</a>
+    If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a>
 </p>
 <p>
     Happy data publishing!

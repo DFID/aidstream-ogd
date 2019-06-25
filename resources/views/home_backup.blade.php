@@ -31,7 +31,7 @@
             @if(auth()->user())
                 <a href="{{ route('registration') }}" class="btn btn-primary get-started-btn">@lang('global.get_started')</a>
             @else
-                
+                <a href="#convinceWrapper" class="btn btn-primary get-started-btn">@lang('global.get_started')</a>
             @endif
 
             <div class="screenshot">
@@ -110,8 +110,59 @@
     {{--</blockquote>--}}
     {{--</div>--}}
     {{--</div>--}}
-    
+    <div class="convince-wrapper" id="convinceWrapper">
+        <div class="col-md-12 text-center width-900">
+            <h2>@lang('home.still_not_convinced')</h2>
+            <p>@lang('home.did_we_mention_that_free')</p>
+            {{--<a href="{{ url('/register') }}" class="btn btn-primary get-started-btn">@lang('global.get_started')</a>--}}
+        </div>
+    </div>
     @if(!auth()->user())
+    <div class="version-wrapper" id="versionWrapper">
+        <div class="col-xs-12 width-900">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="panel-heading text-center">
+                    <img src="{{ url('/images/ic-lite-logo.svg') }}" alt="Lite" width="40" height="37">
+                    <h3>Lite</h3>
+                </div>
+                <div class="panel-body text-left">
+                    <ul>
+                        <li>Basic IATI fields to get you started</li>
+                        <li>For small organizations that don’t understand IATI</li>
+                    </ul>
+                    <p>You will be able to upgrade to Core any time you want.</p>
+                    <a href="{{ route('registration', config('system-version.Lite.id')) }}" class="btn btn-line">Start now</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="panel-heading text-center">
+                    <span>We recommend!</span>
+                    <img src="{{ url('/images/ic-core-logo.svg') }}" alt="Core" width="40" height="37">
+                    <h3>Core</h3>
+                </div>
+                <div class="panel-body text-left">
+                    <ul>
+                        <li>With both basic and other fields of IATI</li>
+                        <li>For large (and small) organizations that have a good understanding of IATI</li>
+                    </ul>
+                    <a href="{{ route('registration', config('system-version.Core.id')) }}" class="btn">Start now</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="panel-heading text-center">
+                    <img src="{{ url('/images/ic-custom-logo.svg') }}" alt="Custom" width="52" height="45">
+                    <h3>Custom</h3>
+                </div>
+                <div class="panel-body text-left">
+                    <ul>
+                        <li>Customized to meet your organizations’ needs</li>
+                        <li>For organizations that have multiple organizations under them.</li>
+                    </ul>
+                    <a href="mailto:IATI-feedback@dfid.gov.uk" class="btn btn-line">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
 </section>
 

@@ -15,6 +15,6 @@ return [
     ],
     'default' => [
         'heading' => "Something went wrong.",
-        'message' => "Please contact us at <a href=\"support@aidstream.org\" target=\"_blank\">support@aidstream.org</a>"
+        'message' => "Please contact us at <a href=\"IATI-feedback@dfid.gov.uk\" target=\"_blank\">IATI-feedback@dfid.gov.uk</a>"
     ]
 ];

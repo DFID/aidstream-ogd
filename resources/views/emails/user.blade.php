@@ -10,7 +10,7 @@
     for you when you first log in - it should help you find your feet!
 </p>
 <p>
-    If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:support@aidstream.org">support@aidstream.org</a>
+    If you have any questions, feel free to reach out; you’ll find us at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a>
 </p>
 <p>
     Happy data publishing!

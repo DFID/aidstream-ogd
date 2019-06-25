@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <p>
-                            @lang('global.not_my_organisation') <a href="{{ route('contact', ['not-my-organization']) }}">@lang('global.contact_support_at') support@aidstream.org</a>
+                            @lang('global.not_my_organisation') <a href="{{ route('contact', ['not-my-organization']) }}">@lang('global.contact_support_at') IATI-feedback@dfid.gov.uk</a>
                         </p>
                     </div>
                 </div>

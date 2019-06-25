@@ -16,7 +16,7 @@
             <div class="support">
                 <span>icon</span>
 
-                <p>@lang('global.for_queries')<a href="mailto:support@aidstream.org"> support@aidstream.org</a></p>
+                <p>@lang('global.for_queries')<a href="mailto:IATI-feedback@dfid.gov.uk"> IATI-feedback@dfid.gov.uk</a></p>
             </div>
         </div>
     </div>
