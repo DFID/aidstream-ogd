@@ -11,6 +11,11 @@
 	margin-left: 5px !important;
 }
 
+.hide-two .description_narrative div.form-group {
+	border-left: none !important;
+	margin-left: 8px !important;
+}
+
 .hide-three div.form-group div.form-group label {
 	display: none;
 }

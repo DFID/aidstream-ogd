@@ -47,7 +47,7 @@
                                 <table class="table table-striped" id="data-table">
                                     <thead>
                                     <tr>
-                                        <th>@lang('global.internal_ref')</th>
+<!--                                         <th>@lang('global.internal_ref')</th> -->
                                         <th>@lang('global.transaction_type')</th>
                                         <th>@lang('global.transaction_value')</th>
                                         <th class="default-sort">@lang('global.transaction_date')</th>
@@ -58,7 +58,7 @@
                                     @foreach($activity->getTransactions() as  $transaction)
                                         <tr data-href="{{ route('activity.transaction.show', [$activity->id, $transaction['id']]) }}"
                                             class="clickable-row">
-                                            <td>{{ $transaction['reference'] }}</td>
+<!--                                             <td>{{ $transaction['reference'] }}</td> -->
                                             <td>{{ $code->getActivityCodeName('TransactionType', $transaction['transaction_type'][0]['transaction_type_code'])}}</td>
                                             <td>{{ $transaction['value'][0]['amount'] }}</td>
                                             <td>{{ formatDate($transaction['transaction_date'][0]['date']) }}</td>

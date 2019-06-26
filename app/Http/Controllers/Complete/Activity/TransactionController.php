@@ -82,7 +82,7 @@ class TransactionController extends Controller
         }
 
         $this->authorize('add_activity', $activity);
-        $form = $this->transactionForm->createForm($id, $reportingOrganisationData, $transactionType);
+        $form = $this->transactionForm->createForm($id, $reportingOrganisationData, $transactionType, $activity['identifier']['iati_identifier_text']);
 
         return view('Activity.transaction.create', compact('form', 'activity', 'id', 'transactionType'));
     }

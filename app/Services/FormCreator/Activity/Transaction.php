@@ -20,9 +20,9 @@ class Transaction
         $this->formPath    = $version->getActivityElement()->getTransaction()->getForm();
     }
 
-    public function createForm($activityId, $reportingOrgData = null, $transactionType = null)
+    public function createForm($activityId, $reportingOrgData = null, $transactionType = null, $activityIdentifier = null)
     {
-        return $this->displayForm('POST', sprintf('activity/%d/transaction', $activityId), null, $activityId, $reportingOrgData, $transactionType);
+        return $this->displayForm('POST', sprintf('activity/%d/transaction', $activityId), null, $activityId, $reportingOrgData, $transactionType, $activityIdentifier);
     }
 
     public function editForm($activity, $transactionId, $transactionDetails)
@@ -30,7 +30,7 @@ class Transaction
         return $this->displayForm('PUT', route('activity.transaction.update', [$activity->id, $transactionId]), $transactionDetails,$activity->id);
     }
 
-    public function displayForm($method, $url, $data = null, $activityId = null, $reportingOrgData = null, $transactionType = null)
+    public function displayForm($method, $url, $data = null, $activityId = null, $reportingOrgData = null, $transactionType = null, $activityIdentifier = null)
     {
         $model['transaction'][0] = $data;
         if(isset($model['transaction'][0])){
@@ -41,21 +41,21 @@ class Transaction
             $model['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'] = $model['transaction'][0]['receiver_organization'][0]['narrative'][0]['narrative'];
         }
         if($transactionType != null && $data == null){
-            info('I am inside here and i am mad now');
-            info($transactionType);
             $model['transaction'][0]['transaction_type'][0]['transaction_type_code'] = $transactionType;
             if($transactionType == 1){
                 if($reportingOrgData != null){
                     $model['transaction'][0]['receiver_organization'][0]['receiver_org_narrative'] = $reportingOrgData['reporting_org'][0]['narrative'][0]['narrative'];
                     $model['transaction'][0]['receiver_organization'][0]['type'] = $reportingOrgData['reporting_org'][0]['reporting_organization_type'];
                     $model['transaction'][0]['receiver_organization'][0]['organization_identifier_code'] = $reportingOrgData['reporting_org'][0]['reporting_organization_identifier'];
+                    $model['transaction'][0]['receiver_organization'][0]['receiver_activity_id'] = $activityIdentifier;
                 }
             }
-            if($transactionType == 3){
+            if($transactionType == 3 || $transactionType == 4){
                 if($reportingOrgData != null){
                     $model['transaction'][0]['provider_organization'][0]['provider_org_narrative'] = $reportingOrgData['reporting_org'][0]['narrative'][0]['narrative'];
                     $model['transaction'][0]['provider_organization'][0]['type'] = $reportingOrgData['reporting_org'][0]['reporting_organization_type'];
                     $model['transaction'][0]['provider_organization'][0]['organization_identifier_code'] = $reportingOrgData['reporting_org'][0]['reporting_organization_identifier'];
+                    $model['transaction'][0]['provider_organization'][0]['provider_activity_id'] = $activityIdentifier;   
                 }
             }
         }

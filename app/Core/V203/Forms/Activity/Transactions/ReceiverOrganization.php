@@ -19,7 +19,7 @@ class ReceiverOrganization extends BaseForm
             ])
             ->addSelect('type', $this->getCodeList('OrganisationType', 'Activity'), trans('elementForm.organisation_type'), $this->addHelpText('Activity_ParticipatingOrg-type'))
             ->add('organization_identifier_code', 'text', ['label' => trans('elementForm.organisation_identifier_code')])
-             ->add('receiver_activity_id', 'text', ['label' => trans('elementForm.receiver_activity_id')]);
+             ->add('receiver_activity_id', 'hidden', ['label' => trans('elementForm.receiver_activity_id')]);
              //->addSelect('type', $this->getCodeList('OrganisationType', 'Activity'), trans('elementForm.type'), $this->addHelpText('Activity_ParticipatingOrg-type'))
             //  ->add(
             //     'type',
