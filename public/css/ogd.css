@@ -81,3 +81,8 @@
 .points div.collection_form div.form-group label {
 	display: block;
 }
+
+.policy_marker label {
+	font-size: 1em;
+	color: black;
+}
