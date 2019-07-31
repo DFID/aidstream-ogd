@@ -6,7 +6,22 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <title>AidStream - @yield('title', 'No Title')</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link rel="shortcut icon" type="image/png" sizes="32*32" href="{{ asset('/images/favicon.png') }}"/>
+    <link rel="shortcut icon" type="image/png" sizes="16*16" href="images/devflow/favicon.png"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/devflow/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/devflow/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/devflow/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/devflow/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/devflow/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/devflow/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/devflow/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/devflow/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/devflow/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/devflow/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/devflow/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/devflow/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/devflow/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/devflow/ms-icon-144x144.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet"/>
     <link href="{{ asset('/css/vendor.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.min.css') }}" rel="stylesheet">
