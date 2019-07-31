@@ -6,7 +6,7 @@
                 {{ $getCode->getCodeNameOnly('CollaborationType' , getVal($activityDataList, ['collaboration_type'], [])) }}
             </div>
         </div>
-        <a href="{{route('activity.collaboration-type.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.all-default-values.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'collaboration_type', 'id' => $id])
     </div>
 @endif

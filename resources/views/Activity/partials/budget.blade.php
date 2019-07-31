@@ -27,7 +27,7 @@
                 </div>
             </div>
         @endforeach
-        <a href="{{route('activity.budget.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.basic-activity-info.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'budget', 'id' => $id])
     </div>
 @endif

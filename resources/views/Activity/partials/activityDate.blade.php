@@ -25,7 +25,7 @@
                 </div>
             </div>
         @endforeach
-        <a href="{{route('activity.activity-date.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.basic-activity-info.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'activity_date', 'id' => $id])
     </div>
 @endif

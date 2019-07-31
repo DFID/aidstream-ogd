@@ -8,7 +8,7 @@
                 @include('Activity.partials.viewInOtherLanguage', ['otherLanguages' => array_slice(getVal($activityDataList, ['title'], []) , 1)])
             </div>
         </div>
-        <a href="{{route('activity.title.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.basic-activity-info.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'title', 'id' => $id])
     </div>
 @endif

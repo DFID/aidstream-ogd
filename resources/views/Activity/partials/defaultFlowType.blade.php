@@ -6,7 +6,7 @@
                 {{ substr($getCode->getActivityCodeName('FlowType', getVal($activityDataList, ['default_flow_type'], [])) , 0 , -4)}}
             </div>
         </div>
-        <a href="{{route('activity.default-flow-type.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.all-default-values.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'default_flow_type', 'id' => $id])
     </div>
 @endif

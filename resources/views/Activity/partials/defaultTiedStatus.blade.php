@@ -6,7 +6,7 @@
                 {{ substr($getCode->getActivityCodeName('TiedStatus', getVal($activityDataList, ['default_tied_status'], [])) , 0 , -4)}}
             </div>
         </div>
-        <a href="{{route('activity.default-tied-status.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.all-default-values.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'default_tied_status', 'id' => $id])
     </div>
 @endif

@@ -6,7 +6,7 @@
                 {{ substr($getCode->getActivityCodeName('FinanceType', getVal($activityDataList, ['default_finance_type'], [])) , 0 , -5)}}
             </div>
         </div>
-        <a href="{{route('activity.default-finance-type.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.all-default-values.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'default_finance_type', 'id' => $id])
     </div>
 @endif
