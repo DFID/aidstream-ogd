@@ -45,6 +45,13 @@
       "code": "application/pdf",
       "name": "PDF",
       "language": "en"
+    },
+    {
+      "category": "text",
+      "category-name": "",
+      "code": "text/html",
+      "name": "Web Page",
+      "language": "en"
     }
   ]
 }
