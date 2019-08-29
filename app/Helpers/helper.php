@@ -235,6 +235,27 @@ function getFirstNarrative(array $narrative, $default = null)
 }
 
 /**
+ * Returns the first element of Narrative.
+ * @param array $narrative
+ * @param null  $default
+ * @return string
+ */
+function getFirstNarrativeWithoutLanguage(array $narrative, $default = null)
+{
+    $narrativeElements = getVal($narrative, ['narrative', 0]);
+
+    if (!$default) {
+        $default = trans('global.not_available');
+    }
+
+    return (empty($narrativeElements['narrative'])) ? sprintf('<em>%s</em>', $default) :
+        sprintf(
+            "%s",
+            $narrativeElements['narrative']
+        );
+}
+
+/**
  * Returns the telephone number / email as string with commas after each other.
  * @param       $type
  * @param array $contactInformation
@@ -533,6 +554,17 @@ function getCodeNameWithCodeValue($codeNameType, $codeValue, $lengthToCut)
     }
 }
 
+function getCodeNameWithoutCodeValue($codeNameType, $codeValue, $lengthToCut)
+{
+    $codeName = app('App\Helpers\GetCodeName')->getCodeNameOnly($codeNameType, $codeValue, $lengthToCut);
+
+    if ($codeValue == "") {
+        return sprintf(sprintf('<em>%s</em>', trans('global.not_available')));
+    } else {
+        return sprintf('%s', ucfirst($codeName));
+    }
+}
+
 /**
  * Get the country budget items in format:
  * @param       $vocabularyType
@@ -573,6 +605,30 @@ function getBudgetInformation($key = null, array $budget)
     if (session('version') != 'V201') {
         if (array_key_exists('status', $budget)) {
             $budgetInformation['status'] = getCodeNameWithCodeValue('BudgetStatus', $budget['status'], - 4);
+        }
+    }
+
+    return (array_key_exists($key, $budgetInformation) ? $budgetInformation[$key] : null);
+}
+
+/**
+ * Get Budget of the country with currency. In format: 202020 Nepalese Rupee ( Valued at May 13, 2016)
+ * @param array $budget
+ * @param null  $key
+ * @return string
+ */
+function getBudgetInformationWithoutCode($key = null, array $budget)
+{
+    $budgetInformation                            = [];
+    $budgetValue                                  = getVal($budget, ['value', 0]);
+    $currencyDate                                 = getCurrencyWithoutValueDate($budgetValue, "planned");
+    $period                                       = getBudgetPeriod($budget);
+    $budgetInformation['currency_with_valuedate'] = $currencyDate;
+    $budgetInformation['period']                  = $period;
+
+    if (session('version') != 'V201') {
+        if (array_key_exists('status', $budget)) {
+            $budgetInformation['status'] = getCodeNameWithoutCodeValue('BudgetStatus', $budget['status'], - 4);
         }
     }
 
@@ -625,6 +681,29 @@ function getCurrencyValueDate($budgetValue, $type)
         $currency,
         trans('global.valued_at'),
         $valueDate
+    );
+}
+
+function getCurrencyWithoutValueDate($budgetValue, $type)
+{
+    $budgetAmount = $budgetValue['amount'];
+    $currency     = $budgetValue['currency'];
+    $valueDate    = ($type == "planned") ? formatDate($budgetValue['value_date']) : formatDate(
+        $budgetValue['date']
+    );
+    $currency     = app('App\Helpers\GetCodeName')->getCodeNameOnly('Currency', $currency, - 6);
+
+
+    $currency = (empty($currency)) ? getDefaultCurrency() : $currency;
+
+    if (empty($budgetAmount)) {
+        return sprintf('<em>%s</em>', trans('global.amount_not_available'));
+    }
+
+    return sprintf(
+        '%s %s',
+        number_format(round($budgetAmount, 2)),
+        $currency
     );
 }
 

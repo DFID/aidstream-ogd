@@ -226,7 +226,7 @@ class ActivityController extends Controller
         }
 
         $activityDataList = $this->getActivityAsArray($activityData);
-
+        $activityDataList['transaction'] = $this->transactionManager->getTransactions($id)->toArray();
 
         if ($activityData->isImportedFromXml()) {
             $activityId = $activityData->id;
@@ -964,7 +964,7 @@ class ActivityController extends Controller
     public function getTransactionView(Request $request)
     {
         $id                              = $request->get('id');
-        $activityDataList['transaction'] = $this->transactionManager->getTransactions($id)->toArray();;
+        $activityDataList['transaction'] = $this->transactionManager->getTransactions($id)->toArray();
 
         return view('Activity.partials.transaction', compact('activityDataList', 'id'))->render();
     }

@@ -32,5 +32,6 @@
         @include('Activity.partials.condition')
 {{--        @include('Activity.partials.result')--}}
         @include('Activity.partials.legacyData')
+        @include('Activity.partials.pdfPrintPreview')
     </div>
 </div>
