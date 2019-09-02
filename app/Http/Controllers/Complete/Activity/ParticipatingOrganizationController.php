@@ -222,22 +222,22 @@ class ParticipatingOrganizationController extends Controller
     {
         $messages = [];
         foreach ($data['participating_organization'][0]['participating_org_accountable'] as &$org) {
-            if(strlen($org['narrative_accountable']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
-                if(strlen($org['narrative_accountable']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+            if(strlen($org['narrative_accountable']) > 0 || strlen($org['organization_type']) > 0){
+                if(strlen($org['narrative_accountable']) == 0 || strlen($org['organization_type']) == 0){
                     array_push($messages, 'One or more of the fields for the Accountable Organisation is left empty.');
                 }
             }
         }
         foreach ($data['participating_organization'][0]['participating_org_funding'] as &$org) {
-            if(strlen($org['narrative_funding']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
-                if(strlen($org['narrative_funding']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+            if(strlen($org['narrative_funding']) > 0 || strlen($org['organization_type']) > 0){
+                if(strlen($org['narrative_funding']) == 0 || strlen($org['organization_type']) == 0){
                     array_push($messages, 'One or more of the fields for the Funding Organisation is left empty.');
                 }
             }
         }
         foreach ($data['participating_organization'][0]['participating_org_implementing'] as &$org) {
-            if(strlen($org['narrative_implementing']) > 0 || strlen($org['organization_type']) > 0 || strlen($org['identifier']) > 0){
-                if(strlen($org['narrative_implementing']) == 0 || strlen($org['organization_type']) == 0 || strlen($org['identifier']) == 0){
+            if(strlen($org['narrative_implementing']) > 0 || strlen($org['organization_type']) > 0){
+                if(strlen($org['narrative_implementing']) == 0 || strlen($org['organization_type']) == 0){
                     array_push($messages, 'One or more of the fields for the Implementing Organisation is left empty.');
                 }
             }
