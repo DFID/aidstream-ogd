@@ -55,7 +55,9 @@
                                                 {{ $documentLinkData['format'] }}
                                             </td>
                                             <td>
-                                                {{ $getCode->getActivityCodeName('DocumentCategory', getVal($documentLinkData, ['category', 0, 'code'])) }}
+                                                @foreach($documentLinkData['category'] as $cat)
+                                                    <p>{{$getCode->getActivityCodeName('DocumentCategory', $cat['code'])}}</p>
+                                                @endforeach
                                             </td>
                                             <td>
                                                 <div class="activity_actions">

@@ -30,17 +30,19 @@ class DocumentLinkController extends Controller
      */
     protected $documentLinkManager;
 
+    protected $log;
     /**
      * @param DocumentLinkManager $documentLinkManager
      * @param DocumentLinkForm    $documentLinkForm
      * @param ActivityManager     $activityManager
      */
-    function __construct(DocumentLinkManager $documentLinkManager, DocumentLinkForm $documentLinkForm, ActivityManager $activityManager)
+    function __construct(DocumentLinkManager $documentLinkManager, DocumentLinkForm $documentLinkForm, ActivityManager $activityManager, Log $log)
     {
         $this->middleware('auth');
         $this->activityManager     = $activityManager;
         $this->documentLinkForm    = $documentLinkForm;
         $this->documentLinkManager = $documentLinkManager;
+        $this->log                 = $log;
     }
 
     /**
@@ -57,7 +59,6 @@ class DocumentLinkController extends Controller
         }
 
         $documentLinks = $activityData->documentLinks()->orderBy('updated_at', 'desc')->get();
-
         return view('Activity.documentLink.index', compact('documentLinks', 'activityData', 'id'));
     }
 
