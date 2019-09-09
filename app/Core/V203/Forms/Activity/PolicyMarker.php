@@ -21,6 +21,9 @@ class PolicyMarker extends BaseForm
             ->addSelect('significance_7', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_7'),null,0)
             ->addSelect('significance_8', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_8'),null,0)
             ->addSelect('significance_9', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_9'),null,0)
+            ->addSelect('significance_10', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_10'),null,0)
+            ->addSelect('significance_11', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_11'),null,0)
+            ->addSelect('significance_12', $this->getCodeList('PolicySignificance', 'Activity'), trans('elementForm.significance_12'),null,0)
             ;
     }
 }

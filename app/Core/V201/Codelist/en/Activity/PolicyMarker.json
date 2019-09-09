@@ -48,6 +48,21 @@
       "code": "9",
       "name": "Reproductive, Maternal, Newborn and Child Health (RMNCH)",
       "language": "en"
+    },
+    {
+      "code": "10",
+      "name": "Disaster Risk Reduction (DRR)",
+      "language": "en"
+    },
+    {
+      "code": "11",
+      "name": "Disability",
+      "language": "en"
+    },
+    {
+      "code": "12",
+      "name": "Nutrition",
+      "language": "en"
     }
   ]
 }

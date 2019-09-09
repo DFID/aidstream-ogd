@@ -64,7 +64,7 @@ class PolicyMarkerController extends Controller
         $this->authorizeByRequestType($activityData, 'policy_marker');
         $policyMarker_temp = $request->all();
         $policyMarker['policy_marker'] = [];
-        for($x = 1; $x <= 9; $x++){
+        for($x = 1; $x <= 12; $x++){
             $significance_pointer = 'significance_'. $x;
             info('significance pointer: '.$significance_pointer);
             if(strlen($policyMarker_temp['policy_marker'][0][$significance_pointer]) > 0){
