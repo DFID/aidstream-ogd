@@ -15,6 +15,15 @@ class DocumentLinkForm extends BaseForm
     {
         $this
             ->add('url', 'text', ['label' => trans('elementForm.url'), 'required' => true])
+            ->add(
+                'upload_text',
+                'static',
+                [
+                    'tag'           => 'em',
+                    'label'         => false,
+                    'default_value' => trans('elementForm.url_text')
+                ]
+            )
             ->addSelect('format', $this->getCodeList('FileFormat', 'Organization'), trans('elementForm.format'), null, null, true)
             ->addNarrative('narrative')
             ->addAddMoreButton('add_narrative', 'narrative')
