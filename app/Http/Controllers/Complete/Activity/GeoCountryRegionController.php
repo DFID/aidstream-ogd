@@ -7,6 +7,7 @@ use App\Services\FormCreator\Activity\GeoCountryRegion;
 use App\Services\RequestManager\Activity\GeoCountryRegionRequestManager;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Contracts\Logging\Log;
 
 /**
  * Class TitleController
@@ -23,7 +24,7 @@ class GeoCountryRegionController extends Controller
      * @var TitleManager
      */
     protected $geoCountryRegionManager;
-
+    protected $log;
     /**
      * @var ActivityManager
      */
@@ -35,12 +36,13 @@ class GeoCountryRegionController extends Controller
      * @param Title           $title
      * @param ActivityManager $activityManager
      */
-    function __construct(GeoCountryRegionManager $geoCountryRegionManager, GeoCountryRegion $geoCountryRegion, ActivityManager $activityManager)
+    function __construct(GeoCountryRegionManager $geoCountryRegionManager, GeoCountryRegion $geoCountryRegion, ActivityManager $activityManager, Log $log)
     {
         $this->middleware('auth');
         $this->geoCountryRegion           = $geoCountryRegion;
         $this->geoCountryRegionManager    = $geoCountryRegionManager;
         $this->activityManager = $activityManager;
+        $this->log = $log;
     }
 
     /**
@@ -120,7 +122,8 @@ class GeoCountryRegionController extends Controller
 
     private function validateData($activityData){
         $messages = [];
-        $percentageCheck = 0;
+        $percentageCheck = 0.0;
+        //$this->log->info($activityData['recipient_country']);
         if(strlen($activityData['activity_scope']) == 0){
             //Removing the requirement check because this field is not needed as a manadatory field anymore
             //array_push($messages, 'Activity scope cannot be left empty');
@@ -138,7 +141,7 @@ class GeoCountryRegionController extends Controller
                     array_push($messages, 'Please enter a valid percentage amount for country');
                 }
                 else{
-                    $percentageCheck = $percentageCheck + (int)$country['percentage'];
+                    $percentageCheck = $percentageCheck + $country['percentage'];
                 }
             }
         }
@@ -155,14 +158,14 @@ class GeoCountryRegionController extends Controller
                     array_push($messages, 'Please enter a valid percentage amount for region');
                 }
                 else{
-                    $percentageCheck = $percentageCheck + (int)$region['percentage'];
+                    $percentageCheck = $percentageCheck + $region['percentage'];
                 }
             }
         }
-        if($percentageCheck > 100){
+        if(round($percentageCheck) > 100){
             array_push($messages, 'The summation of total percentage must be 100. You have exceeded the 100 percentage by '. ($percentageCheck - 100) . '%. Please, fix it.');
         }
-        else if($percentageCheck < 100){
+        else if(round($percentageCheck) < 100){
             array_push($messages, 'The summation of total percentage must be 100. You still need to distribute the remaining '. (100 - $percentageCheck) . '%. Please, fix it.');   
         }
         return $messages;
