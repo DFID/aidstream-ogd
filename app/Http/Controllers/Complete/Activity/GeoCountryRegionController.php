@@ -162,10 +162,10 @@ class GeoCountryRegionController extends Controller
                 }
             }
         }
-        if(round($percentageCheck) > 100){
+        if(round($percentageCheck,1) > 100){
             array_push($messages, 'The summation of total percentage must be 100. You have exceeded the 100 percentage by '. ($percentageCheck - 100) . '%. Please, fix it.');
         }
-        else if(round($percentageCheck) < 100){
+        else if(round($percentageCheck,1) < 100){
             array_push($messages, 'The summation of total percentage must be 100. You still need to distribute the remaining '. (100 - $percentageCheck) . '%. Please, fix it.');   
         }
         return $messages;
