@@ -100,10 +100,6 @@ class BasicActivityInfoController extends Controller
         $dataToBeSaved['activity_date'][2]['type'] = 2;
         $dataToBeSaved['activity_date'][2]['narrative'][0]['narrative'] = '';
         $dataToBeSaved['activity_date'][2]['narrative'][0]['language'] = '';
-        $dataToBeSaved['activity_date'][3]['date'] = $data['activityDate'][0]['date_planned_end'];
-        $dataToBeSaved['activity_date'][3]['type'] = 4;
-        $dataToBeSaved['activity_date'][3]['narrative'][0]['narrative'] = '';
-        $dataToBeSaved['activity_date'][3]['narrative'][0]['language'] = '';
         $dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
         $dataToBeSaved['description'] = [];
         $dataToBeSaved['description'] = $data['activityDescription'];
