@@ -31,7 +31,7 @@
                 @endforeach
             </div>
         </div>
-        <a href="{{route('activity.recipient-region.index', $id)}}" class="edit-element">@lang('global.edit')</a>
+        <a href="{{route('activity.geo-country-region.index', $id)}}" class="edit-element">@lang('global.edit')</a>
         @include('Activity.partials.element-delete-form', ['element' => 'recipient_region', 'id' => $id])
     </div>
 @endif
