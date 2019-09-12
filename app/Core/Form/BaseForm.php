@@ -126,13 +126,17 @@ class BaseForm extends Form
      * @param array  $data
      * @return BaseForm
      */
-    protected function addNarrative($className, $label = 'Text', $data = [])
+    protected function addNarrative($className, $label = 'Text', $data = [], $narrativeLabelOverride = null)
     {
         $label = ($label == 'Text') ? trans('elementForm.text') : $label;
 
         $data['label'] = $label;
-
-        return $this->addCollection('narrative', 'Activity\Narrative', $className, $data, trans('elementForm.narrative'));
+        if($narrativeLabelOverride != null){
+            return $this->addCollection('narrative', 'Activity\Narrative', $className, $data, $narrativeLabelOverride);
+        }
+        else{
+            return $this->addCollection('narrative', 'Activity\Narrative', $className, $data, trans('elementForm.narrative'));
+        }
     }
 
     protected function addNarrativeHidden($className, $label = 'Text', $data = [])

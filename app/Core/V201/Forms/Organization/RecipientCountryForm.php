@@ -8,8 +8,8 @@ class RecipientCountryForm extends BaseForm
     {
         $this
             ->addSelect('code', $this->getCodeList('Country', 'Organization'), trans('elementForm.code'), $this->addHelpText('Organisation_RecipientCountryBudget_RecipientCountry-code'), null, false)
-            ->addNarrative('recipient_country_narrative')
-            ->addAddMoreButton('add_recipient_country_narrative', 'recipient_country_narrative')
+            ->addNarrativeHidden('recipient_country_narrative')
+            //->addAddMoreButton('add_recipient_country_narrative', 'recipient_country_narrative')
             ->addRemoveThisButton('remove_recipient_country');
     }
 }

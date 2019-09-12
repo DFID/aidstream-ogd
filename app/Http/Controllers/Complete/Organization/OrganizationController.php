@@ -144,8 +144,11 @@ class OrganizationController extends Controller
         $requiredDocList['A09'] = false;
         $requiredDocList['B03B13A09'] = false;
         foreach($document_link as $doc){
-            if(array_key_exists($doc['category'][0]['code'],$requiredDocList)){
-                $requiredDocList[$doc['category'][0]['code']] = true;
+            foreach($doc['category'] as $cat){
+                if(array_key_exists($cat['code'],$requiredDocList)){
+                    $requiredDocList[$cat['code']] = true;
+                    break;
+                }
             }
         }
         $triggerForDocList = false;
