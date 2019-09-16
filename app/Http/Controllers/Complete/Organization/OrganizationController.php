@@ -147,7 +147,6 @@ class OrganizationController extends Controller
             foreach($doc['category'] as $cat){
                 if(array_key_exists($cat['code'],$requiredDocList)){
                     $requiredDocList[$cat['code']] = true;
-                    break;
                 }
             }
         }
