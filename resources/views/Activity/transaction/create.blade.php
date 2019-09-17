@@ -41,7 +41,7 @@
             if(transactionType == 1){
                 $('.provider-org').removeClass('hidden');
             }
-            if(transactionType == 3){
+            if(transactionType == 3 || transactionType == 2){
                 $('.receiver-org').removeClass('hidden');
             }
         });

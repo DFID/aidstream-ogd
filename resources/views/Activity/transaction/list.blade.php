@@ -32,6 +32,10 @@
                                                <a href="{{ route('activity.transaction.create', $id) }}?transactionType=4"
                                            >Add Expense</a>
                                             </li>
+                                            <li>
+                                               <a href="{{ route('activity.transaction.create', $id) }}?transactionType=2"
+                                           >Add Commitment</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -83,6 +87,8 @@
                                            class="btn btn-primary">Add Disbursement</a>
                                         <a href="{{ route('activity.transaction.create', $id) }}?transactionType=4"
                                            class="btn btn-primary btn-upload">Add Expense</a>
+                                        <a href="{{ route('activity.transaction.create', $id) }}?transactionType=2"
+                                           class="btn btn-primary btn-upload">Add Commitment</a>
                                     </div>
                                 </div>
                             @endif

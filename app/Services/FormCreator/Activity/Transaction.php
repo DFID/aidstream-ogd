@@ -50,7 +50,7 @@ class Transaction
                     $model['transaction'][0]['receiver_organization'][0]['receiver_activity_id'] = $activityIdentifier;
                 }
             }
-            if($transactionType == 3 || $transactionType == 4){
+            if($transactionType == 3 || $transactionType == 4 || $transactionType == 2){
                 if($reportingOrgData != null){
                     $model['transaction'][0]['provider_organization'][0]['provider_org_narrative'] = $reportingOrgData['reporting_org'][0]['narrative'][0]['narrative'];
                     $model['transaction'][0]['provider_organization'][0]['type'] = $reportingOrgData['reporting_org'][0]['reporting_organization_type'];
