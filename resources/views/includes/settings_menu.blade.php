@@ -8,13 +8,13 @@
                             @lang('setting.organisation_information')
                         </a>
                     </li>
-                    <li @if(request()->path() == 'publishing-settings') class="active"@endif >
+                    <li style="display: none" @if(request()->path() == 'publishing-settings') class="active"@endif >
                         <a href="{{route('publishing-settings')}}">@lang('setting.publishing_settings')</a>
                     </li>
-                    <li @if(request()->path() == 'activity-elements-checklist') class="active" @endif>
+                    <li style="display: none" @if(request()->path() == 'activity-elements-checklist') class="active" @endif>
                         <a href="{{route('activity-elements-checklist')}}">@lang('setting.activity_elements_checklist')</a>
                     </li>
-                    <li @if(request()->path() == 'default-values') class="active" @endif>
+                    <li style="display: none" @if(request()->path() == 'default-values') class="active" @endif>
                         <a href="{{route('default-values')}}">@lang('setting.default_values')</a>
                     </li>
                     <li @if(request()->path() == 'organization-user' || request()->path() == 'organization-user/register') class="active" @endif>

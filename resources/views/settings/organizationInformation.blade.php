@@ -6,7 +6,7 @@
             {{ Form::model($organization,['method'=>'POST', 'route' => 'organization-information.update','files' => true]) }}
             {!! form_rest($form) !!}
             @if(session('version') == 'V203')
-            <div class="col-md-12 col-xs-12">
+            <div style="display: none" class="col-md-12 col-xs-12">
                 {!! AsForm::select(['name'=>'secondary_reporter', 'class' => 'organization_name_abbr','empty_value' => trans('global.select_one_of_the_following_options') ,'data'=>["1"=>'Yes',"0"=>'No'],'label'=>trans('organisation.secondary_reporter'), 'parent'=>'col-xs-12 col-sm-6 col-md-6']) !!}
             </div>
             @endif
@@ -23,17 +23,17 @@
                 {!! AsForm::select(['name' => 'registration_agency', 'data' => $registrationAgency,'required' => true, 'label' => trans('organisation.organisation_registration_agency'),'parent' => 'col-xs-12 col-sm-6 col-md-6', 'id' => 'registration_agency', 'empty_value' => trans('global.select_an_agency'), 'attr' => ['data-agency' => json_encode($registrationAgency)]]) !!}
                 {!! AsForm::text(['name' => 'registration_number', 'required'=> true, 'label' => trans('organisation.organisation_registration_number'),'parent' => 'col-xs-12 col-sm-6 col-md-6']) !!}
             </div>
-            <div class="col-md-12 col-xs-12 single-form-wrap">
+            <div style="display: none" class="col-md-12 col-xs-12 single-form-wrap">
                 {!! AsForm::text(['name'=>'organization_url' , 'label' => trans('organisation.organisation_website_url'), 'parent' => 'col-xs-12 col-sm-6 col-md-6']) !!}
             </div>
-            <div class="col-md-12 col-xs-12 single-form-wrap">
+            <div style="display: none" class="col-md-12 col-xs-12 single-form-wrap">
                 {!! AsForm::text(['name'=>'twitter' , 'label' => trans('organisation.organisation_twitter_handler'), 'parent' => 'col-xs-12 col-sm-6 col-md-6']) !!}
                 <div class="description col-xs-12 col-sm-6 col-md-6"> @lang('organisation.please_insert_a_valid_twitter_username_example') '@oxfam ' or 'oxfam'</div>
             </div>
-            <div class="col-md-12 col-xs-12 single-form-wrap">
+            <div style="display: none" class="col-md-12 col-xs-12 single-form-wrap">
                 {!! AsForm::text(['name' => 'telephone', 'label' => trans('organisation.organisation_telephone_number'), 'parent' => 'col-xs-12 col-sm-6 col-md-6']) !!}
             </div>
-            <div class="col-md-6 col-xs-12 upload-logo-block">
+            <div style="display: none" class="col-md-6 col-xs-12 upload-logo-block">
                 {{ Form::label(null, trans('organisation.organisation_logo')) }}
                 <div class="upload-logo">
                     {{ Form::file('organization_logo',['class'=>'inputfile form-control','id' => 'picture']) }}

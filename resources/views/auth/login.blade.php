@@ -108,7 +108,7 @@
                                             {{--</label>--}}
                                         {{--</div>--}}
                                     {{--</div>--}}
-                                    <div class="col-md-6 pull-right">
+                                    <div style="display: none" class="col-md-6 pull-right">
                                         <a class="btn-link"
                                            href="{{ url('/password/email') }}">@lang('trans.forgot_password')?</a>
                                     </div>
@@ -119,14 +119,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 create-account-wrapper">
+            <div style="display: none" class="col-md-12 create-account-wrapper">
                 @lang('global.dont_have_account') <a href="{{ route('registration') }}">@lang('global.create_account')</a>
             </div>
         </div>
     </div>
 
 </div>
-@include('includes.footer')
+
         <!-- Scripts -->
 @if(env('APP_ENV') == 'local')
     <script type="text/javascript" src="{{url('/js/jquery.js')}}"></script>

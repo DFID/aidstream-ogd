@@ -54,77 +54,6 @@
             </div>
         </div>
     </div>
-    <div class="organization-wrapper bottom-line">
-        <div class="col-md-12 width-900">
-            <ul>
-                <li><img src="images/ic-org-add.png" alt=""></li>
-                <li><img src="images/ic-org-adra.png" alt=""></li>
-                <li><img src="images/ic-org-awc.png" alt=""></li>
-                <li><img src="images/ic-org-amref-flying.png" alt=""></li>
-                <li><img src="images/ic-org-amref-health.png" alt=""></li>
-                <li><img src="images/ic-org-apt.png" alt=""></li>
-            </ul>
-            {{--<p>387 organisations have published their aid data. <a href="{{ url('/who-are-using') }}">{{ $organizationCount }}</a> have done it through AidStream</p>--}}
-            <p>
-                <a href="{{ url('/who-is-using') }}">{{ $organizationCount }}</a> @lang('home.organisations_are_using_aidstream')
-            </p>
-        </div>
-    </div>
-    <div class="information-wrapper bottom-line">
-        <div class="information-section">
-            <div class="col-md-12 width-900">
-                <div class="left-wrapper">
-                    <h2>@lang('home.less_iati_xml_complexities')</h2>
-
-                    <p>@lang('home.entering_data_in_aidstream')</p>
-                </div>
-                <div class="right-wrapper">
-                    <img src="images/img-1.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="information-section">
-            <div class="col-md-12 width-900">
-                <div class="left-wrapper">
-                    <h2>@lang('home.easy_to_use_interface')</h2>
-
-                    <p>
-                        @lang('home.aidstream_as_a_clear')
-                    </p>
-                </div>
-                <div class="right-wrapper">
-                    <img src="images/img-2.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="information-section">
-            <div class="col-md-12 width-900">
-                <div class="left-wrapper">
-                    <h2>@lang('home.publish_data_easily')</h2>
-
-                    <p>
-                        @lang('home.aidstream_uses_the_form')
-                    </p>
-                </div>
-                <div class="right-wrapper">
-                    <img src="images/img-3.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    {{--<div class="testimonials-wrapper">--}}
-    {{--<div class="col-md-12 text-center">--}}
-    {{--<blockquote>--}}
-    {{--<p>"Neat - AidStream makes it easy for an organisation to publish #IATI #opendata"</p>--}}
-
-    {{--<div class="detail">--}}
-    {{--<h3>Tariq Khokhar</h3>--}}
-    {{--<span>Global Data Editor, WorldBank</span>--}}
-    {{--<img src="images/speaker.png" alt="">--}}
-    {{--</div>--}}
-    {{--</blockquote>--}}
-    {{--</div>--}}
-    {{--</div>--}}
     
     @if(!auth()->user())
     @endif
@@ -194,7 +123,7 @@
     </div>
 @endif
 
-@include('includes.footer')
+
 <script src="js/jquery.js"></script>
 <script src="js/modernizr.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
