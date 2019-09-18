@@ -36,7 +36,7 @@
 
             <h1>@lang('home.effortlessly_publish_your_aid_data',['route' => 'http://iatistandard.org/'])</h1>
 
-            {{--<p>AidStream is an online platform for organisations that wish to publish aid data in the International Aid--}}
+            {{--<p>DevFlow is an online platform for organisations that wish to publish aid data in the International Aid--}}
             {{--Transparency Initiative(IATI) format without getting into complexities of IATI. </p>--}}
 
             <p>

@@ -2,7 +2,7 @@
 
 return [
     'effortlessly_publish_your_aid_data' => 'Effortlessly publish your Aid data in <a href="http://iatistandard.org/">IATI format</a>',
-    'aidstream_is_online_platform'       => 'AidStream is an online platform for organisations that wish to publish aid data in accordance with the
+    'aidstream_is_online_platform'       => 'DevFlow is an online platform for organisations that wish to publish aid data in accordance with the
                 International Aid Transparency Initiative(IATI) format but want to avoid dealing with the complexities
                 of creating XML.',
     'organisations_are_using_aidstream'  => 'organisations are using AidStream.',
