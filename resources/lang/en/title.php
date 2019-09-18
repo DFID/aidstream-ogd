@@ -2,12 +2,12 @@
 
 //<title></title>
 return [
-    'aidstream'                         => 'Aidstream',
+    'aidstream'                         => 'DevFlow',
     'welcome_to_aidstream'              => 'Welcome To AidStream',
-    'aidstream_register'                => 'AidStream - Register',
-    'aidstream_forgot_password'         => 'Aidstream - Forgot Password',
-    'aidstream_create_password'         => 'AidStream - Create Password',
-    'aidstream_login'                   => 'Aidstream - Login',
+    'aidstream_register'                => 'DevFlow - Register',
+    'aidstream_forgot_password'         => 'DevFlow - Forgot Password',
+    'aidstream_create_password'         => 'DevFlow - Create Password',
+    'aidstream_login'                   => 'DevFlow - Login',
     'activity_date'                     => 'Activity Date',
     'activity_scope'                    => 'Activity Scope',
     'activity_status'                   => 'Activity Status',

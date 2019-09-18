@@ -35,7 +35,7 @@
   "email_address_required": "E-mail Address is required.",
   "permission_role_required": "Permission Role is required.",
   "org_name_abbrev_taken": "Organisation Name Abbreviation has already been taken.",
-  "account_with_similar_name": "It seems there are account(s) on Aidstream with same/similar organisation name. <a href=\"/find-similar-organizations\" class=\"check_similar_org\">Click here</a> to check if your organisation is already there.",
+  "account_with_similar_name": "It seems there are account(s) on DevFlow with same/similar organisation name. <a href=\"/find-similar-organizations\" class=\"check_similar_org\">Click here</a> to check if your organisation is already there.",
   "add_another_user": "Add Another User",
   "select_an_agency": "Select an Agency",
   "add_additional_users": "add additional users now.",

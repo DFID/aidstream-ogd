@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
-    <title>AidStream - @yield('title', 'No Title')</title>
+    <title>DevFlow - @yield('title', 'No Title')</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="shortcut icon" type="image/png" sizes="16*16" href="images/devflow/favicon.png"/>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/devflow/apple-icon-57x57.png">
@@ -51,7 +51,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-brand">
-                <a href="{{url('/')}}" alt="Aidstream">Aidstream</a>
+                <a href="{{url('/')}}" alt="DevFlow">DevFlow</a>
             </div>
         </div>
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
