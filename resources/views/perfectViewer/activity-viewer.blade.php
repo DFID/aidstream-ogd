@@ -12,7 +12,7 @@
 
     <meta name="title" content="Activity Viewer"/>
     <meta name="description"
-          content="AidStream is an online platform for organisations that wish to publish aid data in accordance with the International Aid Transparency Initiative(IATI) format but want to avoid dealing with the complexities of creating XML."/>
+          content="DevFlow is an online platform for organisations that wish to publish aid data in accordance with the International Aid Transparency Initiative(IATI) format but want to avoid dealing with the complexities of creating XML."/>
     <meta name="robots" content="index,follow"/>
     <meta name="copyright" content="AidStream"/>
 
