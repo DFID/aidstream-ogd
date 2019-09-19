@@ -7,7 +7,7 @@
         <div class="modal-dialog welcome-screen">
             <div class="modal-content text-center">
                 <div class="modal-body">
-                    <img src={{ url('/images/logo-large.svg') }} alt="Aidstream" width="130" height="124">
+                    <img src={{ url('/images/devflow-logo.png') }} alt="DevFlow">
                     <h1>@lang('global.welcome_to_aidstream')</h1>
                     <span class="welcome-name">{{ ucfirst($firstname )}} {{ ucfirst($lastname )}}</span>
                     <p> @lang('global.thank_you_for_choosing_aidstream')</p>
