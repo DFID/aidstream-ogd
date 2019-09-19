@@ -9,7 +9,7 @@ class BudgetLineForm extends BaseForm
         $this
             ->add('reference', 'text', ['label' => trans('elementForm.reference'), 'help_block' => $this->addHelpText('Organisation_TotalBudget_BudgetLine-ref')])
             ->addCollection('value', 'Organization\BudgetOrExpenseLineValueForm', '', [], trans('elementForm.value'))
-            ->addNarrativeHidden('budget_line_narrative hidden')
+            ->addNarrativeNoLanguage('budget_line_narrative')
             //->addAddMoreButton('add', 'budget_line_narrative')
             ->addRemoveThisButton('remove_budget_line');
     }

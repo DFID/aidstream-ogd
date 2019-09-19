@@ -7,7 +7,7 @@ use App\Models\Activity\Activity;
  * Class Narrative
  * @package App\Core\V201\Forms\Activity
  */
-class NarrativeHidden extends BaseForm
+class NarrativeNoLanguage extends BaseForm
 {
     protected $showFieldErrors = true;
 
@@ -23,9 +23,12 @@ class NarrativeHidden extends BaseForm
         $this
             ->add(
                 'narrative',
-                'text',
+                'textarea',
                 [
-                    'value' => null
+                    'label'      => $this->getData('label'),
+                    'help_block' => $this->addHelpText($this->getData('help-text-narrative') ? $this->getData('help-text-narrative') : 'Narrative-text'),
+                    'attr'       => ['rows' => 8],
+                    'required'   => $this->getData('narrative_required')
                 ]
             )
             // ->addSelect(
@@ -38,7 +41,7 @@ class NarrativeHidden extends BaseForm
                 'language',
                 'hidden',
                 [
-                    'value' => null
+                    'value' => ''
                 ]
             );
     }
