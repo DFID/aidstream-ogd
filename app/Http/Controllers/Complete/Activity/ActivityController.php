@@ -750,6 +750,8 @@ class ActivityController extends Controller
             $tempVar[0]['job_title'][0]['narrative'] = '';
         }
         $activityData['contact_info'] = $tempVar;
+        //Fill in the capital spend data to be 0 by default (Required. Ref: T1305)
+        $activityData['capital_spend'] = 0;
         return $activityData;
     }
 
