@@ -21,7 +21,6 @@ use App\User;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Gate;
 use Psr\Log\LoggerInterface;
-use Illuminate\Contracts\Logging\Log;
 
 
 /**
@@ -103,7 +102,6 @@ class ActivityController extends Controller
      * @var XmlValidator
      */
     protected $xmlValidator;
-    protected $log;
     /**
      * @param SettingsManager              $settingsManager
      * @param SessionManager               $sessionManager
@@ -134,8 +132,7 @@ class ActivityController extends Controller
         User $user,
         Settings $settings,
         LoggerInterface $loggerInterface,
-        XmlValidator $xmlValidator,
-        Log $log
+        XmlValidator $xmlValidator
     ) {
         $this->middleware('auth');
         $this->settingsManager              = $settingsManager;
@@ -153,7 +150,6 @@ class ActivityController extends Controller
         $this->loggerInterface              = $loggerInterface;
         $this->documentLinkManager          = $documentLinkManager;
         $this->xmlValidator                 = $xmlValidator;
-        $this->log                          = $log;
     }
 
     /**
