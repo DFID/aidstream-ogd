@@ -184,7 +184,7 @@ class XmlGenerator
             'last-updated-datetime' => gmdate('c', time($settings->updated_at)),
             'xml:lang'              => $settings->default_field_values[0]['default_language'],
             'default-currency'      => $settings->default_field_values[0]['default_currency'],
-            'xmlns:aidstream'       => 'http://example.org/aidstream/ns#'
+            'xmlns:devflow'       => 'https://devflow.northeurope.cloudapp.azure.com'
         ];
 
         return $this->arrayToXml->createXML('iati-organisations', $xmlData);
@@ -252,7 +252,7 @@ class XmlGenerator
                 'last-updated-datetime' => gmdate('c', time($settings->updated_at)),
                 'xml:lang'              => $settings->default_field_values[0]['default_language'],
                 'default-currency'      => $settings->default_field_values[0]['default_currency'],
-                'xmlns:aidstream'       => 'http://example.org/aidstream/ns#'
+                'xmlns:devflow'       => 'https://devflow.northeurope.cloudapp.azure.com'
             ];
         }
 
