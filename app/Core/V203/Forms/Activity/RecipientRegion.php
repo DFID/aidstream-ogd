@@ -24,7 +24,7 @@ class RecipientRegion extends BaseForm
             )
             //->addSelect('region_vocabulary', $this->getCodeList('RegionVocabulary', 'Activity'), trans('elementForm.region_vocabulary'), $this->addHelpText('Activity_RecipientRegion-vocabulary'))
             //->add('vocabulary_uri', 'text', ['label' => trans('elementForm.vocabulary_uri')])
-            ->addPercentage()
+            ->addPercentage(null,true)
             //->addNarrative('narrative')
             //->addAddMoreButton('add_narrative', 'narrative')
             ->addRemoveThisButton('remove_recipient_region');

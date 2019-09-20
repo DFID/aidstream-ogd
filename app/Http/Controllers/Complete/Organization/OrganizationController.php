@@ -135,14 +135,13 @@ class OrganizationController extends Controller
         $requiredDocList = [];
         $requiredDocList['B01'] = false;
         $requiredDocList['B02'] = false;
-        $requiredDocList['B03'] = false;
         $requiredDocList['B04'] = false;
         $requiredDocList['B05'] = false;
         $requiredDocList['B06'] = false;
         $requiredDocList['B13'] = false;
         $requiredDocList['A05'] = false;
         $requiredDocList['A09'] = false;
-        $requiredDocList['B03B13A09'] = false;
+        $requiredDocList['B13A09'] = false;
         foreach($document_link as $doc){
             foreach($doc['category'] as $cat){
                 if(array_key_exists($cat['code'],$requiredDocList)){
@@ -151,11 +150,11 @@ class OrganizationController extends Controller
             }
         }
         $triggerForDocList = false;
-        if($requiredDocList['B01'] == false || $requiredDocList['B02'] == false || $requiredDocList['B04'] == false || $requiredDocList['B05'] == false || $requiredDocList['B06'] == false || $requiredDocList['A05'] == false || ($requiredDocList['B03'] == false && $requiredDocList['B13'] == false && $requiredDocList['A09'] == false)){
+        if($requiredDocList['B01'] == false || $requiredDocList['B02'] == false || $requiredDocList['B04'] == false || $requiredDocList['B05'] == false || $requiredDocList['B06'] == false || $requiredDocList['A05'] == false || ($requiredDocList['B13'] == false && $requiredDocList['A09'] == false)){
             $triggerForDocList = true;
         }
-        if($requiredDocList['B03'] == true || $requiredDocList['B13'] == true || $requiredDocList['A09'] == true){
-            $requiredDocList['B03B13A09'] = true;
+        if($requiredDocList['B13'] == true || $requiredDocList['A09'] == true){
+            $requiredDocList['B13A09'] = true;
         }
         $status = $organizationData->status;
 

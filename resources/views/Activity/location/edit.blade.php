@@ -44,6 +44,8 @@
             <script type="text/javascript" src="{{url('/js/map.js')}}"></script>
             <script type="text/javascript">
                 $(document).ready(function () {
+                    $('.location').children('label').addClass('required');
+                    $('.loc-type').children('label').addClass('required');
                     $('form .map_container').each(function () {
                         initMap($(this).attr('id'));
                     });

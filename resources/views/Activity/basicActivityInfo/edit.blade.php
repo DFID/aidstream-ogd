@@ -35,4 +35,10 @@
         </div>
     </div>
 @endsection
-
+@section('foot')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.title').children('label').addClass('required');
+        });
+    </script>
+@endsection

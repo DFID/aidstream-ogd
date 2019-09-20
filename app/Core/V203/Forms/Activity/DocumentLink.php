@@ -17,7 +17,7 @@ class DocumentLink extends V201DocumentLink
                     'default_value' => trans('elementForm.url_text')
                 ]
             )
-            ->addCollection('title', 'Activity\Title', 'hide-two', [], trans('elementForm.title'))
+            ->addCollection('title', 'Activity\Title', 'hide-two docTitle', [], trans('elementForm.title'))
             ->addCollection('description', 'Activity\Title', 'hide-two', [], trans('elementForm.description'))
             ->addSelect('format', $this->getCodeListWithNameOnly('FileFormat', 'Activity'), trans('elementForm.format'), $this->addHelpText('Activity_DocumentLink-format'), null, true)
             ->addCollection('category', 'Activity\CategoryCode', 'category hide-two', [], trans('elementForm.category'))

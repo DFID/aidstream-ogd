@@ -22,7 +22,7 @@ class RecipientRegion extends BaseForm
                     'value' => '1'
                 ]
             )
-            ->addPercentage($this->addHelpText('Activity_RecipientRegion-percentage'))
+            ->addPercentage($this->addHelpText('Activity_RecipientRegion-percentage'),true)
             ->addRemoveThisButton('remove_recipient_region');
     }
 }

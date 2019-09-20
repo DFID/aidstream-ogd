@@ -30,7 +30,7 @@
                     <div class="panel panel-default panel-element-detail panel-activity-default">
                         <div class="panel-body">
                             <div class="activity-description"><span>@lang('global.activity_default_field_change')</span></div>
-                            <div class="panel-default">
+                            <div style="display: none" class="panel-default">
                                 <div class="panel-heading">@lang('trans.activity_default')</div>
                                 <div class="panel-body panel-element-body">
                                     <div class="col-xs-12 col-sm-6 col-md-6">

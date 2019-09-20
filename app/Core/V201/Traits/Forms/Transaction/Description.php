@@ -12,6 +12,6 @@ trait Description
      */
     public function addDescription()
     {
-        return $this->addCollection('description', 'Activity\Transactions\Description', 'hide-two', [], trans('elementForm.description'));
+        return $this->addCollection('description', 'Activity\Transactions\Description', 'hide-two tDescription', [], trans('elementForm.description'));
     }
 }

@@ -17,7 +17,7 @@ class RecipientCountry extends BaseForm
     {
         $this
             ->addSelect('country_code', $this->getCodeList('Country', 'Organization'), trans('elementForm.country_code'), $this->addHelpText('Activity_RecipientCountry-code'), null, true)
-            ->addPercentage($this->addHelpText('Activity_RecipientCountry-percentage'))
+            ->addPercentage($this->addHelpText('Activity_RecipientCountry-percentage'),true)
             ->addNarrativeHidden('narrative hidden')
             //->addAddMoreButton('add_narrative', 'narrative')
             ->addRemoveThisButton('remove_recipient_country');
