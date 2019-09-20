@@ -21,6 +21,7 @@ use App\User;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Gate;
 use Psr\Log\LoggerInterface;
+use Illuminate\Contracts\Logging\Log;
 
 
 /**
@@ -102,7 +103,7 @@ class ActivityController extends Controller
      * @var XmlValidator
      */
     protected $xmlValidator;
-
+    protected $log;
     /**
      * @param SettingsManager              $settingsManager
      * @param SessionManager               $sessionManager
@@ -133,7 +134,8 @@ class ActivityController extends Controller
         User $user,
         Settings $settings,
         LoggerInterface $loggerInterface,
-        XmlValidator $xmlValidator
+        XmlValidator $xmlValidator,
+        Log $log
     ) {
         $this->middleware('auth');
         $this->settingsManager              = $settingsManager;
@@ -151,6 +153,7 @@ class ActivityController extends Controller
         $this->loggerInterface              = $loggerInterface;
         $this->documentLinkManager          = $documentLinkManager;
         $this->xmlValidator                 = $xmlValidator;
+        $this->log                          = $log;
     }
 
     /**
@@ -752,6 +755,12 @@ class ActivityController extends Controller
         $activityData['contact_info'] = $tempVar;
         //Fill in the capital spend data to be 0 by default (Required. Ref: T1305)
         $activityData['capital_spend'] = 0;
+        $conditions = $activityData['conditions'];
+        $conditions['condition_attached'] = 0;
+        $conditions['condition'][0]['condition_type'] = '';
+        $conditions['condition'][0]['narrative'][0]['narrative'] = '';
+        $conditions['condition'][0]['narrative'][0]['language'] = '';
+        $activityData['conditions'] = $conditions;
         return $activityData;
     }
 
