@@ -24,7 +24,7 @@
                                 </p>
                                 <a href="{{route('download.simple')}}" class="btn btn-primary">@lang('global.download')</a>
                             </div>
-                            <div class="download-block">
+                            <div style="display: none" class="download-block">
                                 <div class="download-data-title">@lang('global.complete')</div>
                                 <p>@lang('global.complete_text')</p>
                                 <a href="{{ route('download.complete') }}" class="btn btn-primary">@lang('global.download')</a>
