@@ -3,6 +3,7 @@
 use App\Core\V201\Element\Activity\DocumentLink as V201DocumentLink;
 use App\Models\Activity\Activity;
 
+
 /**
  * Class DocumentLink
  * @package app\Core\V202\Element\Activity
@@ -27,8 +28,15 @@ class DocumentLink extends V201DocumentLink
         $activityData  = [];
         $documentLinks = $activity->documentLinks()->get();
 
+
         foreach ($documentLinks as $documentLink) {
             $documentLink   = $documentLink->document_link;
+            $categories = [];
+            foreach(getVal($documentLink, ['category']) as $value){
+                $categories[] = [
+                    '@attributes' => ['code' => getVal($value, ['code'])]
+                ];
+            }
             $activityData[] = [
                 '@attributes'   => [
                     'url'    => $documentLink['url'],
@@ -40,11 +48,7 @@ class DocumentLink extends V201DocumentLink
                 'description'   => [
                     'narrative' => $this->buildNarrative(getVal($documentLink, ['description', 0, 'narrative'],[]))
                 ],
-                'category'      => [
-                    '@attributes' => [
-                        'code' => getVal($documentLink, ['category', 0, 'code'])
-                    ]
-                ],
+                'category'      => $categories,
                 'language'      => [
                     '@attributes' => [
                         'code' => getVal($documentLink, ['language', 0, 'language'])
