@@ -37,7 +37,7 @@ class AidType extends BaseForm
                 'wrapper'       => ['class' => 'form-group default_aidtypes aidtype_select'],
                 'help_block'    => $this->addHelpText('Activity_DefaultAidType-code'),
                 'required'      => true,
-                'selected'      => 'C01'
+                'default_value' => 'C01'
             ]
             )
             ->add(
