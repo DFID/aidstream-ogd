@@ -94,9 +94,6 @@
     </div>
     
     <script type="text/javascript" src="{{url('js/upload-document.js')}}"></script>
-@endsection
-
-@section('foot')
     <script type="text/javascript">
         $(document).ready(function () {
             $('.docTitle').children('label').addClass('required');
