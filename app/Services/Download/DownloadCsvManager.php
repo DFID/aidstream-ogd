@@ -5,6 +5,7 @@ use App\Core\V201\Formatter\SimpleCsvDataFormatter;
 use App\Core\V201\Repositories\DownloadCsv;
 use App\Core\Version;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Logging\Log;
 
 /**
  * Class DownloadCsvManager
@@ -37,17 +38,18 @@ class DownloadCsvManager
      * @var
      */
     protected $completeCsvDataFormatter;
-
+    protected $log;
     /**
      * @param Version $version
      */
-    function __construct(Version $version)
+    function __construct(Version $version, Log $log)
     {
         $this->activityElement             = $version->getActivityElement();
         $this->downloadCsvRepo             = $this->activityElement->getDownloadCsv()->getRepository();
         $this->simpleCsvDataFormatter      = $this->activityElement->getDownloadCsv()->getSimpleCsvDataFormatter();
         $this->completeCsvDataFormatter    = $this->activityElement->getDownloadCsv()->getCompleteCsvDataFormatter();
         $this->transactionCsvDataFormatter = $this->activityElement->getDownloadCsv()->getTransactionCsvDataFormatter();
+        $this->log                         = $log;
     }
 
     /**
@@ -96,8 +98,9 @@ class DownloadCsvManager
     public function transactionCsvData($organizationId)
     {
         $activities = $this->downloadCsvRepo->simpleCsvData($organizationId);
+        //$this->log->info($activities);
         $csvData    = $this->transactionCsvDataFormatter->format($activities);
-
+        $this->log->info($csvData);
         return $csvData;
     }
 }
