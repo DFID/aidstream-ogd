@@ -38,7 +38,6 @@
 @section('script')
     <script>
         $(document).ready(function () {
-            $('.tDescription').children('label').addClass('required');
             $('.tValue').children('label').addClass('required');
             $('.tDate').children('label').addClass('required');
             var transactionType = {!!$transactionType!!};

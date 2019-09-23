@@ -37,6 +37,8 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.tValue').children('label').addClass('required');
+            $('.tDate').children('label').addClass('required');
             var transactionType = {!!$transactionType!!};
             if(transactionType == 1){
                 $('.provider-org').removeClass('hidden');
