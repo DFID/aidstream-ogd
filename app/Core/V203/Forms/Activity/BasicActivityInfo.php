@@ -17,7 +17,7 @@ class BasicActivityInfo extends BaseForm
         $this
             ->addCollection('title', 'Activity\Title','title hide-two',[], 'Activity Title')
             ->addCollection('activityDescription','Activity\Description','activityDescription hide-two',[],'General Description')
-            ->addCollection('activityDate', 'Activity\ActivityDate', 'activityDate', [], 'Planned Activity Dates')
+            ->addCollection('activityDate', 'Activity\ActivityDate', 'activityDate', [], 'Activity Dates')
             ->addCollection('activityStatus','Activity\ActivityStatus','activityStatus hide-two hidden',[],'Activity Status')
             ->addCollection('budget', 'Activity\Budget', 'budget hide-three', [], trans('elementForm.budget'))
             ->addAddMoreButton('add_budget', 'budget')

@@ -96,6 +96,8 @@ return [
     'Activity_ActivityDate-text'                                     => 'General date text can be used when a full (iso) data is not known or cannot be given as there are no specific dates (e.g. month, quarter or year).',
     'Activity_ActivityDate-type'                                     => 'This determines whether the dates are planned or actual (start-planned, start-actual, end-planned and end-actual). For dates that have passed at the time of publication, these should be denoted as \'actual\'.',
     'Activity_ActivityDate-iso_date'                                 => 'This should appear in the ISO 8601 format of yyyy-mm-dd.',
+    'Activity_ActivityDate-StartDate'                                => 'Enter the date the project began. If it has not yet begun, enter the  planned start date',
+    'Activity_ActivityDate-EndDate'                                => 'Enter the date the project ended. If it has not yet ended, enter the planned end date',
     'Activity_ActivityDate-xml_lang'                                 => 'The ISO 639-1 code for the language used for the text should be provided unless it is in the default language.',
     'Activity_ParticipatingOrg'                                      => 'The identity and role of each organisation in the activity (including the reporting organisation).',
     'Activity_ParticipatingOrg-text'                                 => 'The name of the participating organisation.',
