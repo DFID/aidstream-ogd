@@ -96,24 +96,24 @@ class BasicActivityInfoController extends Controller
         $dataToBeSaved['activity_date'][1]['type'] = $data['activityDate'][0]['type_planned_end'];
         $dataToBeSaved['activity_date'][1]['narrative'][0]['narrative'] = '';
         $dataToBeSaved['activity_date'][1]['narrative'][0]['language'] = '';
-        // //Only fill in actual start date if the planned start date is older than current start date
-        // if($data['activityDate'][0]['date_planned_start'] < date("Y-m-d")){
-        //     $tempData = array();
-        //     $tempData['date'] = $data['activityDate'][0]['date_planned_start'];
-        //     $tempData['type'] = 2;
-        //     $tempData['narrative'][0]['narrative'] = '';
-        //     $tempData['narrative'][0]['language'] = '';
-        //     array_push($dataToBeSaved['activity_date'], $tempData);
-        // }
-        // //Only fill in actual end date if the planned end date is older than current end date
-        // if($data['activityDate'][0]['date_planned_end'] < date("Y-m-d")){
-        //     $tempData = array();
-        //     $tempData['date'] = $data['activityDate'][0]['date_planned_end'];
-        //     $tempData['type'] = 4;
-        //     $tempData['narrative'][0]['narrative'] = '';
-        //     $tempData['narrative'][0]['language'] = '';
-        //     array_push($dataToBeSaved['activity_date'], $tempData);
-        // }
+        //Only fill in actual start date if the planned start date is older than current start date
+        if($data['activityDate'][0]['date_planned_start'] < date("Y-m-d")){
+            $tempData = array();
+            $tempData['date'] = $data['activityDate'][0]['date_planned_start'];
+            $tempData['type'] = 2;
+            $tempData['narrative'][0]['narrative'] = '';
+            $tempData['narrative'][0]['language'] = '';
+            array_push($dataToBeSaved['activity_date'], $tempData);
+        }
+        //Only fill in actual end date if the planned end date is older than current end date
+        if($data['activityDate'][0]['date_planned_end'] < date("Y-m-d")){
+            $tempData = array();
+            $tempData['date'] = $data['activityDate'][0]['date_planned_end'];
+            $tempData['type'] = 4;
+            $tempData['narrative'][0]['narrative'] = '';
+            $tempData['narrative'][0]['language'] = '';
+            array_push($dataToBeSaved['activity_date'], $tempData);
+        }
         $dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
         $dataToBeSaved['description'] = [];
         $dataToBeSaved['description'] = $data['activityDescription'];
