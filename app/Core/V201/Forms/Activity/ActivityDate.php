@@ -17,7 +17,7 @@ class ActivityDate extends BaseForm
             ->add(
                 'date_planned_start',
                 'date',
-                ['label' => trans('elementForm.planned_start_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
+                ['label' => trans('elementForm.planned_start_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-StartDate'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
             )
             ->add(
                 'type_planned_start',
@@ -31,7 +31,7 @@ class ActivityDate extends BaseForm
             ->add(
                 'date_planned_end',
                 'date',
-                ['label' => trans('elementForm.planned_end_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-iso_date'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
+                ['label' => trans('elementForm.planned_end_date'), 'help_block' => $this->addHelpText('Activity_ActivityDate-EndDate'), 'required' => true, 'attr' => ['placeholder' => 'YYYY-MM-DD']]
             )
             ->add(
                 'type_planned_end',
