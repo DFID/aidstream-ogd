@@ -109,7 +109,7 @@ class Kernel extends ConsoleKernel
                 // $activity->activity_status = 1;
                 // $activity->save();
             }
-        })->everyMinute();
+        })->daily();
     }
 
 }
