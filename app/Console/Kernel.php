@@ -70,12 +70,46 @@ class Kernel extends ConsoleKernel
                         $activity->activity_workflow = 0;
                        $activity->save();
                     }
+                    //Add/Remove actual start and end dates logic
+                    unset($activity['activity_date']);
+                    $tempDates = [];
+                    //$activity['activity_date'] = [];
+                    $tempDates[0]['date'] = $plannedStartDate;
+                    $tempDates[0]['type'] = 1;
+                    $tempDates[0]['narrative'][0]['narrative'] = '';
+                    $tempDates[0]['narrative'][0]['language'] = '';
+                    $tempDates[1]['date'] = $plannedEndDate;
+                    $tempDates[1]['type'] = 3;
+                    $tempDates[1]['narrative'][0]['narrative'] = '';
+                    $tempDates[1]['narrative'][0]['language'] = '';
+                    //Only fill in actual start date if the planned start date is older than current start date
+                    if($plannedStartDate < date("Y-m-d")){
+                        $tempData = array();
+                        $tempData['date'] = $plannedStartDate;
+                        $tempData['type'] = 2;
+                        $tempData['narrative'][0]['narrative'] = '';
+                        $tempData['narrative'][0]['language'] = '';
+                        array_push($tempDates, $tempData);
+                    }
+                    //Only fill in actual end date if the planned end date is older than current end date
+                    if($plannedEndDate < date("Y-m-d")){
+                        $tempData = array();
+                        $tempData['date'] = $plannedEndDate;
+                        $tempData['type'] = 4;
+                        $tempData['narrative'][0]['narrative'] = '';
+                        $tempData['narrative'][0]['language'] = '';
+                        array_push($tempDates, $tempData);
+                    }
                 }
+                $activity['activity_date'] = [];
+                $activity['activity_date'] = $tempDates;
+                //info($activity->$activity_date);
+                $activity->save();
                 //info($activity->$activity_date);
                 // $activity->activity_status = 1;
                 // $activity->save();
             }
-        })->daily();
+        })->everyMinute();
     }
 
 }
