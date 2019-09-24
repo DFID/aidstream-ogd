@@ -114,7 +114,16 @@ class BasicActivityInfoController extends Controller
             $tempData['narrative'][0]['language'] = '';
             array_push($dataToBeSaved['activity_date'], $tempData);
         }
-        $dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
+        //$dataToBeSaved['activity_status'] = $data['activityStatus'][0]['activity_status'];
+        if($data['activityDate'][0]['date_planned_start'] > date("Y-m-d")){
+            $dataToBeSaved['activity_status'] = 1;
+        }
+        elseif($data['activityDate'][0]['date_planned_start'] < date("Y-m-d") && $data['activityDate'][0]['date_planned_end'] > date("Y-m-d")){
+            $dataToBeSaved['activity_status'] = 2;   
+        }
+        else{
+            $dataToBeSaved['activity_status'] = 4;   
+        }
         $dataToBeSaved['description'] = [];
         $dataToBeSaved['description'] = $data['activityDescription'];
         foreach($data['budget'] as &$budget){
