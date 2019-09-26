@@ -25,7 +25,7 @@ class RecipientCountryBudgetRepository
      */
     public function update(array $input, OrganizationData $organization)
     {   
-        if($organization->id == 15){
+        if($organization->id == 99999999999999){
             $tempVal = [];
             $tempVal[0]['recipient_country'][0]["code"]= "VN";
             $tempVal[0]['recipient_country'][0]["narrative"][0]["narrative"]= "";
