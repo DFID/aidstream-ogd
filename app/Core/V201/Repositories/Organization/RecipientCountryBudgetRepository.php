@@ -25,6 +25,7 @@ class RecipientCountryBudgetRepository
      */
     public function update(array $input, OrganizationData $organization)
     {
+        info($input['recipient_country_budget']);
         $organization->recipient_country_budget = $input['recipient_country_budget'];
 
         return $organization->save();
