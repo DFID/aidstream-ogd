@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1517c8ebf94e588d0eff86c39d91d96",
+    "content-hash": "a7073282721106e4a57ccd8752fe4765",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -883,7 +883,7 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.3.0",
             "source": {
                 "type": "git",
@@ -942,32 +942,40 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.6.31",
+            "version": "1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd"
+                "reference": "9090e0213fc785bf655934495666ba36d462b95a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b02fea98d078515c84dcda451892688e492029fd",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/9090e0213fc785bf655934495666ba36d462b95a",
+                "reference": "9090e0213fc785bf655934495666ba36d462b95a",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.*@dev",
-                "illuminate/validation": "5.*@dev",
-                "laravelcollective/html": "5.*",
-                "php": ">=5.4.0"
+                "illuminate/database": "5.*@dev|^6.0",
+                "illuminate/validation": "5.*@dev|^6.0",
+                "laravelcollective/html": "5.*|^6.0",
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~4.0"
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.16.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kris\\LaravelFormBuilder\\FormBuilderServiceProvider"
+                    ],
+                    "aliases": {
+                        "FormBuilder": "Kris\\LaravelFormBuilder\\Facades\\FormBuilder"
+                    }
                 }
             },
             "autoload": {
@@ -989,10 +997,24 @@
                 {
                     "name": "Kristijan Husak",
                     "email": "husakkristijan@gmail.com"
+                },
+                {
+                    "name": "Mike Erickson",
+                    "email": "codedungeon@gmail.com"
+                },
+                {
+                    "name": "Mike Erickson",
+                    "email": "mike.erickson@codedungeon.io"
                 }
             ],
             "description": "Laravel form builder - symfony like",
-            "time": "2015-11-16T13:40:04+00:00"
+            "keywords": [
+                "builder",
+                "form",
+                "laravel",
+                "symfony"
+            ],
+            "time": "2019-09-12T08:46:23+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1790,6 +1812,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
@@ -3509,12 +3532,12 @@
             "version": "0.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianium/paratest.git",
+                "url": "https://github.com/paratestphp/paratest.git",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brianium/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "shasum": ""
             },
@@ -3920,8 +3943,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4442,6 +4464,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
