@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1517c8ebf94e588d0eff86c39d91d96",
+    "content-hash": "eada9477d49d55d6ef76daacb7809b8b",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -883,7 +883,7 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.3.0",
             "source": {
                 "type": "git",
@@ -1581,6 +1581,7 @@
                 "cron",
                 "schedule"
             ],
+            "abandoned": "dragonmantank/cron-expression",
             "time": "2017-01-23T04:29:33+00:00"
         },
         {
@@ -1790,6 +1791,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
@@ -2101,24 +2103,24 @@
         },
         {
             "name": "sabre/uri",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabre-io/uri.git",
-                "reference": "a42126042c7dcb53e2978dadb6d22574d1359b4c"
+                "reference": "059d11012603be2e32ddb7543602965563ddbb09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabre-io/uri/zipball/a42126042c7dcb53e2978dadb6d22574d1359b4c",
-                "reference": "a42126042c7dcb53e2978dadb6d22574d1359b4c",
+                "url": "https://api.github.com/repos/sabre-io/uri/zipball/059d11012603be2e32ddb7543602965563ddbb09",
+                "reference": "059d11012603be2e32ddb7543602965563ddbb09",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7"
+                "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0",
-                "sabre/cs": "~1.0.0"
+                "friendsofphp/php-cs-fixer": "~2.16.1",
+                "phpunit/phpunit": "^7 || ^8"
             },
             "type": "library",
             "autoload": {
@@ -2148,20 +2150,20 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-20T20:02:35+00:00"
+            "time": "2020-01-31T18:53:43+00:00"
         },
         {
             "name": "sabre/xml",
-            "version": "1.5.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabre-io/xml.git",
-                "reference": "59b20e5bbace9912607481634f97d05a776ffca7"
+                "reference": "705f5cbf7f4fb1e3dd47173e3f026892818c8d46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabre-io/xml/zipball/59b20e5bbace9912607481634f97d05a776ffca7",
-                "reference": "59b20e5bbace9912607481634f97d05a776ffca7",
+                "url": "https://api.github.com/repos/sabre-io/xml/zipball/705f5cbf7f4fb1e3dd47173e3f026892818c8d46",
+                "reference": "705f5cbf7f4fb1e3dd47173e3f026892818c8d46",
                 "shasum": ""
             },
             "require": {
@@ -2169,12 +2171,12 @@
                 "ext-xmlreader": "*",
                 "ext-xmlwriter": "*",
                 "lib-libxml": ">=2.6.20",
-                "php": ">=5.5.5",
+                "php": "^7.1",
                 "sabre/uri": ">=1.0,<3.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "*",
-                "sabre/cs": "~1.0.0"
+                "friendsofphp/php-cs-fixer": "~2.16.1",
+                "phpunit/phpunit": "^7 || ^8"
             },
             "type": "library",
             "autoload": {
@@ -2211,7 +2213,7 @@
                 "dom",
                 "xml"
             ],
-            "time": "2016-10-09T22:57:52+00:00"
+            "time": "2020-01-31T18:52:58+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -3262,12 +3264,12 @@
             "version": "2.2.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thujohn/twitter.git",
+                "url": "https://github.com/atymic/twitter.git",
                 "reference": "ff414bdadba3f1570ca211355e5359ec266552d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/twitter/zipball/ff414bdadba3f1570ca211355e5359ec266552d8",
+                "url": "https://api.github.com/repos/atymic/twitter/zipball/ff414bdadba3f1570ca211355e5359ec266552d8",
                 "reference": "ff414bdadba3f1570ca211355e5359ec266552d8",
                 "shasum": ""
             },
@@ -3509,12 +3511,12 @@
             "version": "0.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianium/paratest.git",
+                "url": "https://github.com/paratestphp/paratest.git",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brianium/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "shasum": ""
             },
@@ -3920,8 +3922,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4442,6 +4443,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
