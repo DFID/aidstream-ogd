@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1517c8ebf94e588d0eff86c39d91d96",
+    "content-hash": "370e7046b792f5d7e12d9b6ed8ff1757",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -883,7 +883,7 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.3.0",
             "source": {
                 "type": "git",
@@ -1581,6 +1581,7 @@
                 "cron",
                 "schedule"
             ],
+            "abandoned": "dragonmantank/cron-expression",
             "time": "2017-01-23T04:29:33+00:00"
         },
         {
@@ -1790,6 +1791,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
@@ -2055,23 +2057,34 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.5.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "509217fb4dc92e626e9cfed725d1df039553c1e2"
+                "reference": "3506baaddbe5661fc4482b048db2ec5cfc5f9025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/509217fb4dc92e626e9cfed725d1df039553c1e2",
-                "reference": "509217fb4dc92e626e9cfed725d1df039553c1e2",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/3506baaddbe5661fc4482b048db2ec5cfc5f9025",
+                "reference": "3506baaddbe5661fc4482b048db2ec5cfc5f9025",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.2.*|5.*",
+                "illuminate/support": "4.2.*|5.*|^6.0|^7.0",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "require-dev": {
+                "orchestra/testbench": "3.7.*",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "classmap": [
                     "src/controllers"
@@ -2087,17 +2100,19 @@
             "authors": [
                 {
                     "name": "rap2hpoutre",
-                    "email": "raphael@ornikar.com"
+                    "email": "raphaelht@gmail.com"
                 }
             ],
             "description": "A Laravel log reader",
             "keywords": [
+                "laravel",
                 "log",
                 "log-reader",
                 "log-viewer",
-                "logging"
+                "logging",
+                "lumen"
             ],
-            "time": "2015-12-24T07:44:02+00:00"
+            "time": "2020-03-05T20:25:07+00:00"
         },
         {
             "name": "sabre/uri",
@@ -3262,12 +3277,12 @@
             "version": "2.2.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thujohn/twitter.git",
+                "url": "https://github.com/atymic/twitter.git",
                 "reference": "ff414bdadba3f1570ca211355e5359ec266552d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/twitter/zipball/ff414bdadba3f1570ca211355e5359ec266552d8",
+                "url": "https://api.github.com/repos/atymic/twitter/zipball/ff414bdadba3f1570ca211355e5359ec266552d8",
                 "reference": "ff414bdadba3f1570ca211355e5359ec266552d8",
                 "shasum": ""
             },
@@ -3509,12 +3524,12 @@
             "version": "0.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/brianium/paratest.git",
+                "url": "https://github.com/paratestphp/paratest.git",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brianium/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "reference": "dddcfa8510da7aae9616ba1738ebf630d9e84aa4",
                 "shasum": ""
             },
@@ -3920,8 +3935,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4442,6 +4456,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
