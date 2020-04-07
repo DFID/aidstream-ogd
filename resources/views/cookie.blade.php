@@ -38,6 +38,10 @@
             <div class="col-md-12 text-center">
                 <div style="text-align: left">
                     <h1>Cookies</h1>
+                    <h2>Unnecessary / Analytics Cookies</h2>
+                    <p>
+                        Not used. This webside does not use cookies for analytics purposes.
+                    </p>
                     <h2>Necessary / Essential Cookies</h2>
                     <p>
                         Type: Session Cookies
