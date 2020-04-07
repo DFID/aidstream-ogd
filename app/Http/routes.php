@@ -44,6 +44,7 @@ Route::group(['domain' => env('CORE_DOMAIN')], function() {
 
 $router->get('home', 'HomeController@index');
 $router->get('about', 'AboutController@index');
+$router->get('cookies', 'CookieController@index');
 $router->get('who-is-using', 'WhoIsUsingController@index');
 $router->get('who-is-using/{organization_id}', 'WhoIsUsingController@showOrganization');
 $router->get('who-is-using/page/{page}/count/{count}', 'WhoIsUsingController@listOrganization');

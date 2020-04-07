@@ -10,6 +10,9 @@
             </button>
         </div>
         <div class="navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a class="" href="/cookies">Cookies</a></li>
+            </ul>
             <div class="action-btn pull-left">
                 @if(auth()->check())
                     <a href="{{ (auth()->user()->isSuperAdmin() || auth()->user()->isGroupAdmin()) ? url(config('app.super_admin_dashboard')) : (auth()->user()->getSystemVersion() == 2) ? url(config('app.admin_lite_dashboard')) : url(config('app.admin_dashboard')) }}"

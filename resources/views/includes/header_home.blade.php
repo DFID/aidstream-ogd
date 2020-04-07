@@ -14,6 +14,9 @@
             </button>
         </div>
         <div class="navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a class="" href="/cookies">Cookies</a></li>
+            </ul>
             <div class="action-btn pull-left">
                 @if(auth()->check())
                     <a href="{{ url((auth()->user()->role_id == 1 || auth()->user()->role_id == 2) ? config('app.admin_dashboard') : config('app.super_admin_dashboard'))}}"
