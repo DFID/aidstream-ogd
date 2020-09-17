@@ -40,11 +40,11 @@
             </tbody>
         </table>
     @endif
-    <p>If you have any questions, please feel free to send us an email with your queries at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a></p>
+    <p>If you have any questions, please feel free to send us an email with your queries at <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a></p>
 @else
     <p>Sorry! there was an error while changing your Publisher Id.</p>
     <p>{!! $status !!}</p>
-    <p>Please contact us at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a></p>
+    <p>Please contact us at <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a></p>
 @endif
 
 <p>Happy publishing data!</p>

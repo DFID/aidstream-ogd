@@ -158,7 +158,7 @@
                         <li>Customized to meet your organizations’ needs</li>
                         <li>For organizations that have multiple organizations under them.</li>
                     </ul>
-                    <a href="mailto:IATI-feedback@dfid.gov.uk" class="btn btn-line">Contact Us</a>
+                    <a href="mailto:IATI-feedback@fcdo.gov.uk" class="btn btn-line">Contact Us</a>
                 </div>
             </div>
         </div>

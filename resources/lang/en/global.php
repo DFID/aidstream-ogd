@@ -225,7 +225,7 @@ return [
     'save_and_continue'                            => 'Save and Continue',
     'i_will_add_this_later'                        => 'I will add this later',
     'thank_you_for_choosing_aidstream_long_text'   => 'Thank you for choosing AidStream as your IATI data publishing tool. We\'re always happy to help; simply drop us an email at
-    <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a> and we\'ll get back to you. To learn more about how to use AidStream, simply log in to your new account.',
+    <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a> and we\'ll get back to you. To learn more about how to use AidStream, simply log in to your new account.',
     'thank_you_for_verifying_your_email_long_text' => 'Thank you for verifying your email address. This email address will be used to recover your organisation’s account in the case that the administrator login credentials are lost or there is a
     change or loss of administrator.',
     'other'                                        => 'Other',

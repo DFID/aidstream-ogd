@@ -67,7 +67,7 @@ class V1ActivityDataMappingTest extends AidStreamTestCase
                         'reference' => 'GB-1',
                         'narrative' => [
                             0 => [
-                                'narrative' => 'DFID',
+                                'narrative' => 'FCDO',
                                 'language'  => ''
                             ]
                         ]
@@ -210,7 +210,7 @@ class V1ActivityDataMappingTest extends AidStreamTestCase
                     0 => [
                         'narrative' => [
                             0 => [
-                                'narrative' => 'Department for International Development',
+                                'narrative' => 'Foreign, Commonwealth and Development Office',
                                 'language'  => ''
                             ]
                         ]
@@ -260,7 +260,7 @@ class V1ActivityDataMappingTest extends AidStreamTestCase
                 ],
                 'email'           => [
                     0 => [
-                        'email' => 'enquiry@dfid.gov.uk'
+                        'email' => 'enquiry@fcdo.gov.uk'
                     ]
                 ],
                 'website'         => [
@@ -313,7 +313,7 @@ class V1ActivityDataMappingTest extends AidStreamTestCase
                 'activity_id'       => '',
                 'narrative'         => [
                     0 => [
-                        'narrative' => 'Department for International Development',
+                        'narrative' => 'Foreign, Commonwealth and Development Office',
                         'language'  => ''
                     ]
                 ]

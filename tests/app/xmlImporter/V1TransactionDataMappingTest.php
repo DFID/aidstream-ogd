@@ -73,7 +73,7 @@ class V1TransactionDataMappingTest extends AidStreamTestCase
                         'type'                         => '',
                         'narrative'                    => [
                             0 => [
-                                'narrative' => 'DFID',
+                                'narrative' => 'FCDO',
                                 'language'  => 'en'
                             ]
                         ]
@@ -86,7 +86,7 @@ class V1TransactionDataMappingTest extends AidStreamTestCase
                         'type'                         => '',
                         'narrative'                    => [
                             0 => [
-                                'narrative' => 'DFID',
+                                'narrative' => 'FCDO',
                                 'language'  => 'np'
                             ]
                         ]

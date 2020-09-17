@@ -87,7 +87,7 @@
     </div>
     <div class="width-900 text-center">
         <div class="col-md-12 support-desc">
-            @lang('global.for_queries') <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a>
+            @lang('global.for_queries') <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a>
         </div>
     </div>
     <!-- Google Analytics -->

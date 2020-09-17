@@ -3,7 +3,7 @@
     <iati-activity xml:lang="en" default-currency="GBP" hierarchy="1" last-updated-datetime="2013-12-18T11:01:56+00:00">
         <reporting-org ref="GB-CHC-202918" type="21" xml:lang="en">AbleChildAfrica</reporting-org>
         <iati-identifier>GB-CHC-202918-HECA91</iati-identifier>
-        <other-identifier owner-ref="GB-1" owner-name="DFID">105838-1</other-identifier>
+        <other-identifier owner-ref="GB-1" owner-name="FCDO">105838-1</other-identifier>
         <activity-website>http://portfolio.theglobalfund.org/en/Grant/Index/AFG-011-G12-T</activity-website>
         <title>Grant Performance Report</title>
         <title xml:lang="es">Grant Informe sobre los resultados</title>
@@ -26,17 +26,17 @@
             <job-title>Database Manager</job-title>
             <job-title xml:lang="en">Database Manager</job-title>
             <person-name>A Smith</person-name>
-            <organisation>Department for International Development</organisation>
+            <organisation>Foreign, Commonwealth and Development Office</organisation>
             <telephone>+44 (0) 1355 84 3132</telephone>
             <telephone>+44 (0) 1355 84 3132</telephone>
-            <email>enquiry@dfid.gov.uk</email>
+            <email>enquiry@fcdo.gov.uk</email>
             <mailing-address>
                 Public Enquiry Point, Abercrombie House, Eaglesham Road, East Kilbride, Glasgow G75 8EA
             </mailing-address>
             <website>https://www.gov.uk/government/organisations/department-for-international-development</website>
         </contact-info>
         <participating-org ref="GB" type="10" role="Funding">UNITED KINGDOM</participating-org>
-        <participating-org ref="GB-1" type="10" role="Extending">Department for International Development</participating-org>
+        <participating-org ref="GB-1" type="10" role="Extending">Foreign, Commonwealth and Development Office</participating-org>
         <participating-org ref="22000" role="Implementing" xml:lang="en">Donor country-based NGO</participating-org>
         <activity-scope code="1" xml:lang="en">Global</activity-scope>
         <recipient-country code="CG" xml:lang="fr">Republique Democratique du Congo</recipient-country>
@@ -106,8 +106,8 @@
             <disbursement-channel code="1" xml:lang="en">Cash to treasury</disbursement-channel>
             <finance-type code="100" xml:lang="fr">Don</finance-type>
             <flow-type code="10" xml:lang="fr">APD</flow-type>
-            <provider-org ref="GB-1" provider-activity-id="GB-1-10538" xml:lang="en">DFID</provider-org>
-            <receiver-org receiver-activity-id="CG-3-1440" ref="GB-1" xml:lang="np">DFID</receiver-org>
+            <provider-org ref="GB-1" provider-activity-id="GB-1-10538" xml:lang="en">FCDO</provider-org>
+            <receiver-org receiver-activity-id="CG-3-1440" ref="GB-1" xml:lang="np">FCDO</receiver-org>
             <tied-status code="5">Untied</tied-status>
             <transaction-date iso-date="2010-05-27"/>
             <transaction-type code="C" xml:lang="en">Commitment</transaction-type>

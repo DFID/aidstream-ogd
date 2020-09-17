@@ -111,7 +111,7 @@ return [
     'recipient_country_or_region_required'      => 'Either Recipient Country or Recipient Region is required',
     'sum_of_percentage'                         => 'The sum of percentage in :attribute must be 100.',
     'validation_before_completed'               => 'Please make sure you enter the following fields before changing to completed state.',
-    'reporting_org_identifier_unique'           => 'This reporting organization identifier is being used by :orgName. This identifier has to be unique. Please contact us at IATI-feedback@dfid.gov.uk',
+    'reporting_org_identifier_unique'           => 'This reporting organization identifier is being used by :orgName. This identifier has to be unique. Please contact us at IATI-feedback@fcdo.gov.uk',
     'code_list'                                 => ':attribute is not valid.',
     'string'                                    => ':attribute should be string',
     'negative'                                  => ':attribute cannot be negative',

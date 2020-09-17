@@ -30,6 +30,6 @@ return [
         'third'                   => "You will not lose any data. <u><br><br> But once you upgrade, <b>you won't be able to go back.</b></u>",
         'unsure'                  => "If you are unsure about upgrading or do not know AidStream at its Core",
         'recommendations-wiki'    => "We suggest you go through our <a href='https://github.com/younginnovations/aidstream/wiki/User-Guide' target='_blank'>User Guide</a> before you upgrade.",
-        'recommendations-support' => "You can always shoot us an email at <a href='mailto:IATI-feedback@dfid.gov.uk'>IATI-feedback@dfid.gov.uk</a>"
+        'recommendations-support' => "You can always shoot us an email at <a href='mailto:IATI-feedback@fcdo.gov.uk'>IATI-feedback@fcdo.gov.uk</a>"
     ]
 ];

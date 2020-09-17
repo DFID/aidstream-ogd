@@ -24,7 +24,7 @@
                             @if(session('version') == 'V203')
                             <li>Refer to this <a href="https://github.com/younginnovations/aidstream/wiki/V2.03-Changes-in-AidStream">Document</a> to see what changes have been made in Aidstream</li>
                             @endif
-                            <li>Email one of our support people at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a> if you come across any issue</li>
+                            <li>Email one of our support people at <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a> if you come across any issue</li>
                             </ul>
                         </p>
                         <a href="../activity" class="btn btn-primary">Continue</a> 

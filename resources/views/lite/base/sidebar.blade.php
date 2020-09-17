@@ -19,7 +19,7 @@
                 <div class="support">
                     <span>icon</span>
 
-                    <p>For queries, suggestions, shoot us an email at <a href="mailto:IATI-feedback@dfid.gov.uk">IATI-feedback@dfid.gov.uk</a></p>
+                    <p>For queries, suggestions, shoot us an email at <a href="mailto:IATI-feedback@fcdo.gov.uk">IATI-feedback@fcdo.gov.uk</a></p>
                 </div>
             </div>
         </div>
