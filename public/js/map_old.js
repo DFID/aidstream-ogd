@@ -6,21 +6,15 @@ function initMap(elem, latlng) {
     if (latlng) {
         center = latlng;
     }
-    /* Please note: The token is only restricted to FCDO domains and domains controlled by FCDO */
-    var mapBox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWF0aS1mZWVkYmFjayIsImEiOiJja2d0Njl2MWkwOG92MnhwMHhmOHR3MXQyIn0.bXjLLa0rGrsIzDNS1E5H1w', {
-        attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
-        tileSize: 512,
-        // maxZoom: 18,
-        // zoomOffset: -1,
-        id: 'mapbox/streets-v11',
-        accessToken: 'pk.eyJ1IjoiaWF0aS1mZWVkYmFjayIsImEiOiJja2d0Njl2MWkwOG92MnhwMHhmOHR3MXQyIn0.bXjLLa0rGrsIzDNS1E5H1w'
-        });
-
     var map = new L.Map(elem, {
         center: center,
-        zoom: 1,
-        layers: [mapBox]
-    });
+        zoom: 6
+    }).addLayer(new L.TileLayer(
+            'http://api.tiles.mapbox.com/v3/younginnovations.ijg2d43b/{z}/{x}/{y}.png', {
+                attribution: "<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> | " +
+                "<a href='http://www.mapquest.com/' target='_blank' title='Nominatim Search Courtesy of Mapquest'>MapQuest</a>"
+            }
+        ));
 
     if (latlng) {
         L.marker(latlng).addTo(map);
