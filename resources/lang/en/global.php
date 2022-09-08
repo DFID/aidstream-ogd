@@ -174,8 +174,7 @@ return [
     'edit_transaction'                             => 'Edit Transaction',
     'back_to_transaction_list'                     => 'Back to Transaction List',
     'download_simple_transaction_template'         => 'Download Simple Transaction Template',
-    'simple_transaction_text'                      => 'Contains very less information. Ideal if you are filling the information by hand.
-                                    It doesn\'t contain many transaction elements for simplicity.',
+    'simple_transaction_text'                      => 'Each transaction needs a populated date and transaction type. Please refer to the IATI website <a href="_BLANK" href="https://iatistandard.org/en/iati-standard/202/codelists/transactiontype/">transaction type page</a> for more information on the numerical codes used. For your outgoing funds, you are the Provider Organisation. If you have incoming funds, you are the Receiver Organisation.',
     'download_detailed_transaction_template'       => 'Download Detailed Transaction Template',
     'detailed_transaction_text'                    => 'Contains all information about transaction. Ideal if you download your existing',
     'welcome_to_aidstream'                         => 'Welcome to DevFlow',
@@ -270,7 +269,7 @@ return [
     'no'                                           => 'No',
     'existing'                                     => 'Existing',
     'new'                                          => 'New',
-    'template_updated'                             => 'The template for Transaction import has been updated. Please make sure you are using the latest template.',
+    'template_updated'                             => 'Use the template below to upload transactions in bulk to DevFlow from CSV.',
     'system_version'                               => 'System Version',
     'here'                                         => 'here',
     'add_new_activity_manually'                    => 'Add a New Activity Manually',
