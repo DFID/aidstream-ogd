@@ -36,6 +36,7 @@
                                                <a href="{{ route('activity.transaction.create', $id) }}?transactionType=2"
                                            >Add Commitment</a>
                                             </li>
+                                            <li><a href="{{ route('activity.transaction.upload-csv', $id) }}" class="btn btn-primary btn-upload">@lang('global.import_transaction')</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -89,6 +90,7 @@
                                            class="btn btn-primary btn-upload">Add Expense</a>
                                         <a href="{{ route('activity.transaction.create', $id) }}?transactionType=2"
                                            class="btn btn-primary btn-upload">Add Commitment</a>
+                                        <a href="{{ route('activity.transaction.upload-csv', $id) }}" class="btn btn-primary btn-upload">@lang('global.import_transaction')</a>
                                     </div>
                                 </div>
                             @endif
