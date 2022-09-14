@@ -447,7 +447,7 @@ class CsvImportValidator
     {
         $transactions      = Excel::load($file)->get()->toArray();
         $transactionHeader = Excel::load($file)->get()->first()->keys()->toArray();
-        $templateHeader    = Excel::load(app_path('Core/V201/Template/Csv/iati_transaction_template_simple.csv'))->get()->first()->keys()->toArray();
+        $templateHeader    = Excel::load(app_path('Core/V201/Template/Csv/iati_transaction_template_simplev2.csv'))->get()->first()->keys()->toArray();
 
         if (count(array_intersect($transactionHeader, $templateHeader)) !== count($templateHeader)) {
             return null;
