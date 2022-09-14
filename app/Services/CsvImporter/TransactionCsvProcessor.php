@@ -128,6 +128,10 @@ class TransactionCsvProcessor
         if ($this->headerCountMatches($csvHeaders, self::V201_SIMPLE_TRANSACTION_HEADERS_COUNT)) {
             return $this->checkHeadersFor($csvHeaders, 'simple_transaction_headers', 'V201');
         }
+        
+        if ($this->headerCountMatches($csvHeaders, 14)) {
+            return $this->checkHeadersFor($csvHeaders, 'simple_transaction_headers2', 'V201');
+        }
 
         if ($this->headerCountMatches($csvHeaders, self::V201_DETAILED_TRANSACTION_HEADERS_COUNT)) {
             return $this->checkHeadersFor($csvHeaders, 'detailed_transaction_headers', 'V201');
