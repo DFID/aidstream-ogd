@@ -38,11 +38,11 @@
                                 <div>@lang('global.simple_transaction_text')
                                 </div>
                             </div>
-                            <div class="download-transaction-wrap">
+                            <!-- <div class="download-transaction-wrap">
                                 <a href="{{route('activity.import-transaction.download-detailed-csv').'?'.date('Y-m-d H:i:s')}}" class="btn btn-primary btn-form btn-submit">@lang('global.download_detailed_transaction_template')</a>
                                 <div>@lang('global.detailed_transaction_text')
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
