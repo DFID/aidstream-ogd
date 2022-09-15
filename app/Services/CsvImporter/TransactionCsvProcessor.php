@@ -129,7 +129,7 @@ class TransactionCsvProcessor
             return $this->checkHeadersFor($csvHeaders, 'simple_transaction_headers', 'V201');
         }
         
-        if ($this->headerCountMatches($csvHeaders, 14)) {
+        if ($this->headerCountMatches($csvHeaders, 15)) {
             return $this->checkHeadersFor($csvHeaders, 'simple_transaction_headers2', 'V201');
         }
 
