@@ -33,7 +33,7 @@ class ImportTransactionManager
     /**
      * Filename for simple transaction csv.
      */
-    const SIMPLE_CSV_TEMPLATE_FILENAME = 'simple_transaction.csv';
+    const SIMPLE_CSV_TEMPLATE_FILENAME = 'simple_transactionv2.csv';
     /**
      * Filename for detailed transaction csv.
      */
